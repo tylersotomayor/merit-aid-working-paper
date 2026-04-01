@@ -1,0 +1,160 @@
+% ============================================================
+%  APPENDIX A: FIGURES
+% ============================================================
+
+\section{Figures}
+\label{sec:figures}
+
+% ---- Standardized note components ----
+% Sample: Tennessee public colleges vs. public colleges in 26
+%   non-merit-program states, birth cohorts 1980--1991.
+% Estimator: varies per figure.
+% SEs: Clustered at the state level (27 clusters).
+% CI: 95% confidence intervals.
+% Reference: k = -1 omitted.
+% Source: Chetty et al. (2020).
+
+% Note: Individual C&S event studies for par_q1 and par_rank have been
+% removed. These are subsumed by the four-estimator overlay figure
+% (Figure~\ref{fig:four_estimators}) in Section~\ref{sec:robustness_estimators}.
+
+% ============================================================
+%  B. QUINTILE DECOMPOSITION
+% ============================================================
+
+% Note: Main quintile gradient figure (fig_tn_quintile_gradient) is now
+% inline in Section 6.2. Only the event-study version remains here.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_quintile_event_studies.pdf}
+  \caption{Event-Study Estimates by Income Quintile}
+  \label{fig:quintile_event_studies}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Event-study estimates from three heterogeneity-robust
+    estimators (\textcite{callaway2021difference}, \textcite{sun2021estimating},
+    and TWFE), estimated separately for each income quintile share.
+    Bottom quintiles (Q1--Q2) trend upward post-treatment (gaining share);
+    top quintiles (Q4--Q5) trend downward (losing share); Q3 is near zero.
+    The monotonic gradient is consistent across all three estimators.
+    Bordering-state control group (AL, NC, VA). $k = -2$ omitted
+    (1984 cohort, last untreated). 1980 birth cohort dropped. Standard
+    errors clustered by state. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+% ============================================================
+%  C. LEVEL DECOMPOSITION
+% ============================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_share_vs_level.pdf}
+  \caption{Share Effects vs.\ Count Effects: Bottom-Quintile Students}
+  \label{fig:share_vs_level}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Comparison of share-based (left) and count-based
+    (right) event-study estimates for bottom-quintile students. The share
+    increase is accompanied by a count increase, confirming that the
+    composition shift reflects genuine sorting rather than a denominator
+    artifact. Count outcomes are inherently noisier than share outcomes
+    because they inherit enrollment variation across colleges (coefficient
+    of variation $\approx 1.0$). The wider confidence intervals on count
+    estimates reflect this additional noise, not weaker identification.
+    \textcite{callaway2021difference} estimator. Data:
+    \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_level_decomposition.pdf}
+  \caption{Level Decomposition: Bottom-Quintile Count, Top-Quintile Count, and Total Enrollment}
+  \label{fig:level_decomp}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} \textcite{callaway2021difference} event-study
+    estimates for count outcomes (quintile share $\times$ cohort
+    enrollment). The critical finding is that total enrollment (Panel~B)
+    is unchanged post-treatment, ruling out the denominator-artifact
+    explanation for share-based results. Q1 count increases and Q5 count
+    decreases, consistent with real compositional sorting. Count outcomes
+    exhibit wider confidence intervals than share outcomes because they
+    compound share-level variation with enrollment variation (enrollment
+    coefficient of variation $\approx 1.0$ across colleges). The
+    pre-treatment noise in count event studies reflects this inherent
+    volatility rather than a failure of parallel trends for the
+    share-based specifications. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+% ============================================================
+%  D. MECHANISM EVIDENCE
+% ============================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_tn_privates_spillover.pdf}
+  \caption{Spillover Test: Tennessee Private Colleges}
+  \label{fig:spillover}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} \textcite{callaway2021difference} event-study
+    estimates comparing Tennessee private colleges (treated) to private
+    colleges in control states. No significant composition change is
+    detected, indicating that top-quintile students who exit Tennessee
+    public colleges do not re-sort to in-state private institutions.
+    $N = 5{,}336$. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_within_tn_comparison.pdf}
+  \caption{Within-Tennessee Comparison: Public vs.\ Private Colleges}
+  \label{fig:within_tn}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Event-study estimates restricting the sample to
+    Tennessee institutions only. Public colleges (treated) are compared
+    to Tennessee private colleges (control). The composition shift is
+    concentrated in the public sector. College and cohort fixed effects
+    included. $N = 571$. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+% Note: Estimator comparisons (LP-DiD, TWFE, Sun-Abraham, dCDH) are now
+% consolidated in the four-estimator overlay figure (Figure~\ref{fig:four_estimators})
+% in Section~\ref{sec:robustness_estimators}. Individual TWFE event studies
+% removed to avoid redundancy.
+
+% ============================================================
+%  G. SENSITIVITY ANALYSIS
+% ============================================================
+
+% Note: Combined R&R figures (fig_rr_combined_par_q1, fig_rr_combined_par_rank)
+% are now inline in Section 7 (Robustness). Only the breakdown plot remains here.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{rr_breakdown_varying.pdf}
+  \caption{Sensitivity Analysis: Breakdown Values Across Post-Treatment Event Times}
+  \label{fig:rr_breakdown}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Breakdown values of $\bar{M}$ at each post-treatment
+    event time under both the relative magnitude ($\Delta_\text{RM}$)
+    and smoothness ($\Delta_\text{SD}$) restrictions of
+    \textcite{rambachan2023more}. Higher breakdown values indicate
+    greater robustness to violations of parallel trends. Data:
+    \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}

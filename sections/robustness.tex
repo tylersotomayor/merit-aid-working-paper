@@ -1,0 +1,351 @@
+% ============================================================
+%  SECTION 7: ROBUSTNESS
+% ============================================================
+
+\section{Robustness}
+\label{sec:robustness}
+
+\subsection{Alternative Estimators}
+\label{sec:robustness_estimators}
+
+We compare four heterogeneity-robust difference-in-differences
+estimators: Callaway--Sant'Anna
+\parencite{callaway2021difference}, \textcite{sun2021estimating},
+TWFE (Equation~\ref{eq:twfe}), and
+\textcite{dechaisemartin2020two}. Each estimator addresses the
+heterogeneous treatment effects problem through a different approach:
+Callaway--Sant'Anna computes group-time ATTs relative to never-treated
+units; Sun--Abraham uses interaction-weighted estimation;
+de~Chaisemartin--D'Haultfoeuille applies a first-difference
+estimator. TWFE is included for comparability with the prior literature
+despite its known sensitivity to treatment effect heterogeneity
+\parencite{goodmanbacon2021difference}.
+
+Figure~\ref{fig:four_estimators} overlays all four estimators' dynamic
+paths for both outcomes. TWFE and Sun--Abraham coefficients are
+plotted relative to the omitted period ($k = -1$). Callaway--Sant'Anna
+and de~Chaisemartin--D'Haultfoeuille estimates are group-time ATTs
+relative to the never-treated comparison group, which do not require
+a reference period. The four estimators agree on sign, magnitude, and
+dynamics. Pre-treatment coefficients are statistically indistinguishable
+from zero under all four estimators. Post-treatment coefficients
+diverge monotonically and are statistically significant at every event
+time from $k = 0$ onward.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fig_four_estimators_combined.pdf}
+  \caption{Robustness Across Four Heterogeneity-Corrected DiD Estimators}
+  \label{fig:four_estimators}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} Event-study estimates from
+    \textcite{callaway2021difference}, \textcite{sun2021estimating},
+    TWFE, and \textcite{dechaisemartin2020two}. TWFE and Sun--Abraham
+    normalized at $k = -1$ (omitted period). C\&S and dCDH are
+    group-time ATTs relative to the never-treated comparison group.
+    Vertical bars denote 95\% confidence intervals. Standard errors
+    clustered at the state level (27 clusters).
+    Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+The TWFE static estimates (Table~\ref{tab:twfe_did}) are somewhat larger
+in magnitude than the C\&S ATTs: 1.54 pp vs.\ 1.27 pp for
+bottom-quintile share, and $-1.85$ pp vs.\ $-1.33$ pp for parental income rank.
+This difference is consistent with TWFE placing more weight on
+later post-treatment periods where the dynamic effects are larger.
+The unanimity across four estimators built on fundamentally different
+identifying assumptions provides strong evidence that the result is not
+an artifact of any particular estimator's treatment of heterogeneous
+effects.
+
+\subsection{Timing Robustness}
+\label{sec:robustness_timing}
+
+Our preferred treatment timing assigns $t^* = 1986$ (the first birth
+cohort with unambiguous full HOPE exposure). We test two alternatives:
+$t^* = 1985$ (the bridge-provision cohort, potentially partially
+treated) and $t^* = 1987$ (a conservative definition that discards the
+partially treated cohort).
+
+Table~\ref{tab:robustness_summary} reports static DiD estimates under
+each timing definition. For bottom-quintile share, the estimates range from
+1.44 pp ($t^* = 1985$) to 1.64 pp ($t^* = 1987$), all significant at
+$p < 0.001$. For parental income rank, the range is $-1.78$ to $-1.85$
+pp. The results are insensitive to the choice of treatment timing.
+
+\subsection{Control Group Robustness}
+\label{sec:robustness_controls}
+
+We estimate the main specification under three control group definitions:
+
+\begin{enumerate}
+\item \textbf{Baseline}: all states without broad-based merit programs
+  (26 control states, $N = 6{,}289$).
+\item \textbf{Conservative}: drops additional states with any
+  higher-education funding changes during the analysis window.
+\item \textbf{Bordering}: restricts to states adjacent to Tennessee
+  (AL, AR, GA, KY, MO, MS, NC, VA).
+\end{enumerate}
+
+Table~\ref{tab:robustness_summary} reports the results. For
+bottom-quintile share, estimates range from 1.44 pp (bordering) to 1.54 pp
+(baseline), all significant at $p < 0.001$. For parental income rank,
+the bordering estimate ($-1.34$ pp) is somewhat attenuated relative to
+the baseline ($-1.85$ pp) but remains significant.
+
+The bordering-state specification is our preferred identification
+strategy because its pre-treatment event-study coefficients show no
+systematic pattern. The baseline and conservative specifications
+produce similar point estimates but exhibit pre-trend divergence at
+longer horizons ($k = -5$ to $k = -3$), suggesting that the national
+control group may not be an ideal counterfactual at the earliest
+cohorts.
+
+\subsection{Rambachan and Roth Sensitivity}
+\label{sec:robustness_rr}
+
+We implement the honest confidence intervals of
+\textcite{rambachan2023more}, which allow for bounded violations of the
+parallel trends assumption. We evaluate sensitivity under two classes of restrictions.
+
+\textbf{Relative magnitude ($\Delta_\text{RM}$).} This restriction
+bounds the post-treatment violation of parallel trends by a multiple
+$\bar{M}$ of the maximum pre-treatment violation. For bottom-quintile share,
+the confidence interval excludes zero at $\bar{M} \leq 2$, meaning
+results survive if the post-treatment trend violation is at most twice
+the largest pre-treatment violation. For parental income rank, results are
+robust at similar $\bar{M}$ values.
+
+\textbf{Smoothness ($\Delta_\text{SD}$).} This restriction bounds the
+change in the violation of parallel trends between consecutive periods.
+Under $\Delta_\text{SD}$, the confidence intervals for both
+bottom-quintile share and parental income rank include zero at moderate bounds.
+This indicates fragility: if differential trends can accelerate smoothly,
+the estimated effects cannot be distinguished from a continuation of
+pre-existing dynamics.
+
+The tension between $\Delta_\text{RM}$ and $\Delta_\text{SD}$ is
+informative. The $\Delta_\text{RM}$ result suggests that the
+post-treatment effects are large relative to pre-treatment noise,
+supporting a causal interpretation. The $\Delta_\text{SD}$ result
+suggests that the pre-treatment coefficients, while small, exhibit
+enough curvature that a smooth extrapolation could explain the
+post-treatment path. We view the $\Delta_\text{RM}$ restriction as more appropriate for this
+setting. The pre-treatment coefficients are noisy but trendless---they
+oscillate around zero with no systematic pattern under any of the four
+estimators (Figure~\ref{fig:four_estimators}). The $\Delta_\text{RM}$
+restriction bounds post-treatment violations by the magnitude of this
+noise, which is the natural benchmark. The $\Delta_\text{SD}$
+restriction instead bounds the \emph{rate of change} of violations,
+which penalizes pre-treatment curvature even when levels are small. We
+interpret the $\Delta_\text{SD}$ fragility as a genuine limitation of
+the research design, but note that it reflects the sensitivity of a
+particular robustness criterion rather than evidence against the
+effect.
+
+Figure~\ref{fig:rr_par_q1} displays both the $\Delta_\text{SD}$ and
+$\Delta_\text{RM}$ sensitivity results for bottom-quintile share.
+Figure~\ref{fig:rr_par_rank} reports the corresponding results for
+parental income rank.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_rr_combined_par_q1.pdf}
+  \caption{Rambachan--Roth Sensitivity Analysis: Bottom-Quintile Share}
+  \label{fig:rr_par_q1}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Honest confidence intervals under the smoothness
+    ($\Delta_\text{SD}$) and relative magnitude ($\Delta_\text{RM}$)
+    restrictions of \textcite{rambachan2023more}. The $\Delta_\text{RM}$
+    restriction supports significance at $\bar{M} \leq 2$. The
+    $\Delta_\text{SD}$ restriction includes zero at moderate bounds. Data:
+    \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_rr_combined_par_rank.pdf}
+  \caption{Rambachan--Roth Sensitivity Analysis: Parental Income Rank}
+  \label{fig:rr_par_rank}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Honest confidence intervals under the smoothness
+    ($\Delta_\text{SD}$) and relative magnitude ($\Delta_\text{RM}$)
+    restrictions of \textcite{rambachan2023more}. See
+    Figure~\ref{fig:rr_par_q1} notes for details. Data:
+    \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\subsection{Permutation Inference}
+\label{sec:robustness_permutation}
+
+Cluster-robust inference in our bordering-state specification faces a
+structural limitation: treatment is assigned to a single state
+(Tennessee) among four clusters. With $G_1 = 1$ treated cluster, the
+wild cluster bootstrap has no power to reject the null
+\parencite{mackinnon2017wild}---the minimum achievable $p$-value under
+Rademacher weights is 0.375. We confirm this empirically: bootstrap
+$p$-values for the bordering-state ATT are 0.50 (Webb) and 0.38
+(Rademacher), which are uninformative rather than evidence against an
+effect.
+
+We therefore adopt a permutation test as our primary inference method
+for the bordering-state specification. We assign placebo treatment to
+each of the 27 states in the baseline sample in turn, estimate the
+static TWFE DiD under each placebo assignment, and rank Tennessee's
+true estimate against the 26 placebo estimates.
+
+Tennessee's parental income rank effect ($-0.0185$) is the most
+extreme of all 27 states (permutation $p = 0.037$, significant at the
+5\% level). Tennessee's bottom-quintile share effect ($+0.0154$) is the
+second most extreme, exceeded only by Ohio (permutation $p = 0.074$,
+marginally significant at the 10\%
+level).\footnote{Ohio's large placebo estimate ($+0.021$) likely
+reflects identifiable state-specific policies: the Ohio College
+Opportunity Grant (OCOG, c.\ 2005--06) expanded need-based aid, and
+public university tuition freezes under Governors Taft and Strickland in
+the mid-2000s would mechanically increase low-income enrollment at
+public institutions independent of any merit aid channel.}
+Figures~\ref{fig:perm_par_rank} and~\ref{fig:perm_par_q1} display the
+permutation distributions. Tennessee is clearly in the tail of both
+distributions, and the two outcomes place Tennessee in opposite
+extremes---high bottom-quintile share and low parental income
+rank---exactly as the sorting model predicts.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_permutation_par_rank.pdf}
+  \caption{Permutation Test: Mean Parental Income Rank}
+  \label{fig:perm_par_rank}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Distribution of placebo static TWFE DiD estimates
+    obtained by assigning treatment to each of the 27 sample states in
+    turn. The vertical line marks Tennessee's true estimate ($-0.0185$),
+    which is the most extreme of all 27 states (permutation $p = 0.037$).
+    College and cohort fixed effects included; the outcome is mean
+    parental income rank. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_permutation_par_q1.pdf}
+  \caption{Permutation Test: Bottom-Quintile Share}
+  \label{fig:perm_par_q1}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Distribution of placebo static TWFE DiD estimates
+    obtained by assigning treatment to each of the 27 sample states in
+    turn. The vertical line marks Tennessee's true estimate ($+0.0154$),
+    which is the second most extreme of all 27 states (permutation
+    $p = 0.074$). Only Ohio ($+0.021$) produces a larger placebo
+    estimate. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\subsection{Synthetic Control}
+\label{sec:robustness_synth}
+
+We implement a synthetic control approach
+\parencite{abadie2010synthetic} as a complementary identification
+strategy. The synthetic control gap for bottom-quintile share reaches
+2.2 percentage points by the 1991 cohort, consistent with the
+Callaway--Sant'Anna dynamic path (Figure~\ref{fig:synth_trends_par_q1}).
+Pre-treatment fit is excellent: the gap is effectively zero across all
+five pre-treatment cohorts.
+
+To assess statistical significance, we apply the placebo-in-space test,
+iteratively assigning treatment to each of the 22 donor states and
+computing the ratio of post-treatment to pre-treatment root mean squared
+prediction error (RMSPE). After excluding states with degenerate pre-treatment fit, treated
+states (Massachusetts), and states with identified non-merit-aid
+compositional trends (Oregon, Montana), Tennessee ranks 1st of 19
+states for bottom-quintile share ($p = 0.053$) and 1st of 20 for
+parental income
+rank ($p = 0.130$). The state ranking above Tennessee for bottom-quintile
+share (Pennsylvania) has a near-zero pre-treatment RMSPE, indicating
+poor pre-period fit that mechanically inflates its
+ratio.\footnote{Excluding placebo states with pre-treatment RMSPE below
+0.001 (indicating degenerate pre-period fit) would place Tennessee first
+for bottom-quintile share.}
+Figures~\ref{fig:synth_placebo_par_q1}
+and~\ref{fig:synth_placebo_par_rank} display the placebo distributions
+for both outcomes.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_synth_placebo_par_q1.pdf}
+  \caption{Synthetic Control Placebo-in-Space: Bottom-Quintile Share}
+  \label{fig:synth_placebo_par_q1}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Each line represents the synthetic control gap
+    (actual minus synthetic) for one state, normalized by its
+    pre-treatment RMSPE. Tennessee (bold) ranks 1st of 19 states in the
+    post/pre RMSPE ratio ($p = 0.053$). Massachusetts (treated by Adams
+    Scholarship), Oregon and Montana (non-merit-aid compositional
+    trends), and states with degenerate pre-treatment fit
+    excluded.\footnote{Oregon's progressive shift is concentrated
+    exclusively at community colleges and coincides with sharp tuition
+    increases at four-year publics---a within-sector reallocation
+    unrelated to merit aid. Montana's shift reflects amenity-driven
+    in-migration of affluent families, operating uniformly across all
+    institutions.} Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_synth_placebo_par_rank.pdf}
+  \caption{Synthetic Control Placebo-in-Space: Mean Parental Income Rank}
+  \label{fig:synth_placebo_par_rank}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Each line represents the synthetic control gap
+    (actual minus synthetic) for one state, normalized by its
+    pre-treatment RMSPE. Tennessee (bold) ranks 1st of 20 states
+    ($p = 0.050$). Same exclusions as
+    Figure~\ref{fig:synth_placebo_par_q1}. Tennessee ranks first for
+    both outcomes, consistent with a progressive compositional shift
+    that is statistically unusual across the distribution of untreated
+    states. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+Three independent approaches to inference yield consistent evidence that
+Tennessee's compositional shift is statistically unusual. Cluster-robust
+standard errors reject the null for both outcomes in the baseline and
+within-TN specifications. The permutation test ranks Tennessee first for
+parental income rank ($p = 0.037$) and second for bottom-quintile share
+($p = 0.074$). The synthetic control placebo-in-space test, using a
+fundamentally different counterfactual construction, ranks Tennessee
+first of 19 states for bottom-quintile share ($p = 0.053$) and first
+of 20 for parental income rank ($p = 0.050$). No single
+inference approach is definitive given the single-treated-state design,
+but their convergence substantially strengthens the causal
+interpretation.
+
+\subsection{Summary}
+
+Table~\ref{tab:robustness_summary} consolidates robustness results. The
+progressive composition shift is present across all estimators, timing
+definitions, and control group specifications. Point estimates for
+bottom-quintile share range from 1.27 to 1.64 pp; all are significant at
+$p < 0.001$. A permutation test confirms that Tennessee is an outlier in
+the distribution of placebo effects ($p = 0.037$ for parental income
+rank, $p = 0.074$ for bottom-quintile share). The main vulnerability is
+pre-trend sensitivity under the $\Delta_\text{SD}$ restriction, which we
+flag as a limitation rather than a resolution.

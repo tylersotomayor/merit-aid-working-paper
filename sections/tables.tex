@@ -1,0 +1,213 @@
+% ============================================================
+%  APPENDIX B: TABLES
+% ============================================================
+
+\section{Tables}
+\label{sec:tables}
+
+% ---- Table A.1: HOPE Distribution ----
+\input{tables/table_tennessee}
+
+% ---- Table A.2: Pre/Post DiD ----
+\input{tables/tabledid}
+
+% ---- Table A.3: C&S Main ATT ----
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Callaway--Sant'Anna Aggregate ATT Estimates}
+\label{tab:cs_main}
+\begin{tabular}{lcc}
+\toprule
+ & (1) & (2) \\
+ & Bottom-Quintile Share & Parental Income Rank \\
+\midrule
+ATT & $0.0127^{***}$ & $-0.0133^{***}$ \\
+    & $(0.0026)$ & $(0.0020)$ \\
+\addlinespace
+95\% CI & $[0.0075,\; 0.0179]$ & $[-0.0172,\; -0.0094]$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} Aggregate average treatment effect on the treated
+  from \textcite{callaway2021difference}. The comparison group consists
+  of never-treated public colleges in 26 non-merit-program states.
+  Treatment onset: $t^* = 1986$. Analytical standard errors in
+  parentheses. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ---- Table A.4: TWFE Static DiD ----
+\input{tables/tab_twfe_did}
+
+% ---- Table A.5: Quintile Decomposition ----
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Quintile Decomposition: TWFE Static DiD by Income Quintile}
+\label{tab:quintile_decomp}
+\begin{tabular}{lccccc}
+\toprule
+ & (1) & (2) & (3) & (4) & (5) \\
+ & Q1 (Bottom) & Q2 & Q3 & Q4 & Q5 (Top) \\
+\midrule
+TN Public $\times$ Post & $0.0154^{***}$ & $0.0114^{***}$ & $0.0047^{*}$ & $-0.0136^{***}$ & $-0.0179^{***}$ \\
+ & $(0.0030)$ & $(0.0025)$ & $(0.0018)$ & $(0.0021)$ & $(0.0025)$ \\
+\addlinespace
+Observations & 6,289 & 6,289 & 6,289 & 6,289 & 6,289 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} Each column reports the TWFE static
+  difference-in-differences estimate from a separate regression in which
+  the dependent variable is the share of students from the indicated
+  income quintile. College and cohort fixed effects included. Standard
+  errors clustered at the state level in parentheses (27 clusters).
+  Quintile shares sum to one by construction. Post = birth cohort
+  $\geq$ 1986. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ---- Table A.6: Level Decomposition ----
+\input{tables/tab_level_decomposition}
+
+% ---- Table A.7: Tier Heterogeneity ----
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Heterogeneity by Institution Tier: Two-Year vs.\ Four-Year Colleges}
+\label{tab:tier_het}
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{3}{c}{Two-Year} & \multicolumn{3}{c}{Four-Year} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+Outcome & Coef. & SE & $N$ & Coef. & SE & $N$ \\
+\midrule
+Bottom-quintile share & $0.0181^{***}$ & $(0.0034)$ & 4,016 & $0.0070^{**}$ & $(0.0024)$ & 2,259 \\
+Parental income rank & $-0.0173^{***}$ & $(0.0028)$ & 4,016 & $-0.0186^{***}$ & $(0.0021)$ & 2,259 \\
+\addlinespace
+Q1 count & $5.73$ & $(5.56)$ & 4,016 & $19.60^{**}$ & $(5.53)$ & 2,259 \\
+Q5 count & $-22.94^{**}$ & $(6.24)$ & 4,016 & $-39.23^{*}$ & $(17.55)$ & 2,259 \\
+Total count & $-58.41$ & $(35.54)$ & 4,016 & $138.52^{***}$ & $(34.66)$ & 2,259 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} TWFE static difference-in-differences estimates
+  estimated separately for two-year (community colleges) and four-year
+  institutions. College and cohort fixed effects included. Standard
+  errors clustered at the state level in parentheses. Two-year colleges
+  show displacement (composition shifts, enrollment unchanged);
+  four-year colleges show expansion (enrollment grows, composition
+  shifts). Post = birth cohort $\geq$ 1986. $^{***}p<0.01$,
+  $^{**}p<0.05$, $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ---- Table A.8: Spillover ----
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Spillover Test: Tennessee Private Colleges}
+\label{tab:spillover}
+\begin{tabular}{lcccc}
+\toprule
+Outcome & Coef. & SE & $p$-value & $N$ \\
+\midrule
+Bottom-quintile share & $0.0011$ & $(0.0011)$ & $0.305$ & 5,336 \\
+Parental income rank & $-0.0046^{*}$ & $(0.0018)$ & $0.016$ & 5,336 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} \textcite{callaway2021difference} aggregate ATT
+  comparing Tennessee private colleges to private colleges in 26
+  non-merit-program control states. The null effect on bottom-quintile
+  share indicates that top-quintile students exiting Tennessee public
+  colleges do not re-sort to in-state private institutions. Analytical
+  standard errors in parentheses. $^{***}p<0.01$, $^{**}p<0.05$,
+  $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ---- Table A.9: Within-TN ----
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Within-Tennessee Comparison: Public vs.\ Private Colleges}
+\label{tab:within_tn}
+\begin{tabular}{lcccc}
+\toprule
+Outcome & Coef. & SE & $p$-value & $N$ \\
+\midrule
+Bottom-quintile share & $0.0142^{***}$ & $(0.0037)$ & $<0.001$ & 571 \\
+Parental income rank & $-0.0214^{***}$ & $(0.0032)$ & $<0.001$ & 571 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} TWFE static difference-in-differences restricted
+  to Tennessee institutions only. Treated = Tennessee public colleges;
+  control = Tennessee private colleges. College and cohort fixed effects
+  included. Standard errors in parentheses. The small sample reflects
+  the within-state restriction ($N = 571$). Post = birth cohort
+  $\geq$ 1986. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ---- Table A.10: Robustness Summary ----
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Robustness Summary Across Estimators, Timing, and Control Groups}
+\label{tab:robustness_summary}
+\begin{tabular}{llcccc}
+\toprule
+ & & \multicolumn{2}{c}{Bottom-Quintile Share} & \multicolumn{2}{c}{Parental Income Rank} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+ & Specification & Coef. & SE & Coef. & SE \\
+\midrule
+\multicolumn{6}{l}{\textit{Panel A: Estimator}} \\
+ & C\&S (preferred) & $0.0127^{***}$ & $(0.0026)$ & $-0.0133^{***}$ & $(0.0020)$ \\
+ & TWFE static & $0.0154^{***}$ & $(0.0030)$ & $-0.0185^{***}$ & $(0.0025)$ \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Panel B: Treatment Timing}} \\
+ & $t^* = 1985$ & $0.0144^{***}$ & $(0.0028)$ & $-0.0180^{***}$ & $(0.0024)$ \\
+ & $t^* = 1986$ (preferred) & $0.0154^{***}$ & $(0.0030)$ & $-0.0185^{***}$ & $(0.0025)$ \\
+ & $t^* = 1987$ & $0.0164^{***}$ & $(0.0031)$ & $-0.0178^{***}$ & $(0.0025)$ \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Panel C: Control Group}} \\
+ & Baseline (26 states) & $0.0154^{***}$ & $(0.0030)$ & $-0.0185^{***}$ & $(0.0025)$ \\
+ & Conservative & $0.0151^{***}$ & $(0.0032)$ & $-0.0175^{***}$ & $(0.0024)$ \\
+ & Bordering (preferred) & $0.0144^{***}$ & $(0.0034)$ & $-0.0134^{**}$ & $(0.0049)$ \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Panel D: Sensitivity}} \\
+ & $\Delta_\text{RM}$: breakdown $\bar{M}$ & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{2} \\
+ & $\Delta_\text{SD}$: includes zero at & \multicolumn{2}{c}{moderate $\bar{M}$} & \multicolumn{2}{c}{moderate $\bar{M}$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} Panels A--C report static
+  difference-in-differences estimates under alternative specifications.
+  All specifications include college and cohort fixed effects. Standard
+  errors clustered at the state level in parentheses. Panel D
+  summarizes \textcite{rambachan2023more} sensitivity results: the
+  $\Delta_\text{RM}$ breakdown value indicates the maximum $\bar{M}$
+  at which the confidence interval excludes zero; the
+  $\Delta_\text{SD}$ row indicates that confidence intervals include
+  zero at moderate values of $\bar{M}$. $^{***}p<0.01$, $^{**}p<0.05$,
+  $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

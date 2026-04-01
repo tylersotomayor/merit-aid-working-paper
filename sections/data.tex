@@ -1,0 +1,130 @@
+% ============================================================
+%  SECTION 4: DATA
+% ============================================================
+
+\section{Data}
+\label{sec:data}
+
+\subsection{Chetty et al.\ (2020) Panel}
+
+We use the college-level panel constructed by
+\textcite{chetty2020mobility}, which links tax records and college
+enrollment data to measure the parental income distribution of students
+at each institution. The panel covers 2,202 colleges across 52 states
+and territories for birth cohorts 1980--1991 (approximately
+corresponding to college entry years 1998--2009). Students are assigned
+to the institution attended at ages 19--22.
+
+The primary analysis table (MRC Table~3) provides college-by-cohort
+observations with measures of parental income rank and quintile shares.
+We supplement this with institutional characteristics from MRC Table~10
+(SAT scores, expenditures, enrollment, Barron's selectivity, HBCU and
+flagship status, graduation rates). These characteristics capture the
+dimensions of institutional quality that prior work has linked to
+earnings premia \parencite{brewer1999elite, dale2002selective}.
+
+\subsection{Sample Construction}
+
+We define treated institutions as Tennessee public colleges. Tennessee
+has 51 colleges in the data, of which 26 are public---19 two-year
+institutions and 7 four-year institutions. Multi-campus systems appear
+as distinct identifiers (56 per cohort), but we identify 26 unique
+public colleges.
+
+The control group comprises public colleges in states that did not adopt
+broad-based merit scholarship programs during the analysis period. We
+drop all 25 states classified as merit-program adopters by
+\textcite{sjoquist2015state}. The remaining 26 control states contribute
+6,289 college-cohort observations. Of the 312 possible Tennessee
+public-college-by-cohort observations ($26 \times 12$), 291 are
+non-missing on both primary outcomes.
+
+We exclude 24 observations with missing state or institution type.
+
+\subsection{Outcome Variables}
+
+Our two primary outcomes are:
+
+\begin{itemize}
+\item \textbf{Bottom-quintile share} ($Q_1$): the fraction of students
+  at college $c$ in cohort $t$ whose parents are in the bottom 20\% of
+  the national income distribution. Baseline mean for Tennessee public
+  colleges: 0.138.
+
+\item \textbf{Mean parental income rank} ($\overline{r}$): the average
+  percentile rank of parental household income for students at college
+  $c$ in cohort $t$. Baseline mean for Tennessee publics: 0.540.
+\end{itemize}
+
+A clarification on the unit of observation: each outcome is measured at
+the college-by-birth-cohort level, not for the entire enrolled student
+body at a point in time. For example, $Q_1$ for the University of
+Tennessee in cohort 1986 measures the fraction of all 1986-born students
+who attended UT between ages 19 and 22 whose parents were in the bottom
+quintile. The Fall 2006 student body at UT, by contrast, would include
+birth cohorts 1984--1987 simultaneously---mixing untreated and treated
+cohorts. The cohort-specific measure provides sharper identification
+because it isolates students who faced HOPE-era incentives from those
+who did not. By the end of the post-treatment window ($k = +5$, cohort
+1991), nearly all cohorts enrolled at a given institution are treated, so
+cohort-level and student-body-level effects converge.
+
+For the quintile decomposition, we additionally use the share of
+students from each income quintile ($Q_1$ through $Q_5$).
+
+For the level decomposition that addresses ecological inference
+concerns, we construct count outcomes by multiplying quintile shares by
+cohort size. For example, Q1 count $= Q_1 \times N_{ct}$, where
+$N_{ct}$ is total enrollment at college $c$ in cohort $t$.
+
+\subsection{Summary Statistics}
+
+Table~\ref{tab:summary_stats} reports summary statistics for the primary
+outcomes and quintile shares, separately for Tennessee public colleges
+and control-state public colleges. Tennessee publics have a somewhat
+higher baseline share of bottom-quintile students (14.0\% vs.\ 13.6\%)
+and lower mean parental income rank (0.524 vs.\ 0.541). The quintile
+distribution at Tennessee publics is shifted leftward: Q1 and Q2 shares
+are higher, Q5 share is lower. Table~\ref{tab:did_main} reports pre-
+and post-treatment means. After HOPE implementation, bottom-quintile
+share at Tennessee publics rises to 15.9\%, while the control group
+increases modestly to 12.9\%. The raw difference-in-differences is 1.5
+percentage points.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Summary Statistics}
+\label{tab:summary_stats}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{TN Public} & \multicolumn{2}{c}{Control Public} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+ & Mean & SD & Mean & SD \\
+\midrule
+\multicolumn{5}{l}{\textit{Primary Outcomes}} \\
+\quad Bottom-quintile share ($Q_1$) & 0.140 & 0.046 & 0.136 & 0.083 \\
+\quad Mean parental income rank & 0.524 & 0.067 & 0.541 & 0.103 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Quintile Shares}} \\
+\quad Q1 (bottom) & 0.140 & & 0.136 & \\
+\quad Q2 & 0.195 & & 0.182 & \\
+\quad Q3 & 0.239 & & 0.227 & \\
+\quad Q4 & 0.256 & & 0.252 & \\
+\quad Q5 (top) & 0.170 & & 0.203 & \\
+\addlinespace
+Observations & \multicolumn{2}{c}{137} & \multicolumn{2}{c}{2,850} \\
+Colleges & \multicolumn{2}{c}{26} & \multicolumn{2}{c}{$\sim$500} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} Pre-treatment means (birth cohorts 1980--1985)
+  for Tennessee public colleges (treated) and public colleges in 26
+  non-merit-program states (control). Quintile shares refer to the
+  fraction of students whose parents are in the indicated quintile of
+  the national income distribution. Observations are at the
+  college-by-cohort level. Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

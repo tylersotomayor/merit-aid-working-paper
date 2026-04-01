@@ -1,0 +1,180 @@
+% ============================================================
+%  SECTION 2: INSTITUTIONAL BACKGROUND
+% ============================================================
+
+\section{Institutional Background}
+\label{sec:background}
+
+\subsection{Tennessee HOPE Scholarship}
+
+Tennessee introduced the HOPE Scholarship in 2003, funded by proceeds
+from the state education lottery \parencite{THEC2025}. The program provides tuition and fee
+subsidies to Tennessee residents who graduate from an eligible high
+school with a minimum 3.0 GPA or score at least 21 on the ACT (or 980
+on the SAT). Recipients must maintain a 2.75 cumulative GPA after the
+first semester to retain eligibility
+\parencite{ness2008eligibility}.
+
+The scholarship provides a fixed dollar award covering approximately
+60--80\% of in-state tuition at public institutions governed by the
+Tennessee Board of Regents (TBR) and the University of Tennessee system
+(\$3,000 for freshmen and sophomores, scaling to \$6,000 for juniors and
+seniors at four-year institutions during the study period). Students
+attending eligible private institutions receive a smaller fixed amount
+(\$3,000--\$4,000 per year), which covers a substantially lower share
+of private tuition. This differential generosity creates a relative price advantage
+for public colleges---the key mechanism in our theoretical framework.
+
+Table~\ref{tab:hope_distribution} reports the distribution of HOPE
+recipients across sectors for the first five entering cohorts
+(2004--2008). Public institutions---TBR universities, TBR community
+colleges, and UT campuses---account for approximately 83--85\% of
+recipients in every year. Private colleges receive 15--17\%. This
+concentration of aid in the public sector motivates our identification
+strategy: we treat Tennessee public colleges as the primary recipients
+of the HOPE demand shock.
+
+\subsection{Prior Research on TN HOPE}
+
+Several studies examine Tennessee's merit aid program. The closest
+antecedent is \textcite{bruce2014jackpot}, who use a regression
+discontinuity at the ACT score cutoff for HOPE eligibility.
+\textcite{chakrabarti2022merit} study merit aid and student mobility
+more broadly, documenting how scholarship programs interact with college
+selectivity. \textcite{bruce2014jackpot} find that Tennessee HOPE had no
+effect on overall enrollment among Pell-eligible students near the ACT
+threshold, but reallocated them from two-year to four-year public
+institutions ($-2.9$ percentage points at community colleges, $+2.4$ at
+four-year publics). For non-white students, overall enrollment declined
+by 2.6 percentage points.
+
+Our analysis is complementary but asks a different question. Bruce and
+Carruthers estimate the \emph{individual enrollment response} at the
+eligibility margin: how does a student just above the ACT cutoff choose
+differently from one just below? Their RD is local to the threshold and
+identifies the effect for compliers at that margin. We estimate the
+\emph{institutional composition effect} across the full income
+distribution: how does the parental income profile of the entire student
+body at public colleges change after HOPE? Our
+difference-in-differences design captures the average treatment effect
+across all treated cohorts, including students well above the
+eligibility threshold for whom the RD has no power. The distinction
+matters because the composition of public colleges depends on the
+sorting behavior of students at all income levels, not only those at
+the eligibility margin. Our quintile decomposition---showing that all
+five quintiles shift monotonically---documents a pattern that no
+threshold-local design can detect, since students in the top quintile
+are almost all well above any reasonable ACT cutoff. Their finding that
+lower-income marginal students upgrade from community colleges to
+four-year institutions is consistent with our result that bottom-quintile
+share rises and that two-year and four-year colleges adjust through
+different channels.
+
+\subsection{Timeline and Cohort Mapping}
+
+The first HOPE recipients entered college in Fall 2003. In the
+\textcite{chetty2020mobility} data, students are assigned to
+institutions attended between ages 19 and 22, and cohorts are indexed by
+birth year. The 1984 birth cohort (entering college in Fall 2002) is the
+last fully untreated cohort. The 1985 cohort is partially contaminated
+by a bridge provision that extended limited benefits to students who
+narrowly missed the first eligibility window. Our preferred treatment
+timing is $t^* = 1986$ (Fall 2004 entrants), the first cohort with
+unambiguous full exposure. We test robustness to $t^* \in \{1985,
+1986, 1987\}$ in Section~\ref{sec:robustness}.
+
+The analysis window spans birth cohorts 1980--1991, providing six
+pre-treatment cohorts (1980--1985) and six post-treatment cohorts
+(1986--1991) under the preferred timing.
+Table~\ref{tab:cohort_map} maps each birth cohort to its event time,
+approximate college entry year, and HOPE exposure status. Each cohort's
+composition is measured independently: the outcome for cohort $t$ at
+college $c$ reflects the parental income distribution of students born
+in year $t$ who attended college $c$ between ages 19 and 22.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Cohort Mapping: Birth Year, Event Time, and HOPE Exposure}
+\label{tab:cohort_map}
+\begin{tabular}{ccll}
+\toprule
+Birth Cohort & Event Time ($k$) & College Entry & HOPE Status \\
+\midrule
+1980 & $-6$ & Fall 1998 & No HOPE \\
+1981 & $-5$ & Fall 1999 & No HOPE \\
+1982 & $-4$ & Fall 2000 & No HOPE \\
+1983 & $-3$ & Fall 2001 & No HOPE \\
+1984 & $-2$ & Fall 2002 & No HOPE (last untreated) \\
+1985 & $-1$ & Fall 2003 & Bridge provision (partial) \\
+\midrule
+1986 & $0$ & Fall 2004 & Full HOPE ($t^*$) \\
+1987 & $+1$ & Fall 2005 & Full HOPE \\
+1988 & $+2$ & Fall 2006 & Full HOPE \\
+1989 & $+3$ & Fall 2007 & Full HOPE \\
+1990 & $+4$ & Fall 2008 & Full HOPE \\
+1991 & $+5$ & Fall 2009 & Full HOPE \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} College entry is approximate (birth year $+$ 18).
+  Students are assigned to institutions attended between ages 19 and 22
+  in the \textcite{chetty2020mobility} data. Each cohort's parental
+  income composition is measured independently. The 1985 cohort
+  received partial benefits through a bridge provision
+  (Section~\ref{sec:background}).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Several other policy changes coincided with the HOPE Scholarship's
+introduction. Tennessee's education lottery launched in 2003 and
+generated revenue that funded both HOPE and Pre-K programs. The federal
+No Child Left Behind Act (2002) altered K--12 accountability
+requirements nationwide. Neither policy, however, would produce the
+specific pattern we document: a perfectly ordered income quintile
+gradient at public colleges with no effect at private institutions. A
+generic enrollment shock---whether driven by K--12 quality, state
+finances, or demographic change---would affect quintile shares
+unevenly but not produce five coefficients that are monotonically
+ordered and all statistically significant. The quintile gradient is a
+prediction unique to the price-reduction mechanism in the
+three-destination model, which makes it a discriminating test of the
+HOPE channel specifically.
+
+\subsection{Georgia HOPE as a Comparison Case}
+\label{sec:background_georgia}
+
+Georgia's HOPE Scholarship (1993) is the canonical case in the merit aid
+literature \parencite{dynarski2000hope, song2024hope} and our primary
+theoretical comparison. Three design features
+distinguish it from Tennessee's program in ways that matter for our
+sorting framework.
+
+First, from 1993 to 2000, Georgia HOPE awards were reduced
+dollar-for-dollar by Pell Grant amounts. Students from the
+lowest-income families received zero net benefit from HOPE for the
+program's first seven years. \textcite{dynarski2000hope} documents the
+consequence: Black students, who were disproportionately Pell-eligible,
+showed no attendance gain, while white students gained 12.3 percentage
+points. The Pell offset effectively eliminated the access margin for
+the bottom of the income distribution.
+
+Second, Georgia imposed an income cap (\$66,000, later \$100,000,
+eliminated in 1995) during the program's early years. While the cap
+was removed relatively quickly, its presence during the launch shaped
+initial enrollment patterns.
+
+Third, Georgia HOPE provided comparable awards to private colleges:
+initially full tuition, later a fixed \$3,000 that covered a
+meaningful share of private tuition at Georgia's price levels. This
+smaller public-private subsidy differential muted the sector-switching
+mechanism that drives compositional sorting in our model. \textcite{cornwell2006enrollment} confirm that four-year private enrollment in
+Georgia \emph{rose} by 13.2\% after HOPE, and two-thirds of the
+four-year enrollment gain reflected reduced out-of-state migration
+rather than new college-goers.
+
+We return to the GA-TN comparison in Section~\ref{sec:theory_georgia},
+where we show that these design differences generate opposite
+predictions from the same theoretical framework.

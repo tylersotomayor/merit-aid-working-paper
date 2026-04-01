@@ -1,0 +1,118 @@
+% ============================================================
+%  SECTION 5: EMPIRICAL STRATEGY
+% ============================================================
+
+\section{Empirical Strategy}
+\label{sec:empirical_strategy}
+
+\subsection{Primary Estimator: Callaway and Sant'Anna (2021)}
+
+Our primary estimator is the group-time average treatment effect on the
+treated (ATT) proposed by \textcite{callaway2021difference}. This
+estimator avoids the negative weighting and heterogeneity bias that
+can afflict two-way fixed effects specifications when treatment effects
+vary over time \parencite{goodmanbacon2021difference,
+sun2021estimating}.
+
+In our setting, treatment timing is sharp: all Tennessee public colleges
+are treated simultaneously at $t^* = 1986$ (the first birth cohort with
+unambiguous HOPE exposure). The Callaway--Sant'Anna estimator computes
+group-time ATTs by comparing the outcome evolution of the treated group
+to a ``never-treated'' comparison group. We aggregate the group-time
+ATTs into an overall ATT and dynamic event-study coefficients.
+
+We report TWFE event-study estimates for comparability with the prior
+difference-in-differences literature
+\parencite{ashenfelter1985panel, card1994minimum}. The TWFE
+specification is:
+
+\begin{equation}
+y_{ct} = \alpha_c + \lambda_t + \sum_{k=-5}^{5} \beta_k \cdot
+\mathbf{1}[t - t^* = k] \cdot \text{Treated}_c + \varepsilon_{ct}
+\label{eq:twfe}
+\end{equation}
+
+\noindent where $y_{ct}$ is the outcome for college $c$ in birth cohort
+$t$, $\alpha_c$ are college fixed effects, $\lambda_t$ are cohort fixed
+effects, $\text{Treated}_c$ indicates Tennessee public colleges, and
+$k = -1$ is the omitted reference period.
+
+\subsection{Identification}
+
+Identification requires that Tennessee public colleges would have
+followed parallel trends in socioeconomic composition to control
+colleges absent the HOPE Scholarship. We assess this assumption in
+three ways.
+
+First, we inspect pre-treatment event-study coefficients. Under the
+national control group, coefficients at $k = -5$ through $k = -3$ show
+some divergence from zero for bottom-quintile share, raising concerns about
+longer-horizon pre-trends. The $k = -5$ coefficient is driven by a
+single cohort (1980 births) and its magnitude is sensitive to the
+inclusion of this endpoint.
+
+Second, we implement a bordering-state control group that restricts
+comparisons to colleges in states adjacent to Tennessee. This
+specification passes pre-trend tests: pre-treatment coefficients are
+small, statistically insignificant, and show no systematic pattern.
+The bordering-state specification is our preferred identification
+strategy.
+
+Third, we implement a conservative control group that drops states with
+any policy changes in higher education funding during the analysis
+window. Results are quantitatively similar to the baseline.
+
+\subsection{Inference}
+
+Standard errors are clustered at the state level, the level at which
+treatment is assigned. With 27 clusters (26 control states plus
+Tennessee), we are near the boundary where cluster-robust inference
+becomes unreliable. In the Callaway--Sant'Anna framework, we use
+the analytical standard errors provided by the \texttt{csdid} package,
+which account for the two-step estimation.
+
+For the bordering-state specification, which has only four state
+clusters ($G_1 = 1$ treated), the wild cluster bootstrap is
+uninformative \parencite{mackinnon2017wild}. We therefore supplement
+analytical standard errors with a Fisher-style permutation test that
+assigns placebo treatment to each state in turn and ranks Tennessee's
+estimate against the resulting distribution. We report permutation
+$p$-values in Section~\ref{sec:robustness_permutation}.
+
+\subsection{Sensitivity Analysis}
+
+We implement the honest confidence intervals of
+\textcite{rambachan2023more}, which relax the parallel trends assumption
+by allowing for bounded violations. We report results under two restrictions:
+
+\begin{itemize}
+\item \textbf{Relative magnitude} ($\Delta_\text{RM}$): post-treatment
+  violations of parallel trends are bounded by a multiple $\bar{M}$ of
+  the maximum pre-treatment violation. Results remain significant at
+  $\bar{M} \leq 2$ for bottom-quintile share.
+
+\item \textbf{Smoothness} ($\Delta_\text{SD}$): consecutive violations
+  of parallel trends are bounded in their rate of change. Under this
+  restriction, confidence intervals include zero at moderate bounds,
+  indicating fragility. We interpret this as a limitation: if
+  differential trends can accelerate smoothly, our estimates cannot be
+  distinguished from pre-existing dynamics.
+\end{itemize}
+
+We discuss these results in detail in Section~\ref{sec:robustness} and
+interpret the tension between $\Delta_\text{RM}$ and $\Delta_\text{SD}$
+as informative about the nature of potential confounds.
+
+\subsection{Synthetic Control}
+
+As a complementary identification strategy, we implement the synthetic
+control method \parencite{abadie2010synthetic}, which constructs a
+data-driven counterfactual for Tennessee by selecting weighted
+combinations of donor states that best match Tennessee's pre-treatment
+composition trends. The donor pool consists of 22 non-merit states,
+matching on pre-treatment bottom-quintile share levels (birth cohorts
+1980--1984). This approach avoids imposing equal weights across all
+control states and directly addresses concerns about the suitability of
+any particular comparison group. We report the synthetic control trends
+in Section~\ref{sec:results} and placebo-in-space inference in
+Section~\ref{sec:robustness_synth}.

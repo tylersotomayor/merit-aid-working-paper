@@ -1,0 +1,467 @@
+% ============================================================
+%  SECTION 6: RESULTS
+% ============================================================
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Main Effects}
+\label{sec:results_main}
+
+Figures~\ref{fig:synth_trends_par_q1}
+and~\ref{fig:synth_trends_par_rank} provide visual evidence of the
+compositional shift. The synthetic control, constructed from a weighted
+combination of non-merit states
+\parencite{abadie2010synthetic}, matches Tennessee almost exactly
+through the pre-treatment period (1980--1984) for both outcomes. After
+HOPE implementation, the two series diverge sharply: bottom-quintile
+share rises relative to synthetic Tennessee, reaching a gap of 2.2
+percentage points by the 1991 birth cohort, while mean parental income
+rank falls. The pre-treatment fit is excellent for both outcomes, with
+near-zero root mean squared prediction error.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_q1.pdf}
+  \caption{Actual vs.\ Synthetic Tennessee: Bottom-Quintile Share at
+    Public Colleges}
+  \label{fig:synth_trends_par_q1}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Synthetic Tennessee is constructed from a weighted
+    combination of 22 non-merit states using the method of
+    \textcite{abadie2010synthetic}, matching on pre-treatment
+    bottom-quintile share (1980--1984). The vertical dashed line
+    indicates the first HOPE-eligible birth cohort. The two series track
+    closely in the pre-treatment period, then diverge after HOPE
+    implementation. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_rank.pdf}
+  \caption{Actual vs.\ Synthetic Tennessee: Mean Parental Income Rank at
+    Public Colleges}
+  \label{fig:synth_trends_par_rank}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Synthetic Tennessee constructed as in
+    Figure~\ref{fig:synth_trends_par_q1}, matching on pre-treatment
+    mean parental income rank (1980--1984). Tennessee's actual parental
+    income rank diverges downward after HOPE implementation, consistent
+    with the progressive compositional shift documented in the
+    bottom-quintile share results. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+Table~\ref{tab:cs_main} reports the Callaway--Sant'Anna aggregate ATT
+estimates. Following HOPE implementation, the share of bottom-quintile
+students at Tennessee public colleges increased by 1.27 percentage points (SE =
+0.0026, $p < 0.001$) and decreased mean parental income rank by 1.33
+percentage points (SE = 0.0020, $p < 0.001$). Both effects are precisely estimated
+and economically meaningful: the bottom-quintile share increase
+represents a 9.2\% gain relative to the pre-treatment mean of 13.8\%.
+In levels, the effect corresponds to approximately 11.2 additional
+bottom-quintile students per cohort at each Tennessee public college and
+34.4 fewer top-quintile students per cohort
+(Section~\ref{sec:results_mechanisms}). Across 26 treated public
+colleges, this implies roughly 290 additional low-income students and
+890 fewer high-income students per birth cohort gaining access to or
+exiting the public system. The effect grows with exposure horizon:
+by $k = +5$ (the 1991 birth cohort), the treatment effect reaches
+$+3.1$ percentage points, a 22\% gain over baseline. This growing path
+reflects intensifying program impact on successive cohorts rather than
+mechanical accumulation, since each cohort's composition is measured
+independently (Section~\ref{sec:data}).
+
+For comparison, the static TWFE estimator yields slightly larger point
+estimates---1.54 pp for bottom-quintile share and $-1.85$ pp for
+mean parental income rank (Table~\ref{tab:twfe_did})---consistent with the
+known upward bias of TWFE in the presence of dynamic treatment effects.
+The qualitative conclusions are identical across estimators.
+
+These share changes reflect real compositional sorting rather than an
+enrollment artifact. We confirm in Section~\ref{sec:results_mechanisms}
+that the number of bottom-quintile students per cohort increases by 11.2
+($p = 0.014$), the number of top-quintile students per cohort decreases
+by 34.4 ($p < 0.001$), and total enrollment is unchanged ($-2.1$,
+$p = 0.93$). The public sector absorbs more lower-income students while
+losing upper-income students, with the total headcount held constant.
+
+\subsection{Event Study Dynamics}
+\label{sec:results_dynamics}
+
+Figure~\ref{fig:four_estimators} presents the event-study estimates
+across four heterogeneity-robust estimators
+(Section~\ref{sec:robustness_estimators}). Focusing on the
+Callaway--Sant'Anna path, for bottom-quintile share the
+treatment effect is near zero at $k = 0$ and grows monotonically to
+approximately 2.5 percentage points by $k = 5$. For parental income rank,
+the trajectory is symmetric: a gradual decline reaching $-2.6$ points
+by $k = 5$.
+
+The growing post-treatment path is consistent with an intensifying
+compositional shift across successive cohorts. Because each birth
+cohort's composition is measured independently in the
+\textcite{chetty2020mobility} data, the increasing treatment effect
+reflects deeper program impact on later cohorts---through rising
+take-up, greater awareness, and institutional adaptation---rather than
+mechanical accumulation of treated students in a fixed enrollment stock.
+
+Pre-treatment coefficients under the bordering-state control group are
+centered around zero with no systematic trend
+(Figure~\ref{fig:four_estimators}). Under the national control group,
+pre-treatment coefficients at $k = -5$ and $k = -4$ show some
+divergence, as discussed in Section~\ref{sec:empirical_strategy}.
+
+\subsection{Quintile Decomposition}
+\label{sec:results_quintile}
+
+A key question is whether the rise in bottom-quintile share reflects a
+broad reshuffling of the income distribution or a localized shift.
+Table~\ref{tab:quintile_decomp} decomposes the composition effect
+across all five income quintiles using the TWFE static specification.
+
+The results reveal a strikingly monotonic gradient:
+
+\begin{center}
+\begin{tabular}{lccl}
+\toprule
+Quintile & Coefficient & SE & \\
+\midrule
+Q1 (bottom) & $+0.0154$ & $(0.0030)$ & $^{***}$ \\
+Q2 & $+0.0114$ & $(0.0025)$ & $^{***}$ \\
+Q3 & $+0.0047$ & $(0.0018)$ & $^{*}$ \\
+Q4 & $-0.0136$ & $(0.0021)$ & $^{***}$ \\
+Q5 (top) & $-0.0179$ & $(0.0025)$ & $^{***}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Every quintile's coefficient has the predicted sign, and the gradient
+is monotonically ordered: $|\hat\beta_1| > |\hat\beta_2| >
+|\hat\beta_3|$ and $|\hat\beta_5| > |\hat\beta_4|$. The bottom three
+quintiles gain share at public colleges; the top two lose share.
+Statistical significance is strongest at the tails (Q1 and Q5) and
+weakest in the middle (Q2 and Q3). This pattern is expected for two
+reasons. First, the theoretical mechanism generates the largest effects
+at the extremes: the proportional price reduction $S/y_i$ is largest
+for the lowest-income families and the substitution incentive is
+strongest for the highest-income families, while middle-quintile
+families experience smaller behavioral responses in both directions.
+Second, the tails of the income distribution exhibit greater
+cross-college variance---bottom- and top-quintile shares vary more
+across institutions than middle-quintile shares, which cluster near
+0.20---giving the estimator more identifying variation. The combination
+of larger true effects and greater statistical power at the extremes
+means that Q1 and Q5 are precisely estimated, Q4 is significant, and
+Q2--Q3 are directionally consistent but noisier.\footnote{Under the
+Callaway--Sant'Anna estimator, Q2 is significant ($p < 0.001$) but Q3
+is not ($p = 0.38$). Under TWFE, all five are significant. Under the
+bordering-state specification with three estimators
+(Figure~\ref{fig:quintile_event_studies}, Appendix), Q1 and Q5 are
+significant across all estimators, Q4 is significant under TWFE and
+Sun--Abraham, and Q2--Q3 are directionally consistent. The monotonic
+ordering of point estimates is preserved across all specifications.}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.75\textwidth]{fig_tn_quintile_gradient.pdf}
+  \caption{Quintile Gradient of Compositional Change Following
+    Tennessee HOPE}
+  \label{fig:quintile_gradient}
+  \vspace{1mm}
+  \begin{minipage}{0.75\textwidth}
+    \footnotesize
+    \textit{Notes:} \textcite{callaway2021difference} ATT estimates for
+    each parental income quintile share. The effect is monotonically
+    ordered: bottom-quintile students gain the most representation and
+    top-quintile students lose the most. Significance is strongest at the
+    tails (Q1, Q5) where both the theoretical effect and cross-college
+    variance are largest. Bars denote 95\% confidence intervals.
+    Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+Figure~\ref{fig:quintile_gradient} displays the quintile gradient
+graphically. The coefficients descend smoothly from Q1 ($+1.3$ pp)
+through Q3 ($+0.2$ pp) to Q5 ($-1.1$ pp). The quintile-specific
+event studies (Figure~\ref{fig:quintile_event_studies}, Appendix)
+confirm that all five quintiles exhibit gradual divergence after
+treatment onset, with three estimators agreeing on the direction and
+dynamics at each quintile.
+
+The quintile shares sum to one by construction. The finding that Q1
+gains the most share and Q5 loses the most share implies that the
+composition shift is driven by reallocation between the extremes of
+the income distribution rather than by changes near the median. The
+monotonic gradient also serves as a discriminating test of the HOPE
+channel: a generic Tennessee-specific shock---whether driven by state
+fiscal conditions, demographic trends, or concurrent reforms---would be
+unlikely to produce five coefficients that are perfectly ordered in
+magnitude. This specific pattern is a unique prediction of the
+price-reduction mechanism in the three-destination model, where the
+proportional cost reduction $S/y_i$ is monotonically decreasing in
+income.
+
+\subsection{Mechanism Evidence}
+\label{sec:results_mechanisms}
+
+\subsubsection{Level Decomposition: Shares vs.\ Counts}
+
+A share increase in bottom-quintile students could reflect either a
+genuine increase in the number of lower-income students (numerator
+effect) or a decline in total enrollment (denominator effect). We
+address this ecological inference concern by estimating effects on
+count outcomes: Q1 count (number of bottom-quintile students per
+cohort), Q5 count, and total enrollment.\footnote{Count outcomes are
+constructed as quintile share $\times$ cohort enrollment. Because
+enrollment varies substantially across colleges (coefficient of
+variation $\approx 1.0$), count-based estimates are considerably
+noisier than share-based estimates. The critical test is whether
+\emph{total} enrollment changes, which is well-powered because it does
+not inherit share-level noise. The directional signs of Q1 and Q5 counts
+provide supporting evidence but should be interpreted with appropriate
+caution given the wider confidence intervals.}
+
+The critical finding is that total enrollment at Tennessee public
+colleges is essentially unchanged after HOPE ($-2.1$ students per
+cohort, $p = 0.93$). This rules out the denominator-artifact
+explanation: the share changes cannot be driven by enrollment
+contraction. The directional evidence is consistent with real
+compositional sorting: Q1 count increases by 11.2 per cohort ($p =
+0.014$) and Q5 count decreases by 34.4 per cohort ($p < 0.001$),
+indicating that more bottom-quintile students enter the public sector
+while more top-quintile students exit, with the total headcount held
+constant (Table~\ref{tab:level_decomp}).
+
+\subsubsection{Tier Heterogeneity}
+
+Table~\ref{tab:tier_het} reports separate estimates for two-year and
+four-year institutions.
+
+At two-year colleges, the bottom-quintile share increases by 1.81
+percentage points (SE = 0.0034, $p < 0.001$) and mean parental income
+rank falls by 1.73 percentage points. These institutions show a loss of 22.9 Q5
+students per cohort ($p = 0.001$) but no significant change in total
+enrollment. The evidence is consistent with \emph{displacement}: lower-income
+students replace higher-income students at community colleges, with the
+overall seat count unchanged.
+
+At four-year colleges, the bottom-quintile share increases by a smaller
+0.70 percentage points (SE = 0.0024, $p = 0.008$), but total enrollment
+increases by 138.5 students per cohort ($p < 0.001$). Four-year
+institutions gain 19.6 Q1 students and lose 39.2 Q5 students. The evidence is consistent with \emph{expansion}: these institutions
+grow their enrollment while simultaneously experiencing downward
+compositional sorting.
+
+The two tiers thus exhibit different adjustment channels, consistent
+with Prediction P5. Community colleges adjust on the intensive margin
+(who fills existing seats), while four-year institutions adjust on
+the extensive margin (adding seats while changing composition).
+
+\subsubsection{Tennessee Privates: No Spillover}
+
+If the composition shift at public colleges reflects simple
+public-private substitution within Tennessee, we would expect a mirror
+image at Tennessee private colleges: an increase in top-quintile share
+and mean parental income rank. We test this directly.
+
+Table~\ref{tab:spillover} reports Callaway--Sant'Anna ATTs comparing
+Tennessee private colleges to private colleges in control states. The
+effect on bottom-quintile share is 0.11 percentage points (SE = 0.0011,
+$p = 0.30$)---small, positive, and statistically insignificant. The
+effect on mean parental income rank is $-0.46$ percentage points (SE = 0.0018, $p =
+0.016$), marginally significant but in the same direction as the
+public-sector effect rather than the opposite direction.
+
+Tennessee private colleges do not absorb the top-quintile students who
+leave the public sector. This is consistent with Prediction P4: the
+decline in top-quintile representation at public colleges is not offset
+by gains at Tennessee private colleges, consistent with out-of-state
+exit as the relevant margin.
+Figure~\ref{fig:pub_vs_priv} displays the contrast visually:
+the public-sector event study shows a clear progressive shift while
+the private-sector event study is flat, confirming that the
+compositional change is specific to the public sector.
+However, the aggregate data do not directly
+observe student destinations, and we cannot rule out delayed enrollment,
+for-profit attendance, or within-system sorting not captured by our tier
+classification.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fig_public_vs_private_2x2_combined.pdf}
+  \caption{Public vs.\ Private Colleges: Event Studies for Both Outcomes}
+  \label{fig:pub_vs_priv}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} Left column: four heterogeneity-robust estimators
+    for Tennessee public colleges vs.\ public colleges in 26 non-merit
+    states. Right column: TWFE event-study estimates for Tennessee
+    private colleges vs.\ private colleges in control states. Top row:
+    bottom-quintile share. Bottom row: mean parental income rank.
+    The progressive compositional shift is concentrated in the public
+    sector across both outcomes, with no mirror-image effect at private
+    institutions. Vertical bars denote 95\% confidence intervals.
+    Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\subsubsection{Where Did Top-Quintile Students Go?}
+
+The tier heterogeneity results (Table~\ref{tab:tier_het}) shed light on
+the Q5 exit pattern. Two-year colleges lost 22.9 Q5 students per cohort
+($p = 0.001$) with no significant enrollment change, while four-year
+colleges lost 39.2 Q5 students ($p = 0.034$) alongside enrollment
+\emph{growth} of 138.5 students ($p < 0.001$). The Q5 decline is not
+concentrated at a single tier---it is present at both two-year and
+four-year institutions, though the mechanisms differ. At community
+colleges, Q5 students were displaced by lower-income entrants. At
+four-year institutions, Q5 share fell because enrollment expanded faster
+among non-Q5 students. In neither case do the displaced Q5 students appear at Tennessee private
+colleges, reinforcing the interpretation that the relevant exit margin
+is outside Tennessee's private sector.
+
+
+\subsubsection{Within-Tennessee Public vs.\ Private Comparison}
+
+As a complementary test, we restrict the sample to Tennessee
+institutions only and compare public to private colleges within the
+state. This eliminates any concerns about cross-state confounds.
+
+The within-Tennessee DiD estimate for bottom-quintile share is 1.42
+percentage points (SE = 0.0037, $p < 0.001$) and for mean parental income rank
+is $-2.14$ percentage points (SE = 0.0032, $p < 0.001$). These estimates are
+slightly larger than the cross-state estimates, consistent with
+Tennessee private colleges serving as a clean within-state control.
+The sample is small ($N = 571$), but the effects are precisely estimated
+and confirm that the composition shift is specific to the public sector.
+
+\subsection{Spatial Heterogeneity}
+\label{sec:spatial}
+
+The three-destination model predicts that the composition shift varies
+with institutional geography (P6). Colleges closer to state borders
+face stronger outside-option competition---the kind of cross-market
+pressure emphasized by \textcite{hoxby2000peer}---which should amplify
+the sorting mechanism. We test this prediction by estimating heterogeneous
+effects along two spatial dimensions: border proximity and region.
+
+\textbf{Border vs.\ interior.} Institutions in Tennessee counties that
+border another state show a 38\% larger progressive shift than interior
+institutions: the bottom-quintile share ATT is $+1.89$ pp (SE $=
+0.003$, $p < 0.001$) at border colleges versus $+1.37$ pp (SE $=
+0.003$, $p < 0.001$) at interior colleges. The monotonic quintile
+gradient holds in both subsamples, but the gradient is steeper at
+border colleges. This is consistent with P6: where students have
+accessible out-of-state alternatives, HOPE's price reduction has a
+larger behavioral effect on the margin between public enrollment and
+exit.
+
+\textbf{Regional variation.} The effect varies strikingly across
+Tennessee's three Grand Divisions (Table~\ref{tab:spatial}). West
+Tennessee shows the largest shift ($+3.13$ pp, $p < 0.001$), roughly
+triple the magnitude in East Tennessee ($+1.13$ pp, $p < 0.001$) and
+Middle Tennessee ($+1.03$ pp, $p = 0.002$). The monotonic quintile
+gradient holds in all three regions. The concentration in West
+Tennessee---where the Memphis metropolitan area's proximity to
+Mississippi and Arkansas creates strong cross-border competition, and a
+high density of community colleges favors both access expansion and
+competitive retention---is consistent with the model's spatial
+predictions.\footnote{West Tennessee contains only 6 of the 26 public
+colleges. The large point estimate should be interpreted with this
+small-sample caveat in mind.}
+
+Figure~\ref{fig:spatial_map} displays the geographic distribution of
+the effect. Each of Tennessee's 26 public colleges is marked at its
+county location, with the county fill reflecting the regional ATT
+magnitude. The concentration of the effect in West Tennessee---and
+particularly in border counties adjacent to Mississippi and
+Arkansas---is visually striking.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fig_spatial_heterogeneity.pdf}
+  \caption{Geographic Distribution of HOPE's Compositional Effect}
+  \label{fig:spatial_map}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} County fill reflects the regional bottom-quintile
+    share ATT (West: $+3.1$ pp, East: $+1.1$ pp, Middle: $+1.0$ pp),
+    with border counties receiving a 38\% boost per the border vs.\
+    interior heterogeneity estimate. Navy markers indicate public
+    college locations: circles = four-year universities, triangles =
+    two-year colleges. Border counties are outlined. Neighboring states
+    labeled to illustrate out-of-state exit destinations.
+    Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\begin{threeparttable}
+\caption{Spatial Heterogeneity in HOPE's Compositional Effect}
+\label{tab:spatial}
+\begin{tabular}{lccc}
+\toprule
+ & Q1 Share ATT & SE & Colleges \\
+\midrule
+\textit{By Border Status} & & & \\
+\quad Border counties & $0.0189^{***}$ & $(0.003)$ & 8 \\
+\quad Interior counties & $0.0137^{***}$ & $(0.003)$ & 18 \\
+\midrule
+\textit{By Region} & & & \\
+\quad East Tennessee & $0.0113^{***}$ & $(0.003)$ & 9 \\
+\quad Middle Tennessee & $0.0103^{**}$ & $(0.003)$ & 11 \\
+\quad West Tennessee & $0.0313^{***}$ & $(0.003)$ & 6 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} TWFE static difference-in-differences estimates.
+  College and cohort fixed effects included. Standard errors clustered
+  at the state level in parentheses. Border counties share a boundary
+  with another state. Regional definitions follow Tennessee's Grand
+  Divisions. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Summary of Theoretical Predictions}
+
+Table~\ref{tab:predictions} maps each prediction from the
+three-destination model to its empirical test and result.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Model Predictions and Empirical Tests}
+\label{tab:predictions}
+\begin{tabular}{llll}
+\toprule
+Prediction & Test & Section & Result \\
+\midrule
+P1: Q1 share rises & C\&S ATT & \ref{sec:results_main} & $+1.27$ pp ($p < 0.001$) \\
+P2: Monotonic gradient & Quintile decomp. & \ref{sec:results_quintile} & 5/5 ordered \\
+P3: Sorting, not expansion & Level decomp. & \ref{sec:results_mechanisms} & Total $\Delta = -2.1$ ($p = 0.93$) \\
+P4: No mirror at privates & Spillover test & \ref{sec:results_mechanisms} & Null ($p = 0.30$) \\
+P5: Tier heterogeneity & 2-yr vs.\ 4-yr & \ref{sec:results_mechanisms} & Different channels \\
+P6: Spatial gradient & Border vs.\ interior & \ref{sec:spatial} & Border 38\% larger \\
+P7: Cross-state variation & TN, GA, WV & \ref{sec:discussion} & Design predicts direction \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} Predictions are derived in Section~\ref{sec:theory}.
+  All Tennessee results use the preferred treatment timing ($t^* = 1986$).
+  P7 is evaluated in the Discussion using cross-state evidence.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

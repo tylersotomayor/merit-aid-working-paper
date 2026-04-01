@@ -1,0 +1,35 @@
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Level Decomposition: Share and Count Outcomes}
+\label{tab:level_decomp}
+\begin{tabular}{lccccc}
+\toprule
+ & (1) & (2) & (3) & (4) & (5) \\
+ & Q1 Share & Q1 Count & Total Count & Q5 Share & Q5 Count \\
+\midrule
+TN Public $\times$ Post & $0.0154^{***}$ & $11.23^{**}$ & $-2.11$ & $-0.0179^{***}$ & $-34.38^{***}$ \\
+                         & (0.0030) & (4.256) & (25.42) & (0.0025) & (8.635) \\
+\addlinespace
+Constant                 & $0.138^{***}$ & $167.9^{***}$ & $1{,}586^{***}$ & $0.200^{***}$ & $449.7^{***}$ \\
+                         & (0.0001) & (0.104) & (0.622) & (0.0001) & (0.211) \\
+\midrule
+Observations             & 6,289 & 6,289 & 6,289 & 6,289 & 6,289 \\
+Adjusted $R^{2}$         & 0.935 & 0.948 & 0.985 & 0.978 & 0.989 \\
+Clusters                 & 27 & 27 & 27 & 27 & 27 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} Two-way fixed effects estimates with college and
+  cohort fixed effects. Standard errors clustered at the state level in
+  parentheses. Count outcomes are constructed as quintile
+  share $\times$ cohort size. The Q1 share increase (column 1) is
+  accompanied by a Q1 count increase (column 2), while total enrollment
+  is unchanged (column 3), confirming that share changes reflect
+  compositional sorting rather than a denominator artifact. Post = birth
+  cohort $\geq$ 1986. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

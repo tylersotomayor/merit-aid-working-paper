@@ -1,0 +1,167 @@
+% ============================================================
+%  SECTION 1: INTRODUCTION
+% ============================================================
+
+\section{Introduction}
+
+\textcite{dynarski2000hope} showed that Georgia's HOPE Scholarship
+widened the gap in college attendance between higher- and lower-income
+students. The finding crystallized a distributional critique of merit
+aid: because eligibility is conditioned on academic achievement, which
+correlates with family income, broad-based merit programs
+disproportionately subsidize students who would attend college regardless
+\parencite{dynarski2004merit, jones2022merit}. This view now dominates
+the policy debate.
+
+A systematic review of 71 quasi-experimental studies finds that
+merit-based grants rarely improve outcomes for disadvantaged students and
+can increase inequality \parencite{herbaut2020works}. We document an
+exception.
+
+Using tax-linked income data from \textcite{chetty2020mobility}, we
+estimate how Tennessee's HOPE Scholarship reshaped the full parental
+income distribution at public colleges. The results are the opposite of
+what the conventional view predicts: following HOPE implementation,
+public colleges experienced a \emph{progressive} compositional shift.
+Bottom-quintile students gained share at public institutions, while
+top-quintile students lost share. The effect is monotonic across all
+five income quintiles---Q1 through Q3 gain, Q4 and Q5 lose---and every
+coefficient is statistically significant. This monotonic gradient is the
+paper's central empirical result.
+
+Aggregate attendance effects and institutional composition effects are
+distinct estimands that need not move in the same direction. In a
+two-sector model---attend college or not---individual enrollment
+responses fully determine institutional composition. But when students
+choose among public, private, and out-of-state alternatives, the link
+breaks: the \emph{aggregate} attendance gap can widen (because
+higher-income students are more likely to qualify) while the
+\emph{sector-specific} composition of public colleges simultaneously
+improves (because the students who actually sort into the public sector
+are drawn disproportionately from the bottom of the income
+distribution).\footnote{This is a form of Simpson's paradox: the
+aggregate relationship between merit aid and income composition reverses
+sign when conditioned on enrollment sector. The aggregate effect reflects
+who attends college; the composition effect reflects who attends
+\emph{which} college.} The reconciliation depends on where displaced
+students go. If top-quintile students exit to out-of-state or private
+alternatives rather than entering public colleges, the public sector
+becomes more progressive even as overall college-going becomes more
+unequal. We formalize this insight in a three-destination sorting model
+(public, private, out-of-state) and test its predictions directly.
+
+Institutional composition matters independently of individual enrollment
+decisions. The peer effects literature demonstrates that student body
+composition shapes academic outcomes
+\parencite{sacerdote2001peer}. \textcite{chetty2020mobility} show that
+access to high-mobility institutions drives intergenerational economic
+outcomes, establishing that who attends which institution has first-order
+welfare consequences. If merit aid systematically alters the income
+profile of public college cohorts, it reshapes the peer environment and
+mobility prospects for all enrolled students---not only those on the
+margin of attendance.
+
+Four pieces of evidence are consistent with a sorting interpretation.
+First, total enrollment at Tennessee public colleges is unchanged after
+HOPE. The share shifts reflect real reallocation---11 additional
+bottom-quintile students per cohort enter, 34 top-quintile students per
+cohort exit---not a denominator artifact. Second, Tennessee private
+colleges show no mirror image of the public-sector shift: the decline in
+top-quintile representation at public colleges is not offset by gains at
+Tennessee privates, consistent with out-of-state exit as the relevant
+margin. Third, two-year and four-year institutions adjust through
+different channels. Community colleges exhibit displacement
+(top-quintile students replaced by bottom-quintile students, total seats
+unchanged), while four-year colleges show expansion (enrollment grows,
+composition shifts). Fourth, within-state comparisons restricted to
+Tennessee institutions confirm that the composition change is specific
+to the public sector.
+
+These patterns may not be idiosyncratic to Tennessee. Our theoretical
+framework proposes that program design and institutional context jointly
+shape the direction of compositional sorting, through three parameters:
+the eligibility threshold relative to the income distribution, the size
+of the public-private subsidy differential, and interactions with
+existing need-based aid. Georgia's
+HOPE, which initially offset Pell Grant awards dollar-for-dollar and
+imposed an income cap, eliminated the access margin for the
+lowest-income families and muted the public-private subsidy
+differential---conditions under which the model predicts regressive
+sorting. Dynarski's findings for Georgia are consistent with this
+prediction, as are the enrollment patterns documented by
+\textcite{cornwell2006enrollment}. Tennessee's HOPE, which has no Pell
+offset, no income cap, and a large public-private subsidy
+differential, satisfies the conditions for progressive sorting. The same
+framework explains both outcomes.
+
+We test these predictions out of sample. Massachusetts' Adams
+Scholarship \parencite{cohodes2014merit}, which shares Tennessee's
+design features (moderate threshold, public-sector subsidy
+concentration), independently produces a progressive shift of similar
+magnitude ($+1.38$ pp for bottom-quintile share). South Dakota's
+Opportunity Scholarship, which imposes a high ACT threshold and small
+award, produces a strongly regressive shift---as the model predicts.
+West Virginia's PROMISE, despite similar design parameters to
+Tennessee, shows no compositional effect, highlighting that program
+design is necessary but not sufficient: enrollment contraction at WV
+public colleges overwhelmed any sorting dynamics.
+
+We estimate treatment effects using \textcite{callaway2021difference} as
+the primary estimator, with TWFE, \textcite{sun2021estimating}, and
+\textcite{dechaisemartin2020two} for robustness. A bordering-state control
+group passes pre-trend tests that the national comparison fails at
+longer horizons. Results are stable across three treatment timing
+definitions and two alternative control group specifications.
+Under the relative-magnitude restriction of
+\textcite{rambachan2023more}, the estimated effect survives violations
+up to twice the magnitude observed in the pre-treatment period. Under
+the stricter smoothness restriction, results are more fragile. We
+interpret the evidence as credible but not definitive, and report all
+sensitivity analyses transparently.
+
+Our work connects three literatures. First, a large body of research
+documents the enrollment effects of merit aid
+\parencite{dynarski2000hope, dynarski2004merit, bruce2014jackpot,
+cohodes2014merit, song2024hope, cummings2022race,
+verzyl2023institutional}. This literature
+focuses on individual enrollment decisions, not institutional
+composition. Second, studies of policy-induced sorting show that
+admissions and financing reforms can substantially reshape who attends
+which institutions \parencite{bleemer2022affirmative,
+card2005affirmative, hinrichs2012affirmative}. Third,
+\textcite{chetty2020mobility} demonstrate that access to
+high-mobility institutions shapes intergenerational economic outcomes,
+establishing that institutional composition has first-order welfare
+consequences. We bridge these literatures by documenting how merit aid is
+associated with changes in the full income distribution across
+institutional sectors.
+
+This paper makes three contributions. First, we provide the first
+evidence on how merit aid reshapes the \emph{full income distribution}
+at public institutions, using tax-linked data that measures parental
+income across all quintiles rather than relying on Pell eligibility as a
+binary proxy. The monotonic quintile gradient---all five coefficients
+significant and perfectly ordered---has not been documented in any prior
+study of merit aid. Second, we develop a three-destination sorting
+framework that reconciles the progressive institutional composition
+effects we find with the regressive attendance effects documented by
+\textcite{dynarski2000hope}, showing that the apparent contradiction
+dissolves once student destinations are disaggregated. Third, we
+propose that program design parameters---Pell interaction, subsidy
+differential, threshold location---shape whether merit aid is associated
+with progressive or regressive sorting, and test the framework across
+four states: Tennessee and Massachusetts (progressive, as predicted),
+South Dakota (regressive, as predicted), and West Virginia (null,
+confounded by enrollment contraction).
+
+The paper proceeds as follows. Section~\ref{sec:background} describes
+the Tennessee HOPE Scholarship and the Georgia program that serves as
+our theoretical comparison case. Section~\ref{sec:theory} presents the
+three-destination sorting model and derives testable predictions.
+Section~\ref{sec:data} describes the data.
+Section~\ref{sec:empirical_strategy} discusses the empirical strategy.
+Section~\ref{sec:results} presents results.
+Section~\ref{sec:robustness} reports robustness checks.
+Section~\ref{sec:discussion} discusses cross-state evidence from
+Georgia, Massachusetts, South Dakota, and West Virginia.
+Section~\ref{sec:conclusion} concludes.
