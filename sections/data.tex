@@ -136,6 +136,79 @@ The Medallion tier's GPA threshold is comparable to Tennessee HOPE's
 3.0 requirement, but its percentage-based award structure differs
 fundamentally.
 
+\subsection{Eligibility Gradient: Validating the Theoretical Mechanism}
+\label{sec:data_eligibility}
+
+The theoretical model predicts that the eligibility threshold $\tau$
+determines who benefits from the scholarship. We validate this
+prediction using microdata from the National Longitudinal Survey of
+Youth 1997 (NLSY97), which provides high school GPA (from transcripts),
+ACT and SAT scores, and family income for approximately 9,000
+respondents born 1980--1984---cohorts that overlap directly with the
+early Chetty panel.
+
+We construct parental income quintiles from household income reported in
+1997 and compute the fraction of students in each quintile who would
+meet each state's eligibility rules. Crucially, we apply the program
+rules to the \emph{national} achievement distribution, not to
+state-specific distributions, to avoid contamination from
+program-induced behavioral responses (teaching to the threshold, grade
+inflation).
+
+Figure~\ref{fig:eligibility_gradient} displays the results. Three
+findings validate the theoretical mechanism:
+
+\begin{enumerate}
+  \item \textbf{The eligibility gradient is steep and monotonic.} For
+    every program, eligibility rises from Q1 to Q5. The gap is
+    substantial: under Tennessee HOPE rules, 29\% of Q1 students
+    qualify vs.\ 59\% of Q5 students.
+
+  \item \textbf{Threshold height determines the gradient's level.}
+    Low-threshold programs (TN HOPE: 29\% of Q1; GA HOPE: 29\%)
+    admit nearly a third of bottom-quintile students. High-threshold
+    programs (FL Academic Scholars: 3\%; SD Opportunity: 11\%) admit
+    almost none. The Q1/Q5 eligibility ratio ranges from 0.49
+    (TN~HOPE) to 0.22 (FL~Academic).
+
+  \item \textbf{The OR condition matters.} Tennessee's either/or
+    criterion (3.0 GPA \emph{or} ACT 21) produces broader Q1
+    eligibility (29\%) than programs with AND conditions at similar
+    GPA thresholds (FL Medallion at 3.0 GPA \emph{and} 970 SAT:
+    25\%; WV PROMISE at 3.0 GPA \emph{and} ACT 22: 17\%).
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_eligibility_gradient.pdf}
+  \caption{Eligibility Rates by Income Quintile and Program Design}
+  \label{fig:eligibility_gradient}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Each line shows the fraction of students in each
+    parental income quintile who would meet the indicated program's
+    eligibility rules, computed from the national joint distribution of
+    GPA, ACT, and SAT in the NLSY97 ($N = 4{,}599$ with income and GPA;
+    $N = 1{,}017$ with income and ACT). Programs with low thresholds
+    (TN~HOPE, GA~HOPE) have high eligibility across all quintiles;
+    programs with high thresholds (SD~Opportunity, FL~Academic Scholars)
+    have low eligibility concentrated in the top quintiles. The
+    eligibility ratio $P(\text{Eligible} \mid Q1) / P(\text{Eligible}
+    \mid Q5)$ ranges from 0.49 (TN) to 0.22 (FL Academic).
+  \end{minipage}
+\end{figure}
+
+\noindent These eligibility rates provide the empirical foundation for
+the model's predictions about which programs generate progressive
+versus regressive sorting. Programs where $P(\text{Eligible} \mid Q1)$
+is large enough to generate meaningful enrollment responses among
+low-income students (TN, GA, FL~Medallion) are predicted to produce
+progressive composition shifts. Programs where $P(\text{Eligible}
+\mid Q1)$ is near zero (FL~Academic, SD) are predicted to produce
+regressive shifts. The cross-state results in Sections~\ref{sec:results}
+and~\ref{sec:discussion} confirm these predictions.
+
 \subsection{Summary Statistics}
 
 Table~\ref{tab:summary_stats} reports summary statistics for the primary
