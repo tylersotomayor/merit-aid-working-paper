@@ -20,7 +20,7 @@ percentage points by the 1991 birth cohort, while mean parental income
 rank falls. The pre-treatment fit is excellent for both outcomes, with
 near-zero root mean squared prediction error.
 
-\begin{figure}[t]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_q1.pdf}
   \caption{Actual vs.\ Synthetic Tennessee: Bottom-Quintile Share at
@@ -32,14 +32,15 @@ near-zero root mean squared prediction error.
     \textit{Notes:} Synthetic Tennessee is constructed from a weighted
     combination of 22 non-merit states using the method of
     \textcite{abadie2010synthetic}, matching on pre-treatment
-    bottom-quintile share (1980--1984). The vertical dashed line
-    indicates the first HOPE-eligible birth cohort. The two series track
-    closely in the pre-treatment period, then diverge after HOPE
-    implementation. Data: \textcite{chetty2020mobility}.
+    bottom-quintile share (1981--1986). The 1980 cohort is excluded
+    (see Section~\ref{sec:empirical_strategy}). The vertical dashed line
+    marks $t^* = 1987$. The two series track closely in the
+    pre-treatment period (RMSPE $< 0.001$), then diverge sharply after
+    HOPE implementation. Data: \textcite{chetty2020mobility}.
   \end{minipage}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_rank.pdf}
   \caption{Actual vs.\ Synthetic Tennessee: Mean Parental Income Rank at
@@ -50,7 +51,7 @@ near-zero root mean squared prediction error.
     \footnotesize
     \textit{Notes:} Synthetic Tennessee constructed as in
     Figure~\ref{fig:synth_trends_par_q1}, matching on pre-treatment
-    mean parental income rank (1980--1984). Tennessee's actual parental
+    mean parental income rank (1981--1986). Tennessee's actual parental
     income rank diverges downward after HOPE implementation, consistent
     with the progressive compositional shift documented in the
     bottom-quintile share results. Data: \textcite{chetty2020mobility}.
