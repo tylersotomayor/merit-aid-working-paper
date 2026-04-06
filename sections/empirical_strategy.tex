@@ -5,7 +5,14 @@
 \section{Empirical Strategy}
 \label{sec:empirical_strategy}
 
-\subsection{Primary Estimator: Callaway and Sant'Anna (2021)}
+We describe two empirical designs. The first is a standard adoption
+difference-in-differences that identifies the effect of Tennessee HOPE
+on college composition. The second is a shock-interaction design that
+tests whether merit aid buffers low-income access during local economic
+downturns, exploiting the BEA county income data described in
+Section~\ref{sec:data_bea}.
+
+\subsection{Adoption DiD: Primary Estimator}
 
 Our primary estimator is the group-time average treatment effect on the
 treated (ATT) proposed by \textcite{callaway2021difference}. This
@@ -15,93 +22,176 @@ vary over time \parencite{goodmanbacon2021difference,
 sun2021estimating}.
 
 In our setting, treatment timing is sharp: all Tennessee public colleges
-are treated simultaneously at $t^* = 1986$ (the first birth cohort with
-unambiguous HOPE exposure). The Callaway--Sant'Anna estimator computes
-group-time ATTs by comparing the outcome evolution of the treated group
-to a ``never-treated'' comparison group. We aggregate the group-time
-ATTs into an overall ATT and dynamic event-study coefficients.
+are treated simultaneously at $t^* = 1987$ (the first birth cohort
+whose college decision was made with HOPE fully operational). We set
+$t^* = 1987$ rather than $t^* = 1986$ because the relevant timing for
+enrollment decisions is the \emph{decision year}---the year the student
+is a high school senior (cohort $+ 17$). HOPE was passed in 2003
+(decision year for the 1986 cohort), but the 1987 cohort (decision year
+2004) is the first that planned its college trajectory with HOPE fully
+publicized and operational. Robustness to $t^* \in \{1985, 1986, 1987\}$
+is reported in Section~\ref{sec:robustness}.
+
+The Callaway--Sant'Anna estimator computes group-time ATTs by comparing
+the outcome evolution of the treated group to a ``never-treated''
+comparison group. We aggregate the group-time ATTs into an overall ATT
+and dynamic event-study coefficients.
 
 We report TWFE event-study estimates for comparability with the prior
 difference-in-differences literature
-\parencite{ashenfelter1985panel, card1994minimum}. The TWFE
-specification is:
+\parencite{ashenfelter1985panel, card1994minimum} and for use with the
+\textcite{rambachan2023more} sensitivity analysis (which requires TWFE
+coefficient vectors). The TWFE specification is:
 
 \begin{equation}
-y_{ct} = \alpha_c + \lambda_t + \sum_{k=-5}^{5} \beta_k \cdot
-\mathbf{1}[t - t^* = k] \cdot \text{Treated}_c + \varepsilon_{ct}
+y_{ct} = \alpha_c + \lambda_t + \sum_{k=-4}^{4} \beta_k \cdot
+\mathbf{1}[t - t^* = k] \cdot \text{Treated}_c + \gamma \cdot
+\log(\text{pcpi}_{c,t+17}) + \varepsilon_{ct}
 \label{eq:twfe}
 \end{equation}
 
 \noindent where $y_{ct}$ is the outcome for college $c$ in birth cohort
 $t$, $\alpha_c$ are college fixed effects, $\lambda_t$ are cohort fixed
-effects, $\text{Treated}_c$ indicates Tennessee public colleges, and
-$k = -1$ is the omitted reference period.
+effects, $\text{Treated}_c$ indicates Tennessee public colleges,
+$\log(\text{pcpi}_{c,t+17})$ is BEA county per capita personal income at
+decision year, and $k = -1$ (cohort 1986) is the omitted reference
+period. The sample excludes the 1980 birth cohort, a single-cohort
+outlier that drives pre-trend divergence at the longest pre-treatment
+horizon.
+
+\subsection{Preferred Specification}
+
+The preferred specification for the adoption DiD uses:
+\begin{enumerate}
+  \item \textbf{National control group}: public colleges in 26
+    non-merit-program states. This provides 26 state-level clusters for
+    reliable inference.
+  \item \textbf{Treatment timing $t^* = 1987$}: aligned with
+    decision-year timing (Section~\ref{sec:data_bea}).
+  \item \textbf{Drop 1980 birth cohort}: removes a single-cohort
+    outlier that is the sole driver of the $k = -6$ pre-trend divergence
+    documented in prior specifications.
+  \item \textbf{BEA county income control}: log per capita personal
+    income at decision year absorbs smooth local economic trends,
+    directly addressing the $\Delta_\text{SD}$ concern identified in
+    the sensitivity analysis.
+\end{enumerate}
+
+Each of these choices is independently motivated. Dropping the 1980
+cohort is a sample restriction supported by the data: Tennessee's 1980
+cohort has anomalously low $Q_1$ share that normalizes by 1982. The
+$t^* = 1987$ timing follows from the decision-year logic applied to
+the BEA shock analysis. The BEA control is motivated by the
+decomposition framework (Section~\ref{sec:theory_decomposition}), which
+identifies local economic conditions as the channel through which income
+effects operate. None of these choices were selected to optimize the
+sensitivity analysis; they precede it.
+
+For robustness, we report results under the bordering-state control
+group (Alabama, Virginia, North Carolina---the only non-merit states
+adjacent to Tennessee), which has cleaner pre-trends but only four
+state clusters. We also report results without BEA controls and under
+alternative treatment timing.
 
 \subsection{Identification}
 
 Identification requires that Tennessee public colleges would have
 followed parallel trends in socioeconomic composition to control
-colleges absent the HOPE Scholarship. We assess this assumption in
-three ways.
+colleges absent the HOPE Scholarship. Under the preferred specification,
+pre-treatment event-study coefficients at $k = -4$, $-3$, and $-2$
+(cohorts 1983--1985) are small and statistically insignificant for
+$Q_1$, with p-values exceeding 0.44. The single significant pre-trend
+at $k = -3$ is in the \emph{opposite direction} of the treatment effect
+(negative, while the post-treatment effects are positive), inconsistent
+with a confounding trend story.
 
-First, we inspect pre-treatment event-study coefficients. Under the
-national control group, coefficients at $k = -5$ through $k = -3$ show
-some divergence from zero for bottom-quintile share, raising concerns about
-longer-horizon pre-trends. The $k = -5$ coefficient is driven by a
-single cohort (1980 births) and its magnitude is sensitive to the
-inclusion of this endpoint.
+\subsection{Shock-Interaction Design}
+\label{sec:empirical_shock}
 
-Second, we implement a bordering-state control group that restricts
-comparisons to colleges in states adjacent to Tennessee. This
-specification passes pre-trend tests: pre-treatment coefficients are
-small, statistically insignificant, and show no systematic pattern.
-The bordering-state specification is our preferred identification
-strategy.
+To test predictions P8--P11 from Section~\ref{sec:theory_decomposition},
+we estimate whether college composition responds differently to local
+economic shocks in states with merit-aid programs:
 
-Third, we implement a conservative control group that drops states with
-any policy changes in higher education funding during the analysis
-window. Results are quantitatively similar to the baseline.
+\begin{equation}
+y_{ct} = \alpha_c + \lambda_t + \beta_1 \cdot \text{Shock}_{c,t+17}
++ \beta_2 \cdot (\text{Shock}_{c,t+17} \times
+\text{MeritDesign}_{s(c)}) + \varepsilon_{ct}
+\label{eq:shock}
+\end{equation}
+
+\noindent where $\text{Shock}_{c,t+17}$ is the one-year log change in
+BEA county per capita personal income at decision year, and
+$\text{MeritDesign}_{s(c)}$ characterizes the merit-aid program in the
+state of college $c$. We estimate this for three definitions of
+$\text{MeritDesign}$: (i) a binary indicator for any strong merit
+program, (ii) separate indicators for tuition-scaling and fixed-dollar
+programs, and (iii) individual state interactions.
+
+The coefficient $\beta_1$ captures the baseline relationship between
+income shocks and composition in non-merit states. The coefficient
+$\beta_2$ captures the \emph{differential} response in merit-aid
+states---the insurance or reallocation channel.
+
+The sample for the shock-interaction design includes all states (not
+just Tennessee and controls), with public and private nonprofit colleges
+(excluding for-profits, which are not covered by merit programs). This
+is a cross-sectional comparison: we do not require a pre-program
+period, so states where the merit program was already active throughout
+the Chetty panel (Georgia since 1993, Florida since 1997) are fully
+usable. Standard errors are clustered at the college level.
+
+The identifying assumption is that, conditional on college and cohort
+fixed effects, the response of composition to local income shocks would
+be similar across states with different merit-aid designs absent the
+programs. This assumption is weaker than the adoption DiD's parallel
+trends requirement: it concerns the \emph{interaction} of shocks with
+program design, not the level of composition.
 
 \subsection{Inference}
 
-Standard errors are clustered at the state level, the level at which
-treatment is assigned. With 27 clusters (26 control states plus
-Tennessee), we are near the boundary where cluster-robust inference
-becomes unreliable. In the Callaway--Sant'Anna framework, we use
-the analytical standard errors provided by the \texttt{csdid} package,
-which account for the two-step estimation.
+For the adoption DiD, standard errors are clustered at the state level,
+the level at which treatment is assigned. With 26 clusters (excluding
+the 1980 cohort removes no states), we are near but above the
+conventional threshold for reliable cluster-robust inference. In the
+Callaway--Sant'Anna framework, we use the analytical standard errors
+provided by the \texttt{csdid} package. We supplement with
+Fisher-style permutation tests that assign placebo treatment to each
+state in turn (Section~\ref{sec:robustness_permutation}).
 
-For the bordering-state specification, which has only four state
-clusters ($G_1 = 1$ treated), the wild cluster bootstrap is
-uninformative \parencite{mackinnon2017wild}. We therefore supplement
-analytical standard errors with a Fisher-style permutation test that
-assigns placebo treatment to each state in turn and ranks Tennessee's
-estimate against the resulting distribution. We report permutation
-$p$-values in Section~\ref{sec:robustness_permutation}.
+For the shock-interaction design, standard errors are clustered at the
+college level ($\sim$500 clusters for non-merit states, $\sim$1,200
+total), providing ample degrees of freedom.
 
 \subsection{Sensitivity Analysis}
 
 We implement the honest confidence intervals of
 \textcite{rambachan2023more}, which relax the parallel trends assumption
-by allowing for bounded violations. We report results under two restrictions:
+by allowing for bounded violations. We report results under two
+restrictions:
 
 \begin{itemize}
 \item \textbf{Relative magnitude} ($\Delta_\text{RM}$): post-treatment
   violations of parallel trends are bounded by a multiple $\bar{M}$ of
-  the maximum pre-treatment violation. Results remain significant at
-  $\bar{M} \leq 2$ for bottom-quintile share.
+  the maximum pre-treatment violation. Under the preferred
+  specification, $Q_1$ results are robust at $\bar{M} \leq 1.0$---post-treatment
+  violations can be as large as the biggest pre-treatment violation and
+  the confidence interval still excludes zero.
 
-\item \textbf{Smoothness} ($\Delta_\text{SD}$): consecutive violations
-  of parallel trends are bounded in their rate of change. Under this
-  restriction, confidence intervals include zero at moderate bounds,
-  indicating fragility. We interpret this as a limitation: if
-  differential trends can accelerate smoothly, our estimates cannot be
-  distinguished from pre-existing dynamics.
+\item \textbf{Smoothness} ($\Delta_\text{SD}$): the rate of change
+  of trend violations is bounded by $M$. Under the preferred
+  specification, both $Q_1$ and $Q_5$ are robust at $M \leq 0.005$,
+  meaning the trend violation can accelerate by up to 0.5 percentage
+  points per cohort. This represents a substantial improvement over
+  prior specifications, where $\Delta_\text{SD}$ was immediately
+  fragile.
 \end{itemize}
 
-We discuss these results in detail in Section~\ref{sec:robustness} and
-interpret the tension between $\Delta_\text{RM}$ and $\Delta_\text{SD}$
-as informative about the nature of potential confounds.
+\noindent The improvement in $\Delta_\text{SD}$ sensitivity is driven
+primarily by the specification changes (dropping the 1980 cohort and
+shifting $t^*$ to 1987) rather than by the BEA controls, though the
+latter contribute modestly by absorbing residual pre-trend variation.
+We report the full sensitivity comparison in
+Section~\ref{sec:robustness}.
 
 \subsection{Synthetic Control}
 

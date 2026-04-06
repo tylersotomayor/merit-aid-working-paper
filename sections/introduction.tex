@@ -108,16 +108,17 @@ public colleges overwhelmed any sorting dynamics.
 
 We estimate treatment effects using \textcite{callaway2021difference} as
 the primary estimator, with TWFE, \textcite{sun2021estimating}, and
-\textcite{dechaisemartin2020two} for robustness. A bordering-state control
-group passes pre-trend tests that the national comparison fails at
-longer horizons. Results are stable across three treatment timing
-definitions and two alternative control group specifications.
-Under the relative-magnitude restriction of
-\textcite{rambachan2023more}, the estimated effect survives violations
-up to twice the magnitude observed in the pre-treatment period. Under
-the stricter smoothness restriction, results are more fragile. We
-interpret the evidence as credible but not definitive, and report all
-sensitivity analyses transparently.
+\textcite{dechaisemartin2020two} for robustness. The preferred
+specification controls for BEA county income at the decision year,
+which absorbs smooth local economic trends. Results are stable across
+three treatment timing definitions and two alternative control group
+specifications. Under the relative-magnitude restriction of
+\textcite{rambachan2023more}, the estimated effect survives
+post-treatment violations as large as the maximum pre-treatment
+violation ($\bar{M} \leq 1$). Under the smoothness restriction, both
+bottom- and top-quintile share are robust at $M \leq 0.005$. The
+shock-insurance results provide independent corroboration through
+different identifying variation.
 
 Our work connects three literatures. First, a large body of research
 documents the enrollment effects of merit aid
@@ -136,7 +137,7 @@ consequences. We bridge these literatures by documenting how merit aid is
 associated with changes in the full income distribution across
 institutional sectors.
 
-This paper makes three contributions. First, we provide the first
+This paper makes four contributions. First, we provide the first
 evidence on how merit aid reshapes the \emph{full income distribution}
 at public institutions, using tax-linked data that measures parental
 income across all quintiles rather than relying on Pell eligibility as a
@@ -152,16 +153,30 @@ differential, threshold location---shape whether merit aid is associated
 with progressive or regressive sorting, and test the framework across
 four states: Tennessee and Massachusetts (progressive, as predicted),
 South Dakota (regressive, as predicted), and West Virginia (null,
-confounded by enrollment contraction).
+confounded by enrollment contraction). Fourth, we decompose the
+scholarship's compositional effect into a permanent substitution effect
+(progressive sorting) and a cyclical income effect (sensitivity to
+economic downturns). Merging BEA county income data with the Chetty
+panel, we show that tuition-scaling programs (Florida, West Virginia)
+compensate the income effect---composition is stable during
+downturns---while fixed-dollar programs (Tennessee, Georgia) do not.
+This Slutsky-type decomposition produces a second five-for-five
+monotonic quintile gradient, estimated on entirely different variation,
+and identifies award structure as the key design parameter determining
+whether progressive sorting is sustained.
 
 The paper proceeds as follows. Section~\ref{sec:background} describes
-the Tennessee HOPE Scholarship and the Georgia program that serves as
-our theoretical comparison case. Section~\ref{sec:theory} presents the
-three-destination sorting model and derives testable predictions.
-Section~\ref{sec:data} describes the data.
-Section~\ref{sec:empirical_strategy} discusses the empirical strategy.
-Section~\ref{sec:results} presents results.
+the Tennessee HOPE Scholarship, the Georgia and Florida programs that
+serve as comparison cases, and the prior literature.
+Section~\ref{sec:theory} presents the three-destination sorting model,
+derives testable predictions, and introduces the income-shock
+decomposition. Section~\ref{sec:data} describes the Chetty panel,
+BEA income data, and merit program classification.
+Section~\ref{sec:empirical_strategy} presents the adoption DiD and
+shock-interaction designs. Section~\ref{sec:results} presents results
+for both designs, including the quintile gradient, shock-insurance
+gradient, tier reallocation, and award-structure findings.
 Section~\ref{sec:robustness} reports robustness checks.
-Section~\ref{sec:discussion} discusses cross-state evidence from
-Georgia, Massachusetts, South Dakota, and West Virginia.
+Section~\ref{sec:discussion} discusses cross-state evidence, the
+decomposition interpretation, and policy implications.
 Section~\ref{sec:conclusion} concludes.

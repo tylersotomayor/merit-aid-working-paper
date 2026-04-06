@@ -47,19 +47,60 @@ sorting mechanism---the institutional context prevents the
 three-destination mechanism from operating---rather than a contradiction
 of the Tennessee finding.
 
-\subsection{Mobility Implications}
-\label{sec:mobility}
+\subsection{The Decomposition Interpretation}
+\label{sec:discussion_decomposition}
 
-A natural concern is whether the progressive composition shift came at
-the cost of diminished economic returns. If public colleges absorb more
-bottom-quintile students but institutional quality declines, the net
-welfare effect is ambiguous. Figure~\ref{fig:tn_mobility_trends} offers
-a first, descriptive reassurance. The upward mobility rate---the
-probability that a student from the bottom income quintile reaches the
-top quintile---at Tennessee public colleges tracked below the national
-control average in the pre-HOPE period and converged toward it in the
-post-period. Despite substantial access expansion, upward mobility at
-Tennessee public colleges did not decline.
+The adoption DiD and the shock-interaction analysis are two empirical
+manifestations of a single theoretical framework. The adoption DiD
+captures the \emph{substitution effect} of introducing a merit
+scholarship: the permanent relative price reduction that generates
+predictions P1--P7. The shock-interaction analysis captures the
+\emph{income effect} of economic fluctuations: the cyclical sensitivity
+of composition to local affordability shocks, which the scholarship
+may or may not compensate (predictions P8--P11).
+
+The Tennessee finding illustrates both components. HOPE generates a
+progressive compositional shift on average (substitution effect:
+$+1.26$ pp for $Q_1$) but does not stabilize that shift during economic
+downturns (income effect: zero aggregate buffering, $p = 0.97$).
+\textcite{bruce2014jackpot} document the mechanism: HOPE creates
+marginal four-year students---low-income families who attend four-year
+colleges only because the scholarship makes it affordable---who
+downshift to two-year colleges when family income falls. The
+scholarship keeps them in the system but does not prevent tier
+reallocation (Proposition~\ref{prop:tier}).
+
+Florida Bright Futures, by contrast, generates both. The Medallion
+tier's percentage-based award (75\% of tuition) produces progressive
+sorting and compensates the income effect: the five-for-five insurance
+gradient shows near-complete neutralization of income shocks across
+the entire quintile distribution. West Virginia's PROMISE (full tuition
+coverage) similarly buffers. The distinguishing feature is not
+threshold height or program generosity in dollars, but whether the
+award \emph{scales with costs}---the theoretical distinction formalized
+in Proposition~\ref{prop:compensation}.
+
+This interpretation reconciles an otherwise puzzling pattern. Tennessee
+and Georgia---the two states with the highest per-student merit-aid
+expenditures---show the weakest shock buffering. Florida and West
+Virginia---with lower per-student expenditures---show the strongest.
+Raw generosity does not determine resilience; award structure does.
+
+\subsection{Mobility Implications}
+
+Descriptive evidence suggests that the progressive composition shift
+did not come at the cost of diminished economic returns.
+Figure~\ref{fig:tn_mobility_trends} shows that upward mobility
+rates at Tennessee public colleges tracked below the national control
+average in the pre-HOPE period and converged toward it afterward.
+Despite substantial access expansion, upward mobility did not
+decline.\footnote{We explored an instrumental variables strategy
+using a shift-share (Bartik) instrument, but pre-trend tests reveal
+that the instrument predicts mobility outcomes in the pre-treatment
+period (joint $F = 20.6$, $p < 0.001$), indicating an exclusion
+restriction violation. The conservative reading from the descriptive
+evidence is that colleges whose bottom-quintile representation rose
+did not experience worse average outcomes.}
 
 \begin{figure}[H]
   \centering
@@ -79,113 +120,10 @@ Tennessee public colleges did not decline.
   \end{minipage}
 \end{figure}
 
-We complement this descriptive evidence with an instrumental variables
-strategy that provides suggestive evidence on whether composition
-shifts are associated with changes in downstream mobility. We
-construct a shift-share (Bartik) instrument that predicts each
-college's bottom-quintile share using the interaction of its
-pre-HOPE income composition with commuting-zone-level trends in the
-income distribution of college-going families.
-
-The first stage is strong. The CZ-level Bartik instrument predicts
-bottom-quintile share with a Kleibergen--Paap $F$-statistic of 119,
-well above conventional weak-instrument thresholds.
-Figure~\ref{fig:iv_decomposition} displays the actual and
-Bartik-predicted composition paths for Tennessee public colleges. The
-two series track closely in the pre-period and diverge after HOPE:
-actual bottom-quintile share rises above the demographically predicted
-level, with the wedge representing HOPE's policy-attributable
-contribution to the progressive shift.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{fig_iv_decomposition.pdf}
-  \caption{Actual vs.\ Bartik-Predicted Composition: Tennessee Public
-    Colleges}
-  \label{fig:iv_decomposition}
-  \vspace{1mm}
-  \begin{minipage}{0.85\textwidth}
-    \footnotesize
-    \textit{Notes:} Bartik prediction uses pre-HOPE college quintile
-    shares $\times$ commuting-zone-level income trends.
-    The shaded area between actual and predicted
-    composition is the policy-attributable shift. Vertical dashed line
-    marks treatment onset ($t^* = 1986$). Data:
-    \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
-
-Table~\ref{tab:iv_second_stage} reports 2SLS estimates for four child
-outcomes, instrumenting bottom-quintile share with the CZ-level
-Bartik. Instrumented increases in bottom-quintile representation are
-associated with higher upward mobility ($0.114$, SE $= 0.021$,
-$p < 0.001$) and lower zero-earnings rates ($-0.225$, SE $= 0.061$,
-$p < 0.001$). Mean child earnings rank rises ($0.136$, $p = 0.089$),
-and average outcomes among observed bottom-quintile students do not
-decline ($0.141$, $p = 0.057$). The sign pattern is coherent across
-all four outcomes: no measure suggests that expanded access worsened
-downstream returns.
-
-\input{tables/tab_iv_second_stage.tex}
-
-The 2SLS estimates are substantially larger than the corresponding OLS
-coefficients, which could reflect negative selection in OLS (colleges
-gaining Q1 students through self-selection tend to be lower-quality),
-attenuation from measurement error, or the fact that the instrument
-identifies a local average treatment effect at the margin of colleges
-whose composition shifts because of local demographic change. We do
-not take a strong position on which source dominates.
-
-Several limitations warrant caution.  First, the exclusion restriction
-requires that CZ income trends affect mobility outcomes only through
-college composition. We cannot fully rule out the possibility that
-local demographic shifts also directly affect college quality, local
-labor-market conditions, or other determinants of student outcomes.
-The estimates should therefore be interpreted as evidence on the
-consequences of composition shifts induced by local demographic
-change, rather than as a fully general estimate of the causal effect
-of increasing low-income representation.
-
-Second, pre-trend tests reveal that the Bartik instrument predicts
-mobility outcomes in the pre-treatment period as well (joint $F =
-20.6$, $p < 0.001$ for upward mobility). This suggests that the
-instrument captures pre-existing correlations between local income
-trends and college-level mobility, not solely post-treatment
-compositional effects. Adding state-by-cohort fixed effects---which
-absorb all state-level time-varying confounds---attenuates the
-mobility coefficient from $0.114$ to $0.096$ while the first-stage
-$F$-statistic remains strong at 85, and the zero-earnings result
-is similarly stable ($-0.195$). Mean child rank, however, changes
-sign under this more demanding specification, indicating sensitivity
-to the control structure.
-
-Third, outcomes defined with respect to the bottom-quintile subgroup
-(upward mobility, Q1-conditional earnings rank) are subject to a
-compositional interpretation: when bottom-quintile share rises, the
-set of enrolled Q1 students may change, and the measured outcome may
-reflect this changing composition rather than a treatment effect on a
-stable population.
-
-Leave-one-out college diagnostics show that no single institution
-drives the results: the mobility coefficient ranges from $0.113$ to
-$0.114$ across all 51 leave-one-out iterations. Enrollment-weighted
-estimates ($0.127$) are similar to unweighted estimates ($0.114$).
-
-Taking these results together, the IV estimates provide suggestive
-evidence that instrumented composition shifts do not reduce downstream
-mobility outcomes. The consistency across four conceptually distinct
-measures---upward mobility, mean child rank, Q1-conditional rank, and
-zero-earnings risk---strengthens this interpretation even though the
-instrument does not satisfy a clean exclusion restriction. The most
-conservative reading is that colleges whose bottom-quintile
-representation rose for instrumented reasons did not experience worse
-average outcomes, whether measured by upward mobility, child earnings,
-or labor force attachment.
-
 \subsection{Gender Heterogeneity and the Eligibility Channel}
 \label{sec:gender_mechanism}
 
-Our three-destination model predicts that compositional sorting operates
+The three-destination model predicts that compositional sorting operates
 through the price channel: the scholarship $S$ reduces the effective
 cost of public college for students whose ability exceeds the
 eligibility threshold $\tau$. We exploit a sharp implication of this
@@ -348,48 +286,75 @@ for.
 \begin{table}[H]
 \centering
 \begin{threeparttable}
-\caption{Program Design and Direction of Compositional Sorting}
+\caption{Program Design, Compositional Sorting, and Economic Resilience}
 \label{tab:design_direction}
-\begin{tabular}{llccl}
+\small
+\begin{tabular}{llcccl}
 \toprule
-State & Program & Threshold & Public Subsidy & Direction \\
+State & Program & Threshold & Award Type & Adoption DiD & Shock Buffer \\
 \midrule
-Tennessee & HOPE & Moderate (3.0 GPA) & Large & Progressive \\
-Massachusetts & Adams & Moderate (top 25\%) & Large & Progressive \\
-Georgia & HOPE & Moderate (3.0 GPA) & Muted (Pell offset) & Regressive \\
-South Dakota & Opp.\ Scholarship & High (ACT 24+) & Small & Regressive \\
-West Virginia & PROMISE & Moderate (3.0 GPA) & Large & Null$^\dagger$ \\
+Tennessee & HOPE & 3.0 GPA & Fixed \$ & Progressive & None \\
+Massachusetts & Adams & Top 25\% & Tuition waiver & Progressive & Moderate$^a$ \\
+Florida & Bright Futures & 3.0 GPA$^b$ & \% of tuition & --- $^c$ & Strong \\
+West Virginia & PROMISE & 3.0 GPA & Full tuition & Null$^\dagger$ & Strong \\
+Georgia & HOPE & 3.0 GPA & Reduced & Regressive & None \\
+South Dakota & Opp.\ Schol. & ACT 24+ & Fixed \$ & Regressive & None \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Notes:} ``Threshold'' indicates the stringency of
-  academic eligibility. ``Public Subsidy'' indicates the size and
-  sector-concentration of the scholarship. ``Direction'' reports the
-  observed sign of the bottom-quintile share effect. $^\dagger$West
-  Virginia's null result reflects enrollment contraction rather than
-  a failure of the sorting mechanism
-  (Section~\ref{sec:discussion}).
+\item \textit{Notes:} ``Adoption DiD'' reports the direction of the
+  bottom-quintile share effect from the program adoption
+  difference-in-differences. ``Shock Buffer'' reports whether the
+  program buffers composition during local income downturns
+  (Section~\ref{sec:results_insurance}). $^a$Massachusetts shows
+  significant buffering on par\_rank ($p = 0.008$) but not $Q_1$
+  ($p = 0.14$). $^b$Medallion Scholars tier (operative for broad
+  coverage). $^c$Florida's program predates the Chetty panel; no
+  adoption DiD is estimable. $^\dagger$West Virginia's null adoption
+  result reflects enrollment contraction. Its shock-buffer result
+  ($+0.096$, $p = 0.024$) is the strongest among all programs.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-\subsection{Generalizability}
+\subsection{Generalizability and Policy Implications}
 
-The four-state comparison extends the evidence beyond a single treated
-state and addresses the concern that Tennessee's result may be
-idiosyncratic. Massachusetts independently produces a progressive shift
-of similar magnitude under similar program parameters, while South
-Dakota's regressive shift confirms the model's prediction that high
-thresholds and small subsidies generate the opposite pattern. The
-three-destination model organizes all five cases (including Georgia's
-documented regressive pattern) through a common set of design
-parameters: eligibility threshold location, public-private subsidy
-differential, and need-based aid interactions.
+The cross-state evidence extends beyond a single treated state.
+Massachusetts independently produces a progressive shift of similar
+magnitude under similar program parameters, while South Dakota's
+regressive shift confirms the model's prediction under high thresholds.
+The shock-insurance analysis adds Florida and West Virginia as new
+testable cases---states whose programs predate the Chetty panel and
+were previously untestable through adoption DiD.
 
-The WV non-replication highlights an important scope condition:
+The three-destination model, extended with the Slutsky decomposition,
+organizes all cases through a common set of design parameters:
+eligibility threshold (determines \emph{who} is eligible), public-private
+subsidy differential (determines \emph{where} students sort),
+Pell interaction (determines \emph{whether} low-income students benefit),
+and award structure (determines \emph{whether} progressive sorting
+persists during economic fluctuations). No single parameter is
+sufficient; the combination determines both the direction and
+durability of compositional change.
+
+For policymakers designing merit-aid programs to promote low-income
+access, the findings suggest four principles. First, the eligibility
+threshold must be low enough that substantial numbers of low-income
+students qualify (moderate GPA, OR rather than AND conditions).
+Second, the subsidy must be concentrated at public institutions to
+create a meaningful price differential. Third, the program should not
+offset existing need-based aid (no Pell displacement). Fourth---and
+this is the new contribution of the shock-insurance analysis---the
+award should scale with tuition costs (percentage-based or full-tuition
+coverage) rather than provide a fixed dollar amount. Fixed-dollar
+awards generate progressive sorting but leave it vulnerable to
+economic downturns; tuition-scaling awards generate progressive sorting
+\emph{and} sustain it.
+
+The WV non-replication highlights an additional scope condition:
 program design is necessary but not sufficient. Enrollment contraction
-at WV public colleges overwhelmed any compositional dynamics,
-suggesting that the model's predictions require a stable or growing
-public system with absorptive capacity for the sorting mechanism to
-operate.
+at WV public colleges overwhelmed compositional dynamics in the
+adoption DiD, though WV PROMISE shows the strongest shock-buffering
+effect among all programs. A stable or growing public system with
+absorptive capacity is required for the sorting mechanism to operate.

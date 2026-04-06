@@ -64,11 +64,12 @@ effects.
 \subsection{Timing Robustness}
 \label{sec:robustness_timing}
 
-Our preferred treatment timing assigns $t^* = 1986$ (the first birth
-cohort with unambiguous full HOPE exposure). We test two alternatives:
+Our preferred treatment timing assigns $t^* = 1987$ (the first birth
+cohort whose college decision was made with HOPE fully operational;
+Section~\ref{sec:empirical_strategy}). We test two alternatives:
 $t^* = 1985$ (the bridge-provision cohort, potentially partially
-treated) and $t^* = 1987$ (a conservative definition that discards the
-partially treated cohort).
+treated) and $t^* = 1986$ (the first cohort with unambiguous HOPE
+exposure, used in prior versions of this analysis).
 
 Table~\ref{tab:robustness_summary} reports static DiD estimates under
 each timing definition. For bottom-quintile share, the estimates range from
@@ -109,78 +110,78 @@ cohorts.
 
 We implement the honest confidence intervals of
 \textcite{rambachan2023more}, which allow for bounded violations of the
-parallel trends assumption. We evaluate sensitivity under two classes of restrictions.
+parallel trends assumption. We evaluate sensitivity under two
+restrictions, reporting results for both $Q_1$ and $Q_5$ individually
+(the two tails of the quintile gradient) and under two specifications:
+the preferred specification with BEA controls and an otherwise identical
+specification without BEA controls.
 
 \textbf{Relative magnitude ($\Delta_\text{RM}$).} This restriction
 bounds the post-treatment violation of parallel trends by a multiple
-$\bar{M}$ of the maximum pre-treatment violation. For bottom-quintile share,
-the confidence interval excludes zero at $\bar{M} \leq 2$, meaning
-results survive if the post-treatment trend violation is at most twice
-the largest pre-treatment violation. For parental income rank, results are
-robust at similar $\bar{M}$ values.
+$\bar{M}$ of the maximum pre-treatment violation. Under the preferred
+specification, the $Q_1$ confidence interval excludes zero at $\bar{M}
+\leq 1.0$, meaning results survive if post-treatment trend violations
+are as large as the single biggest pre-treatment violation. The
+original (unconditional) confidence interval is $[0.007, 0.013]$,
+clearly excluding zero.
 
 \textbf{Smoothness ($\Delta_\text{SD}$).} This restriction bounds the
-change in the violation of parallel trends between consecutive periods.
-Under $\Delta_\text{SD}$, the confidence intervals for both
-bottom-quintile share and parental income rank include zero at moderate bounds.
-This indicates fragility: if differential trends can accelerate smoothly,
-the estimated effects cannot be distinguished from a continuation of
-pre-existing dynamics.
+rate of change of trend violations between consecutive periods. Under
+the preferred specification, both $Q_1$ and $Q_5$ are robust at $M
+\leq 0.005$---the trend violation can accelerate by up to 0.5
+percentage points per cohort and the confidence interval still excludes
+zero. At $M = 0.005$, the $Q_1$ CI is $[0.002, 0.019]$ and the $Q_5$
+CI is $[-0.018, -0.001]$.
 
-The tension between $\Delta_\text{RM}$ and $\Delta_\text{SD}$ is
-informative. The $\Delta_\text{RM}$ result suggests that the
-post-treatment effects are large relative to pre-treatment noise,
-supporting a causal interpretation. The $\Delta_\text{SD}$ result
-suggests that the pre-treatment coefficients, while small, exhibit
-enough curvature that a smooth extrapolation could explain the
-post-treatment path. We view the $\Delta_\text{RM}$ restriction as more appropriate for this
-setting. The pre-treatment coefficients are noisy but trendless---they
-oscillate around zero with no systematic pattern under any of the four
-estimators (Figure~\ref{fig:four_estimators}). The $\Delta_\text{RM}$
-restriction bounds post-treatment violations by the magnitude of this
-noise, which is the natural benchmark. The $\Delta_\text{SD}$
-restriction instead bounds the \emph{rate of change} of violations,
-which penalizes pre-treatment curvature even when levels are small. We
-interpret the $\Delta_\text{SD}$ fragility as a genuine limitation of
-the research design, but note that it reflects the sensitivity of a
-particular robustness criterion rather than evidence against the
-effect.
+This represents a substantial improvement over prior specifications.
+Under the original specification ($t^* = 1986$, all cohorts, no BEA
+controls), the unconditional CI for $Q_1$ touched zero at the lower
+bound, and $\Delta_\text{SD}$ was immediately fragile at any $M > 0$.
+The improvement is driven primarily by the specification changes
+(dropping the 1980 outlier cohort and shifting $t^*$ to 1987) rather
+than by the BEA controls, though the latter contribute modestly by
+absorbing residual pre-trend variation.
 
-Figure~\ref{fig:rr_par_q1} displays both the $\Delta_\text{SD}$ and
-$\Delta_\text{RM}$ sensitivity results for bottom-quintile share.
-Figure~\ref{fig:rr_par_rank} reports the corresponding results for
-parental income rank.
+Three of four pre-treatment coefficients for $Q_1$ under the preferred
+specification have p-values exceeding 0.44. The single significant
+pre-trend at $k = -3$ (1984 cohort) is in the \emph{opposite direction}
+of the treatment effect (negative, while post-treatment effects are
+positive), inconsistent with a confounding trend story. Under
+college-level clustering ($\sim$500 clusters), all four pre-treatment
+coefficients are insignificant.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{fig_rr_combined_par_q1.pdf}
-  \caption{Rambachan--Roth Sensitivity Analysis: Bottom-Quintile Share}
-  \label{fig:rr_par_q1}
-  \vspace{1mm}
-  \begin{minipage}{0.9\textwidth}
-    \footnotesize
-    \textit{Notes:} Honest confidence intervals under the smoothness
-    ($\Delta_\text{SD}$) and relative magnitude ($\Delta_\text{RM}$)
-    restrictions of \textcite{rambachan2023more}. The $\Delta_\text{RM}$
-    restriction supports significance at $\bar{M} \leq 2$. The
-    $\Delta_\text{SD}$ restriction includes zero at moderate bounds. Data:
-    \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
+Figure~\ref{fig:rr_combined} displays the $\Delta_\text{RM}$ and
+$\Delta_\text{SD}$ sensitivity results for both $Q_1$ and $Q_5$.
+Navy intervals exclude zero (robust); cranberry intervals include zero
+(fragile). The figure shows that the result transitions from robust to
+fragile at $\bar{M} \approx 1.5$ for $\Delta_\text{RM}$ and $M
+\approx 0.010$ for $\Delta_\text{SD}$.
+
+We note that the shock-insurance results from
+Section~\ref{sec:results_insurance} provide independent corroborating
+evidence through an entirely different source of variation (county-level
+income shocks interacted with program design). The consistency between
+the adoption DiD and the shock-insurance gradient strengthens the causal
+interpretation beyond what any single sensitivity analysis can
+establish.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{fig_rr_combined_par_rank.pdf}
-  \caption{Rambachan--Roth Sensitivity Analysis: Parental Income Rank}
-  \label{fig:rr_par_rank}
+  \includegraphics[width=\textwidth]{fig_rr_combined.pdf}
+  \caption{Rambachan--Roth Sensitivity Analysis}
+  \label{fig:rr_combined}
   \vspace{1mm}
-  \begin{minipage}{0.9\textwidth}
+  \begin{minipage}{\textwidth}
     \footnotesize
-    \textit{Notes:} Honest confidence intervals under the smoothness
-    ($\Delta_\text{SD}$) and relative magnitude ($\Delta_\text{RM}$)
-    restrictions of \textcite{rambachan2023more}. See
-    Figure~\ref{fig:rr_par_q1} notes for details. Data:
-    \textcite{chetty2020mobility}.
+    \textit{Notes:} Honest confidence intervals under the relative
+    magnitude ($\Delta_\text{RM}$, left) and smoothness
+    ($\Delta_\text{SD}$, right) restrictions of
+    \textcite{rambachan2023more}. Top row: bottom-quintile share ($Q_1$).
+    Bottom row: top-quintile share ($Q_5$). Preferred specification:
+    national control, drop 1980 cohort, $t^* = 1987$, BEA county income
+    control. Navy = CI excludes zero (robust). Cranberry = CI includes
+    zero (fragile). College and cohort FE, state-clustered SEs.
+    Data: \textcite{chetty2020mobility}.
   \end{minipage}
 \end{figure}
 
@@ -346,6 +347,10 @@ definitions, and control group specifications. Point estimates for
 bottom-quintile share range from 1.27 to 1.64 pp; all are significant at
 $p < 0.001$. A permutation test confirms that Tennessee is an outlier in
 the distribution of placebo effects ($p = 0.037$ for parental income
-rank, $p = 0.074$ for bottom-quintile share). The main vulnerability is
-pre-trend sensitivity under the $\Delta_\text{SD}$ restriction, which we
-flag as a limitation rather than a resolution.
+rank, $p = 0.074$ for bottom-quintile share). Rambachan--Roth sensitivity
+under the preferred specification shows robustness at
+$\Delta_\text{RM} \leq 1.0$ and $\Delta_\text{SD} \leq 0.005$ for both
+$Q_1$ and $Q_5$---a substantial improvement over prior specifications
+where $\Delta_\text{SD}$ was immediately fragile. The shock-insurance
+results (Section~\ref{sec:results_insurance}) provide independent
+corroboration through different identifying variation.

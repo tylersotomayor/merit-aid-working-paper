@@ -77,6 +77,65 @@ concerns, we construct count outcomes by multiplying quintile shares by
 cohort size. For example, Q1 count $= Q_1 \times N_{ct}$, where
 $N_{ct}$ is total enrollment at college $c$ in cohort $t$.
 
+\subsection{Bureau of Economic Analysis: County Income}
+\label{sec:data_bea}
+
+To control for local economic conditions and to test the
+income-shock predictions of Section~\ref{sec:theory_decomposition},
+we merge county-level personal income data from the Bureau of Economic
+Analysis (BEA). We use the CAINC1 table (Personal Income Summary),
+which reports annual per capita personal income for every U.S.\ county
+from 1969 to the present.
+
+We match each college-cohort observation to the BEA county of the
+college's location using five-digit FIPS codes from the IPEDS
+institutional characteristics file. The match rate is 98.4\%. For each
+college-cohort, we measure the log of county per capita income in the
+\emph{decision year}---defined as the birth cohort year plus 17 (the
+year the student is a high school senior making enrollment decisions).
+This timing reflects our finding that economic conditions at age 17,
+not age 18, predict college composition shifts
+(Section~\ref{sec:results_insurance}).
+
+The primary BEA variable is the one-year log change in county per
+capita income at decision year. In the baseline specification for the
+adoption DiD, we use the log income level as a time-varying control
+to absorb smooth local economic trends.
+
+\subsection{Merit Aid Program Classification}
+\label{sec:data_programs}
+
+For the cross-state shock-insurance analysis, we classify state
+merit-aid programs following \textcite{sjoquist2015state}, who identify
+nine ``strong'' merit programs with high participation rates and
+substantial award amounts: Florida, Georgia, Kentucky, Louisiana,
+Nevada, New Mexico, South Carolina, Tennessee, and West Virginia. We
+add Massachusetts (Adams Scholarship, 2004), which
+\textcite{sjoquist2015state} excluded only because it post-dated their
+sample period but is active during our Chetty panel window.
+
+A key distinction for our theoretical predictions is award structure.
+Table~\ref{tab:programs} classifies the ten strong merit programs by
+whether the award scales with tuition costs
+(\emph{tuition-scaling}: covering a fixed percentage of tuition or
+providing a tuition waiver) or provides a fixed dollar amount
+(\emph{fixed-dollar}: a constant nominal award that erodes relative to
+costs over time). This classification determines whether the
+scholarship compensates the income effect of economic shocks
+(Proposition~\ref{prop:compensation}).
+
+An important reclassification: Florida's Bright Futures Scholarship is
+often characterized by its top tier (Florida Academic Scholars:
+3.5~GPA and 1270~SAT). During our study period (1998--2009), the
+operative tier for broad coverage was the Medallion Scholars award,
+which required only a 3.0~weighted GPA and 970~SAT (old scale,
+approximately the 50th percentile) and covered 75\% of tuition at
+public institutions. Approximately 30--35\% of Florida high school
+graduates received some tier of Bright Futures during this period.
+The Medallion tier's GPA threshold is comparable to Tennessee HOPE's
+3.0 requirement, but its percentage-based award structure differs
+fundamentally.
+
 \subsection{Summary Statistics}
 
 Table~\ref{tab:summary_stats} reports summary statistics for the primary
@@ -125,6 +184,48 @@ Colleges & \multicolumn{2}{c}{26} & \multicolumn{2}{c}{$\sim$500} \\
   fraction of students whose parents are in the indicated quintile of
   the national income distribution. Observations are at the
   college-by-cohort level. Data: \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Strong Merit Aid Programs: Design Parameters}
+\label{tab:programs}
+\begin{tabular}{llllcc}
+\toprule
+State & Program & Threshold & Award Structure & \% FTE & \$/FTE \\
+\midrule
+\multicolumn{6}{l}{\textit{Tuition-Scaling Awards}} \\
+\quad Florida & Bright Futures & 3.0 GPA / 970 SAT & 75--100\% of tuition & 24.3 & \$581 \\
+\quad West Virginia & PROMISE & 3.0 GPA + 22 ACT & Full tuition + fees & 9.8 & \$485 \\
+\quad Massachusetts & Adams & Top 25\% MCAS & Tuition waiver & --- & --- \\
+\quad Louisiana & TOPS & 2.5 GPA + 20 ACT & Tuition + fees & 23.2 & \$709 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Fixed-Dollar Awards}} \\
+\quad Tennessee & HOPE & 3.0 GPA or 21 ACT & \$3,000--\$6,000 & 26.9 & \$920 \\
+\quad Georgia & HOPE & 3.0 GPA & Full tuition (reduced) & 30.7 & \$1,191 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Other Strong Programs}} \\
+\quad Kentucky & KEES & Graduated by GPA & Per credit hour & 35.7 & \$493 \\
+\quad South Carolina & LIFE & 3.0 GPA + 1100 SAT & \$5,000 + tuition & 18.4 & \$888 \\
+\quad Nevada & Millennium & 3.25 GPA & \$80/credit & 25.6 & \$327 \\
+\quad New Mexico & Lottery Success & 2.5 GPA (college) & Tuition coverage & 20.7 & \$495 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} Strong merit programs per \textcite{sjoquist2015state},
+  plus Massachusetts. ``\% FTE'' is awardees as a percentage of
+  full-time-equivalent students (2010). ``\$/FTE'' is grant expenditures per
+  FTE student (2010). Florida's threshold refers to the Medallion Scholars
+  tier (operative for broad coverage during 1998--2009); the Academic
+  Scholars tier requires 3.5~GPA + 1270~SAT. Georgia's HOPE included a Pell
+  offset during 1993--2000 that eliminated the effective subsidy for
+  bottom-quintile families. Tennessee's HOPE requires FAFSA filing.
+  Award structure classification follows the theoretical distinction in
+  Proposition~\ref{prop:compensation}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
