@@ -22,23 +22,20 @@
  & (1) & (2) \\
  & Bottom-Quintile Share & Parental Income Rank \\
 \midrule
-ATT & $0.0127^{***}$ & $-0.0133^{***}$ \\
-    & $(0.0026)$ & $(0.0020)$ \\
+ATT & $0.0126^{***}$ & $-0.0081^{***}$ \\
+    & $(0.0023)$ & $(0.0018)$ \\
 \addlinespace
-95\% CI & $[0.0075,\; 0.0179]$ & $[-0.0172,\; -0.0094]$ \\
+95\% CI & $[0.0080,\; 0.0171]$ & $[-0.0117,\; -0.0046]$ \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
 \item \textit{Notes:} Aggregate average treatment effect on the treated
-  from \textcite{callaway2021difference}. The comparison group consists
-  of never-treated public colleges in 26 non-merit-program states.
-  Treatment onset: $t^* = 1986$ (baseline specification). Under the
-  preferred specification ($t^* = 1987$, drop 1980 cohort, BEA county
-  income control), the ATT for bottom-quintile share is $+0.0126$
-  (SE $= 0.0023$, $p < 0.001$) and for parental income rank is
-  $-0.0081$ (SE $= 0.0018$, $p < 0.001$). Analytical standard errors
-  in parentheses. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  from \textcite{callaway2021difference}. Preferred specification:
+  $t^* = 1987$, 1980 cohort dropped, BEA county income control.
+  The comparison group consists of never-treated public colleges in
+  26 non-merit-program states. Analytical standard errors in
+  parentheses. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
   Data: \textcite{chetty2020mobility}.
 \end{tablenotes}
 \end{threeparttable}
@@ -58,10 +55,10 @@ ATT & $0.0127^{***}$ & $-0.0133^{***}$ \\
  & (1) & (2) & (3) & (4) & (5) \\
  & Q1 (Bottom) & Q2 & Q3 & Q4 & Q5 (Top) \\
 \midrule
-TN Public $\times$ Post & $0.0154^{***}$ & $0.0114^{***}$ & $0.0047^{*}$ & $-0.0136^{***}$ & $-0.0179^{***}$ \\
- & $(0.0030)$ & $(0.0025)$ & $(0.0018)$ & $(0.0021)$ & $(0.0025)$ \\
+TN Public $\times$ Post & $0.0142^{***}$ & $0.0071^{***}$ & $0.0032^{*}$ & $-0.0091^{***}$ & $-0.0154^{***}$ \\
+ & $(0.0029)$ & $(0.0023)$ & $(0.0017)$ & $(0.0018)$ & $(0.0019)$ \\
 \addlinespace
-Observations & 6,289 & 6,289 & 6,289 & 6,289 & 6,289 \\
+Observations & 5,630 & 5,630 & 5,630 & 5,630 & 5,630 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
@@ -69,11 +66,11 @@ Observations & 6,289 & 6,289 & 6,289 & 6,289 & 6,289 \\
 \item \textit{Notes:} Each column reports the TWFE static
   difference-in-differences estimate from a separate regression in which
   the dependent variable is the share of students from the indicated
-  income quintile. College and cohort fixed effects included. Standard
-  errors clustered at the state level in parentheses (27 clusters).
-  Quintile shares sum to one by construction. Post = birth cohort
-  $\geq$ 1986. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
-  Data: \textcite{chetty2020mobility}.
+  income quintile. Preferred specification: $t^* = 1987$, 1980 cohort
+  dropped, BEA county income control. College and cohort fixed effects
+  included. Standard errors clustered at the state level in parentheses.
+  Quintile shares sum to one by construction. $^{***}p<0.01$,
+  $^{**}p<0.05$, $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -93,24 +90,25 @@ Observations & 6,289 & 6,289 & 6,289 & 6,289 & 6,289 \\
 \cmidrule(lr){2-4} \cmidrule(lr){5-7}
 Outcome & Coef. & SE & $N$ & Coef. & SE & $N$ \\
 \midrule
-Bottom-quintile share & $0.0181^{***}$ & $(0.0034)$ & 4,016 & $0.0070^{**}$ & $(0.0024)$ & 2,259 \\
-Parental income rank & $-0.0173^{***}$ & $(0.0028)$ & 4,016 & $-0.0186^{***}$ & $(0.0021)$ & 2,259 \\
+Bottom-quintile share & $0.0159^{***}$ & $(0.0034)$ & 3,632 & $0.0084^{***}$ & $(0.0022)$ & 1,985 \\
+Parental income rank & $-0.0124^{***}$ & $(0.0025)$ & 3,632 & $-0.0180^{***}$ & $(0.0017)$ & 1,985 \\
 \addlinespace
-Q1 count & $5.73$ & $(5.56)$ & 4,016 & $19.60^{**}$ & $(5.53)$ & 2,259 \\
-Q5 count & $-22.94^{**}$ & $(6.24)$ & 4,016 & $-39.23^{*}$ & $(17.55)$ & 2,259 \\
-Total count & $-58.41$ & $(35.54)$ & 4,016 & $138.52^{***}$ & $(34.66)$ & 2,259 \\
+Q1 count & $3.11$ & $(7.89)$ & 3,632 & $22.19^{***}$ & $(6.50)$ & 1,985 \\
+Q5 count & $-16.80^{**}$ & $(6.84)$ & 3,632 & $-36.04^{**}$ & $(17.33)$ & 1,985 \\
+Total count & $-48.80$ & $(45.63)$ & 3,632 & $146.07^{***}$ & $(39.23)$ & 1,985 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
 \item \textit{Notes:} TWFE static difference-in-differences estimates
   estimated separately for two-year (community colleges) and four-year
-  institutions. College and cohort fixed effects included. Standard
-  errors clustered at the state level in parentheses. Two-year colleges
-  show displacement (composition shifts, enrollment unchanged);
-  four-year colleges show expansion (enrollment grows, composition
-  shifts). Post = birth cohort $\geq$ 1986. $^{***}p<0.01$,
-  $^{**}p<0.05$, $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
+  institutions. Preferred specification: $t^* = 1987$, 1980 cohort
+  dropped, BEA county income control. College and cohort fixed effects
+  included. Standard errors clustered at the state level in parentheses.
+  Two-year colleges show displacement (composition shifts, enrollment
+  unchanged); four-year colleges show expansion (enrollment grows,
+  composition shifts). $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -125,19 +123,20 @@ Total count & $-58.41$ & $(35.54)$ & 4,016 & $138.52^{***}$ & $(34.66)$ & 2,259 
 \toprule
 Outcome & Coef. & SE & $p$-value & $N$ \\
 \midrule
-Bottom-quintile share & $0.0011$ & $(0.0011)$ & $0.305$ & 5,336 \\
-Parental income rank & $-0.0046^{*}$ & $(0.0018)$ & $0.016$ & 5,336 \\
+Bottom-quintile share & $0.0001$ & $(0.0011)$ & $0.914$ & 5,010 \\
+Parental income rank & $-0.0043^{**}$ & $(0.0018)$ & $0.023$ & 5,010 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Notes:} \textcite{callaway2021difference} aggregate ATT
-  comparing Tennessee private colleges to private colleges in 26
-  non-merit-program control states. The null effect on bottom-quintile
-  share indicates that top-quintile students exiting Tennessee public
-  colleges do not re-sort to in-state private institutions. Analytical
-  standard errors in parentheses. $^{***}p<0.01$, $^{**}p<0.05$,
-  $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
+\item \textit{Notes:} TWFE static DiD comparing Tennessee private
+  colleges to private colleges in non-merit-program control states.
+  Preferred specification: $t^* = 1987$, 1980 cohort dropped. The null
+  effect on bottom-quintile share indicates that top-quintile students
+  exiting Tennessee public colleges do not re-sort to in-state private
+  institutions. Standard errors clustered at state level in parentheses.
+  $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -152,19 +151,19 @@ Parental income rank & $-0.0046^{*}$ & $(0.0018)$ & $0.016$ & 5,336 \\
 \toprule
 Outcome & Coef. & SE & $p$-value & $N$ \\
 \midrule
-Bottom-quintile share & $0.0142^{***}$ & $(0.0037)$ & $<0.001$ & 571 \\
-Parental income rank & $-0.0214^{***}$ & $(0.0032)$ & $<0.001$ & 571 \\
+Bottom-quintile share & $0.0156^{***}$ & $(0.0037)$ & $<0.001$ & 537 \\
+Parental income rank & $-0.0193^{***}$ & $(0.0033)$ & $<0.001$ & 537 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
 \item \textit{Notes:} TWFE static difference-in-differences restricted
   to Tennessee institutions only. Treated = Tennessee public colleges;
-  control = Tennessee private colleges. College and cohort fixed effects
-  included. Standard errors in parentheses. The small sample reflects
-  the within-state restriction ($N = 571$). Post = birth cohort
-  $\geq$ 1986. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
-  Data: \textcite{chetty2020mobility}.
+  control = Tennessee private colleges. Preferred specification:
+  $t^* = 1987$, 1980 cohort dropped. College and cohort fixed effects
+  included. Robust standard errors in parentheses. The small sample
+  reflects the within-state restriction ($N = 537$). $^{***}p<0.01$,
+  $^{**}p<0.05$, $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
