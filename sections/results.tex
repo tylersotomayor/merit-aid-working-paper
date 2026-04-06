@@ -58,37 +58,33 @@ near-zero root mean squared prediction error.
 \end{figure}
 
 Table~\ref{tab:cs_main} reports the Callaway--Sant'Anna aggregate ATT
-estimates. Following HOPE implementation, the share of bottom-quintile
-students at Tennessee public colleges increased by 1.27 percentage points (SE =
-0.0026, $p < 0.001$) and decreased mean parental income rank by 1.33
-percentage points (SE = 0.0020, $p < 0.001$). Both effects are precisely estimated
-and economically meaningful: the bottom-quintile share increase
-represents a 9.2\% gain relative to the pre-treatment mean of 13.8\%.
-In levels, the effect corresponds to approximately 11.2 additional
-bottom-quintile students per cohort at each Tennessee public college and
-34.4 fewer top-quintile students per cohort
+estimates under the preferred specification. Following HOPE
+implementation, the share of bottom-quintile students at Tennessee
+public colleges increased by 1.26 percentage points (SE = 0.0023,
+$p < 0.001$) and mean parental income rank decreased by 0.81
+percentage points (SE = 0.0018, $p < 0.001$). Both effects are
+precisely estimated and economically meaningful: the bottom-quintile
+share increase represents a 9.1\% gain relative to the pre-treatment
+mean of 13.8\%. In levels, the effect corresponds to approximately
+10.3 additional bottom-quintile students per cohort at each Tennessee
+public college and 28.6 fewer top-quintile students per cohort
 (Section~\ref{sec:results_mechanisms}). Across 26 treated public
-colleges, this implies roughly 290 additional low-income students and
-890 fewer high-income students per birth cohort gaining access to or
-exiting the public system. The effect grows with exposure horizon:
-by $k = +5$ (the 1991 birth cohort), the treatment effect reaches
-$+3.1$ percentage points, a 22\% gain over baseline. This growing path
-reflects intensifying program impact on successive cohorts rather than
-mechanical accumulation, since each cohort's composition is measured
-independently (Section~\ref{sec:data}).
+colleges, this implies roughly 270 additional low-income students and
+740 fewer high-income students per birth cohort gaining access to or
+exiting the public system.
 
 For comparison, the static TWFE estimator yields slightly larger point
-estimates---1.54 pp for bottom-quintile share and $-1.85$ pp for
-mean parental income rank (Table~\ref{tab:twfe_did})---consistent with the
-known upward bias of TWFE in the presence of dynamic treatment effects.
-The qualitative conclusions are identical across estimators.
+estimates---1.42 pp for bottom-quintile share and $-1.48$ pp for
+mean parental income rank (Table~\ref{tab:twfe_did})---consistent with
+the known upward bias of TWFE in the presence of dynamic treatment
+effects. The qualitative conclusions are identical across estimators.
 
 These share changes reflect real compositional sorting rather than an
 enrollment artifact. We confirm in Section~\ref{sec:results_mechanisms}
-that the number of bottom-quintile students per cohort increases by 11.2
-($p = 0.014$), the number of top-quintile students per cohort decreases
-by 34.4 ($p < 0.001$), and total enrollment is unchanged ($-2.1$,
-$p = 0.93$). The public sector absorbs more lower-income students while
+that the number of bottom-quintile students per cohort increases by 10.3
+($p = 0.063$), the number of top-quintile students per cohort decreases
+by 28.6 ($p = 0.003$), and total enrollment is unchanged ($+8.1$,
+$p = 0.78$). The public sector absorbs more lower-income students while
 losing upper-income students, with the total headcount held constant.
 
 \subsection{Event Study Dynamics}
@@ -132,11 +128,11 @@ The results reveal a strikingly monotonic gradient:
 \toprule
 Quintile & Coefficient & SE & \\
 \midrule
-Q1 (bottom) & $+0.0154$ & $(0.0030)$ & $^{***}$ \\
-Q2 & $+0.0114$ & $(0.0025)$ & $^{***}$ \\
-Q3 & $+0.0047$ & $(0.0018)$ & $^{*}$ \\
-Q4 & $-0.0136$ & $(0.0021)$ & $^{***}$ \\
-Q5 (top) & $-0.0179$ & $(0.0025)$ & $^{***}$ \\
+Q1 (bottom) & $+0.0142$ & $(0.0029)$ & $^{***}$ \\
+Q2 & $+0.0071$ & $(0.0023)$ & $^{***}$ \\
+Q3 & $+0.0032$ & $(0.0017)$ & $^{*}$ \\
+Q4 & $-0.0091$ & $(0.0018)$ & $^{***}$ \\
+Q5 (top) & $-0.0154$ & $(0.0019)$ & $^{***}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -187,8 +183,8 @@ ordering of point estimates is preserved across all specifications.}
 \end{figure}
 
 Figure~\ref{fig:quintile_gradient} displays the quintile gradient
-graphically. The coefficients descend smoothly from Q1 ($+1.3$ pp)
-through Q3 ($+0.2$ pp) to Q5 ($-1.1$ pp). The quintile-specific
+graphically. The coefficients descend smoothly from Q1 ($+1.4$ pp)
+through Q3 ($+0.3$ pp) to Q5 ($-1.5$ pp). The quintile-specific
 event studies (Figure~\ref{fig:quintile_event_studies}, Appendix)
 confirm that all five quintiles exhibit gradual divergence after
 treatment onset, with three estimators agreeing on the direction and
@@ -228,12 +224,12 @@ provide supporting evidence but should be interpreted with appropriate
 caution given the wider confidence intervals.}
 
 The critical finding is that total enrollment at Tennessee public
-colleges is essentially unchanged after HOPE ($-2.1$ students per
-cohort, $p = 0.93$). This rules out the denominator-artifact
+colleges is essentially unchanged after HOPE ($+8.1$ students per
+cohort, $p = 0.78$). This rules out the denominator-artifact
 explanation: the share changes cannot be driven by enrollment
 contraction. The directional evidence is consistent with real
-compositional sorting: Q1 count increases by 11.2 per cohort ($p =
-0.014$) and Q5 count decreases by 34.4 per cohort ($p < 0.001$),
+compositional sorting: Q1 count increases by 10.3 per cohort ($p =
+0.063$) and Q5 count decreases by 28.6 per cohort ($p = 0.003$),
 indicating that more bottom-quintile students enter the public sector
 while more top-quintile students exit, with the total headcount held
 constant (Table~\ref{tab:level_decomp}).
@@ -243,19 +239,20 @@ constant (Table~\ref{tab:level_decomp}).
 Table~\ref{tab:tier_het} reports separate estimates for two-year and
 four-year institutions.
 
-At two-year colleges, the bottom-quintile share increases by 1.81
+At two-year colleges, the bottom-quintile share increases by 1.59
 percentage points (SE = 0.0034, $p < 0.001$) and mean parental income
-rank falls by 1.73 percentage points. These institutions show a loss of 22.9 Q5
-students per cohort ($p = 0.001$) but no significant change in total
-enrollment. The evidence is consistent with \emph{displacement}: lower-income
-students replace higher-income students at community colleges, with the
-overall seat count unchanged.
+rank falls by 1.24 percentage points. These institutions show a loss of
+16.8 Q5 students per cohort ($p = 0.022$) but no significant change in
+total enrollment. The evidence is consistent with \emph{displacement}:
+lower-income students replace higher-income students at community
+colleges, with the overall seat count unchanged.
 
-At four-year colleges, the bottom-quintile share increases by a smaller
-0.70 percentage points (SE = 0.0024, $p = 0.008$), but total enrollment
-increases by 138.5 students per cohort ($p < 0.001$). Four-year
-institutions gain 19.6 Q1 students and lose 39.2 Q5 students. The evidence is consistent with \emph{expansion}: these institutions
-grow their enrollment while simultaneously experiencing downward
+At four-year colleges, the bottom-quintile share increases by 0.84
+percentage points (SE = 0.0022, $p < 0.001$), and total enrollment
+increases by 146.1 students per cohort ($p = 0.001$). Four-year
+institutions gain 22.2 Q1 students and lose 36.0 Q5 students. The
+evidence is consistent with \emph{expansion}: these institutions grow
+their enrollment while simultaneously experiencing downward
 compositional sorting.
 
 The two tiers thus exhibit different adjustment channels, consistent
@@ -270,13 +267,13 @@ public-private substitution within Tennessee, we would expect a mirror
 image at Tennessee private colleges: an increase in top-quintile share
 and mean parental income rank. We test this directly.
 
-Table~\ref{tab:spillover} reports Callaway--Sant'Anna ATTs comparing
-Tennessee private colleges to private colleges in control states. The
-effect on bottom-quintile share is 0.11 percentage points (SE = 0.0011,
-$p = 0.30$)---small, positive, and statistically insignificant. The
-effect on mean parental income rank is $-0.46$ percentage points (SE = 0.0018, $p =
-0.016$), marginally significant but in the same direction as the
-public-sector effect rather than the opposite direction.
+Table~\ref{tab:spillover} reports estimates comparing Tennessee private
+colleges to private colleges in control states. The effect on
+bottom-quintile share is 0.01 percentage points (SE = 0.0011,
+$p = 0.91$)---essentially zero. The effect on mean parental income rank
+is $-0.43$ percentage points (SE = 0.0018, $p = 0.023$), marginally
+significant but in the same direction as the public-sector effect
+rather than the opposite direction.
 
 Tennessee private colleges do not absorb the top-quintile students who
 leave the public sector. This is consistent with Prediction P4: the
@@ -315,10 +312,10 @@ classification.
 \subsubsection{Where Did Top-Quintile Students Go?}
 
 The tier heterogeneity results (Table~\ref{tab:tier_het}) shed light on
-the Q5 exit pattern. Two-year colleges lost 22.9 Q5 students per cohort
-($p = 0.001$) with no significant enrollment change, while four-year
-colleges lost 39.2 Q5 students ($p = 0.034$) alongside enrollment
-\emph{growth} of 138.5 students ($p < 0.001$). The Q5 decline is not
+the Q5 exit pattern. Two-year colleges lost 16.8 Q5 students per cohort
+($p = 0.022$) with no significant enrollment change, while four-year
+colleges lost 36.0 Q5 students ($p = 0.048$) alongside enrollment
+\emph{growth} of 146.1 students ($p = 0.001$). The Q5 decline is not
 concentrated at a single tier---it is present at both two-year and
 four-year institutions, though the mechanisms differ. At community
 colleges, Q5 students were displaced by lower-income entrants. At
@@ -334,13 +331,14 @@ As a complementary test, we restrict the sample to Tennessee
 institutions only and compare public to private colleges within the
 state. This eliminates any concerns about cross-state confounds.
 
-The within-Tennessee DiD estimate for bottom-quintile share is 1.42
-percentage points (SE = 0.0037, $p < 0.001$) and for mean parental income rank
-is $-2.14$ percentage points (SE = 0.0032, $p < 0.001$). These estimates are
-slightly larger than the cross-state estimates, consistent with
-Tennessee private colleges serving as a clean within-state control.
-The sample is small ($N = 571$), but the effects are precisely estimated
-and confirm that the composition shift is specific to the public sector.
+The within-Tennessee DiD estimate for bottom-quintile share is 1.56
+percentage points (SE = 0.0037, $p < 0.001$) and for mean parental
+income rank is $-1.93$ percentage points (SE = 0.0033, $p < 0.001$).
+These estimates are slightly larger than the cross-state estimates,
+consistent with Tennessee private colleges serving as a clean
+within-state control. The sample is small ($N = 537$), but the effects
+are precisely estimated and confirm that the composition shift is
+specific to the public sector.
 
 \subsection{Spatial Heterogeneity}
 \label{sec:spatial}
@@ -661,7 +659,7 @@ empirical test and result.
 Prediction & Test & Section & Result \\
 \midrule
 \multicolumn{4}{l}{\textit{Static Compositional Predictions (Adoption DiD)}} \\
-P1: Q1 share rises & C\&S ATT & \ref{sec:results_main} & $+1.26$ pp ($p < 0.001$) \\
+P1: Q1 share rises & C\&S ATT & \ref{sec:results_main} & $+1.3$ pp ($p < 0.001$) \\
 P2: Monotonic gradient & Quintile decomp. & \ref{sec:results_quintile} & 5/5 ordered \\
 P3: Sorting, not expansion & Level decomp. & \ref{sec:results_mechanisms} & Total $\Delta = -2.1$ ($p = 0.93$) \\
 P4: No mirror at privates & Spillover test & \ref{sec:results_mechanisms} & Null ($p = 0.30$) \\
