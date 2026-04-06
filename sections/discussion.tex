@@ -142,7 +142,7 @@ eligibility rate.
 
 We test this prediction using gender-specific parental income measures
 from \textcite{chetty2020mobility}. We pool Tennessee and Massachusetts
-as treated states (staggered at $t^* = 1986$ and $t^* = 1987$
+as treated states (staggered at $t^* = 1987$ and $t^* = 1988$
 respectively) against all remaining states and estimate a stacked
 interaction model with college-by-gender fixed effects,
 cohort-by-gender fixed effects, and state-specific linear gender
@@ -151,25 +151,31 @@ pre-existing differential drift in male versus female composition
 across states, which is present in the raw data and produces
 misleading pre-trend violations without detrending. After detrending,
 the pre-treatment gender interaction is statistically
-indistinguishable from zero ($p = 0.913$).} The female-specific
-progressive shift is $0.87$ percentage points larger than the male
-shift (SE $= 0.0010$, $p < 0.001$). The effect grows over time:
-the gender differential is $+0.75$ percentage points in the first
-three post-treatment cohorts ($p < 0.001$) and $+0.98$ percentage
-points in later cohorts ($p = 0.002$).
+indistinguishable from zero ($p = 0.913$).}
 
-The gender differential concentrates in the bottom-quintile share rather
-than the mean parental income rank. The mean parental income rank gender gap is $-0.16$
-percentage points ($p = 0.130$), statistically indistinguishable from
-zero. This pattern is consistent with the eligibility channel operating
-primarily at the access margin. Low-income women newly eligible for HOPE
-face the sharpest change in their effective choice set: without HOPE,
-many would not attend a four-year public institution; with HOPE, the
-price drops to zero. Higher-income students attend college regardless
-of HOPE, so the gender-eligibility mechanism has little traction in the
-middle and upper quintiles. The resulting composition shift is
-concentrated in the tail of the income distribution---visible in share
-measures but diluted in the mean.
+The female-specific progressive shift in bottom-quintile share is
+0.87~pp larger than the male shift (SE $= 0.10$~pp, $p < 0.001$).
+To interpret: the overall HOPE effect on $Q_1$ share is approximately
+$+1.3$~pp. The gender decomposition reveals that this average masks
+substantial heterogeneity---the female-specific effect is roughly
+$+1.7$~pp while the male-specific effect is roughly $+0.8$~pp. Women
+benefit twice as much as men, consistent with their higher eligibility
+rate (40\% vs.\ 30\% clearing the 3.0 GPA threshold). The gender gap
+grows over time: $+0.75$~pp in the first three post-treatment cohorts
+($p < 0.001$) and $+0.98$~pp in later cohorts ($p = 0.002$).
+
+The gender differential concentrates in the bottom-quintile share
+rather than the mean parental income rank. The par\_rank gender gap is
+$-0.16$~pp ($p = 0.130$), statistically indistinguishable from zero.
+This pattern is consistent with the eligibility channel operating
+primarily at the access margin. Low-income women newly eligible for
+HOPE face the sharpest change in their effective choice set: without
+HOPE, many would not attend a four-year public institution; with HOPE,
+the price drops substantially. Higher-income students attend college
+regardless of HOPE, so the gender-eligibility mechanism has little
+traction in the middle and upper quintiles. The resulting composition
+shift is concentrated in the tail of the income distribution---visible
+in share measures but diluted in the mean.
 
 This test has a key identification advantage over the main DiD
 specification. Male and female students attend the same colleges in the
@@ -204,6 +210,20 @@ treatment onset, with the female series rising more steeply.
     \textcite{chetty2020mobility}, Table~5.
   \end{minipage}
 \end{figure}
+
+The gender channel also connects to the tier reallocation mechanism
+documented in Section~\ref{sec:results_tier_reallocation}. The
+shock-interaction analysis finds that the four-year anti-buffering
+effect is substantially larger for female students ($\hat\beta_2 =
+-0.128$, $p = 0.005$) than for male students ($-0.054$, $p = 0.151$).
+This is the dynamic counterpart of the static gender result: women
+are more likely to qualify for HOPE, more likely to be the marginal
+four-year students the scholarship creates, and therefore more
+sensitive to income shocks at the four-year/two-year margin. The
+scholarship enables their upward tier substitution in good times and
+exposes them to downward reallocation in bad times---precisely the
+income-effect channel formalized in
+Proposition~\ref{prop:tier}.
 
 The gender result provides our most direct test of the
 theoretical mechanism. The three-destination model's price channel
