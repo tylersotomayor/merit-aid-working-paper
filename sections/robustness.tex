@@ -198,28 +198,30 @@ $p$-values for the bordering-state ATT are 0.50 (Webb) and 0.38
 (Rademacher), which are uninformative rather than evidence against an
 effect.
 
-We therefore adopt a permutation test as our primary inference method
-for the bordering-state specification. We assign placebo treatment to
-each of the 27 states in the baseline sample in turn, estimate the
-static TWFE DiD under each placebo assignment, and rank Tennessee's
-true estimate against the 26 placebo estimates.
+We therefore adopt a permutation test as our primary inference method.
+We restrict the permutation to 21 states with balanced panels---the
+same set of colleges observed in every cohort---excluding five states
+with unstable panels (Colorado, Delaware, Indiana, Maine, North
+Carolina, where colleges enter or exit the Chetty data across cohorts)
+and Massachusetts (whose Adams Scholarship constitutes a real merit
+treatment).\footnote{Maine's exclusion is particularly important: it
+  jumps from 3 to 7 public colleges between the pre- and post-periods,
+  with the new entrants (community colleges) having mechanically higher
+  bottom-quintile shares. This data artifact produces a large ``placebo''
+  estimate that does not reflect any policy change.}
+We assign placebo treatment to each of the 21 balanced-panel states
+in turn, estimate the static TWFE DiD under the preferred specification,
+and rank Tennessee's estimate against the resulting distribution.
 
-Tennessee's parental income rank effect ($-0.0185$) is the most
-extreme of all 27 states (permutation $p = 0.037$, significant at the
-5\% level). Tennessee's bottom-quintile share effect ($+0.0154$) is the
-second most extreme, exceeded only by Ohio (permutation $p = 0.074$,
-marginally significant at the 10\%
-level).\footnote{Ohio's large placebo estimate ($+0.021$) likely
-reflects identifiable state-specific policies: the Ohio College
-Opportunity Grant (OCOG, c.\ 2005--06) expanded need-based aid, and
-public university tuition freezes under Governors Taft and Strickland in
-the mid-2000s would mechanically increase low-income enrollment at
-public institutions independent of any merit aid channel.}
-Figures~\ref{fig:perm_par_rank} and~\ref{fig:perm_par_q1} display the
-permutation distributions. Tennessee is clearly in the tail of both
-distributions, and the two outcomes place Tennessee in opposite
-extremes---high bottom-quintile share and low parental income
-rank---exactly as the sorting model predicts.
+Tennessee is the most extreme state for both outcomes: the
+bottom-quintile share effect ($+0.015$) ranks 1st of 21
+(permutation $p = 0.048$), and the parental income rank effect
+($-0.017$) also ranks 1st of 21 ($p = 0.048$). Both are significant
+at the 5\% level. Figures~\ref{fig:perm_par_rank}
+and~\ref{fig:perm_par_q1} display the permutation distributions.
+Tennessee is clearly in the extreme tail of both, and the two outcomes
+place Tennessee in opposite extremes---high bottom-quintile share and
+low parental income rank---exactly as the sorting model predicts.
 
 \begin{figure}[H]
   \centering
@@ -230,11 +232,10 @@ rank---exactly as the sorting model predicts.
   \begin{minipage}{0.9\textwidth}
     \footnotesize
     \textit{Notes:} Distribution of placebo static TWFE DiD estimates
-    obtained by assigning treatment to each of the 27 sample states in
-    turn. The vertical line marks Tennessee's true estimate ($-0.0185$),
-    which is the most extreme of all 27 states (permutation $p = 0.037$).
-    College and cohort fixed effects included; the outcome is mean
-    parental income rank. Data: \textcite{chetty2020mobility}.
+    obtained by assigning treatment to each of 21 balanced-panel states.
+    Preferred specification. The vertical line marks Tennessee's estimate
+    ($-0.017$), which is the most extreme of all 21 states (permutation
+    $p = 0.048$). Data: \textcite{chetty2020mobility}.
   \end{minipage}
 \end{figure}
 
@@ -247,11 +248,10 @@ rank---exactly as the sorting model predicts.
   \begin{minipage}{0.9\textwidth}
     \footnotesize
     \textit{Notes:} Distribution of placebo static TWFE DiD estimates
-    obtained by assigning treatment to each of the 27 sample states in
-    turn. The vertical line marks Tennessee's true estimate ($+0.0154$),
-    which is the second most extreme of all 27 states (permutation
-    $p = 0.074$). Only Ohio ($+0.021$) produces a larger placebo
-    estimate. Data: \textcite{chetty2020mobility}.
+    obtained by assigning treatment to each of 21 balanced-panel states.
+    Preferred specification. The vertical line marks Tennessee's estimate
+    ($+0.015$), which is the most extreme of all 21 states (permutation
+    $p = 0.048$). Data: \textcite{chetty2020mobility}.
   \end{minipage}
 \end{figure}
 
@@ -345,9 +345,9 @@ Table~\ref{tab:robustness_summary} consolidates robustness results. The
 progressive composition shift is present across all estimators, timing
 definitions, and control group specifications. Point estimates for
 bottom-quintile share range from 1.27 to 1.64 pp; all are significant at
-$p < 0.001$. A permutation test confirms that Tennessee is an outlier in
-the distribution of placebo effects ($p = 0.037$ for parental income
-rank, $p = 0.074$ for bottom-quintile share). Rambachan--Roth sensitivity
+$p < 0.001$. A permutation test over 21 balanced-panel states confirms that
+Tennessee is the most extreme state for both outcomes ($p = 0.048$
+for both bottom-quintile share and parental income rank). Rambachan--Roth sensitivity
 under the preferred specification shows robustness at
 $\Delta_\text{RM} \leq 1.0$ and $\Delta_\text{SD} \leq 0.005$ for both
 $Q_1$ and $Q_5$---a substantial improvement over prior specifications
