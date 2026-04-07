@@ -301,6 +301,39 @@ detrending ($+2.3$ pp, $p = 0.037$) even as the average ATT loses
 significance, indicating that the accumulated effect at later cohorts
 survives the linear-trend adjustment.
 
+\paragraph{Contextualizing the estimates.}
+
+The demeaned ATT of $+1.44$ pp is nearly identical to the TWFE
+preferred-specification estimate of $+1.42$ pp
+(Table~\ref{tab:twfe_did}). This agreement is expected: with common
+treatment timing, the Lee--Wooldridge demeaning procedure is
+algebraically equivalent to TWFE
+\parencite{lee2026simple}. The contribution is not a new point
+estimate but new inference: the exact $t$-test ($p = 0.005$) and
+randomization inference ($p = 0.008$) are valid with a single treated
+state and three control states, where cluster-robust standard errors
+are not.
+
+The detrended ATT of $+1.25$ pp is a more conservative estimate that
+allows each college to follow its own linear trajectory before HOPE.
+To put the attenuation in context: the detrended estimate implies
+that Tennessee public colleges enrolled roughly 250 additional
+bottom-quintile students per birth cohort (vs.\ 270 under demeaning),
+still a meaningful reallocation. The 95\% confidence interval
+$[-0.2, +2.7]$ pp is wide but the point estimate is positive and
+the growing dynamic---from $+1.0$ pp at $k = 0$ to $+2.3$ pp at
+$k = +4$ (the latter significant at $p = 0.037$)---indicates an
+effect that accumulates beyond what a linear trend can explain.
+
+The contrast between demeaning and detrending bounds the treatment
+effect. Under standard parallel trends (demeaning), the effect is
+$+1.44$ pp and highly significant. Under the stronger assumption
+that unit-specific linear trends may differ (detrending), the effect
+is $+1.25$ pp and marginally significant. The true effect lies in
+this range. Both estimates are positive, both show a growing
+post-treatment path, and both are consistent with the monotonic
+quintile gradient documented in Section~\ref{sec:results_quintile}.
+
 Table~\ref{tab:lwdid_summary} summarizes the inference comparison.
 
 \begin{table}[H]
