@@ -27,20 +27,18 @@ the baseline. Robustness to $t^* \in \{1985, 1986, 1987\}$ is
 reported in Section~\ref{sec:robustness}; the static estimate is
 insensitive to this choice.
 
-Our primary estimator is the group-time average treatment effect on
-the treated (ATT) proposed by \textcite{callaway2021difference}.
-Because treatment timing is uniform, the C\&S estimator reduces to a
-standard pre/post comparison of Tennessee against never-treated
-states within each cohort. We use it not to address staggered-adoption
-bias---which does not arise here---but as a nonparametric benchmark
-that imposes no functional form on the treatment-effect path. We
-aggregate the group-time ATTs into an overall ATT and dynamic
-event-study coefficients.
-
-We also report TWFE event-study estimates for comparability with the
-prior literature \parencite{ashenfelter1985panel, card1994minimum}
-and for use with the \textcite{rambachan2023more} sensitivity analysis,
-which requires TWFE coefficient vectors. The TWFE specification is:
+Our primary estimator is the two-way fixed effects (TWFE) event study.
+Because treatment timing is sharp---all Tennessee public colleges are
+treated simultaneously---recent heterogeneity-robust estimators
+designed for staggered adoption
+\parencite{callaway2021difference, sun2021estimating} reduce to the
+standard TWFE specification in our setting
+\parencite{roth2026interpreting}. We therefore report TWFE as
+the primary estimator and reserve the
+\textcite{callaway2021difference} estimator for the pooled multi-state
+specification in Section~\ref{sec:discussion}, where staggered
+adoption timing makes it the appropriate choice. The TWFE
+specification is:
 
 \begin{equation}
 y_{ct} = \alpha_c + \lambda_t + \sum_{k=-4}^{4} \beta_k \cdot
@@ -185,9 +183,8 @@ the level at which treatment is assigned. The national specification
 has 27 clusters (26 control states $+$ Tennessee). This is above the
 conventional threshold for reliable cluster-robust inference, though
 the extreme imbalance (one treated cluster vs.\ 26 controls) warrants
-caution \parencite{mackinnon2017wild}. In the Callaway--Sant'Anna
-framework, we use the analytical standard errors provided by the
-\texttt{csdid} package. We supplement with Fisher-style permutation
+caution \parencite{mackinnon2017wild}. We supplement with
+Fisher-style permutation
 tests that assign placebo treatment to each state in turn
 (Section~\ref{sec:robustness_permutation}).
 

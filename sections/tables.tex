@@ -11,11 +11,11 @@
 % ---- Table A.2: Pre/Post DiD ----
 \input{tables/tabledid}
 
-% ---- Table A.3: C&S Main ATT ----
+% ---- Table A.3: C&S Main ATT (for comparison) ----
 \begin{table}[H]
 \centering
 \begin{threeparttable}
-\caption{Callaway--Sant'Anna Aggregate ATT Estimates}
+\caption{Callaway--Sant'Anna ATT Estimates (Robustness)}
 \label{tab:cs_main}
 \begin{tabular}{lcc}
 \toprule
@@ -30,8 +30,11 @@ ATT & $0.0126^{***}$ & $-0.0081^{***}$ \\
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Notes:} Aggregate average treatment effect on the treated
-  from \textcite{callaway2021difference}. Preferred specification:
+\item \textit{Notes:} Aggregate ATT from
+  \textcite{callaway2021difference}, reported for robustness.
+  In this non-staggered setting, C\&S reduces to a nonparametric
+  pre/post comparison \parencite{roth2026interpreting}. Preferred
+  specification:
   $t^* = 1987$, 1980 cohort dropped, BEA county income control.
   The comparison group consists of never-treated public colleges in
   26 non-merit-program states. Analytical standard errors in

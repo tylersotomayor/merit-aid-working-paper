@@ -102,14 +102,6 @@ cell, translates to roughly 270 additional low-income students per
 birth cohort in the Tennessee public system and 740 fewer high-income
 students (Section~\ref{sec:results_mechanisms}).
 
-The Callaway--Sant'Anna estimator yields a slightly smaller point
-estimate (1.26~pp for $Q_1$, $-0.81$~pp for mean rank;
-Table~\ref{tab:cs_main}). Because treatment timing is uniform
-(Section~\ref{sec:empirical_strategy}), C\&S reduces to a
-nonparametric pre/post comparison and serves as a functional-form
-check on the TWFE result. The qualitative conclusions are identical
-across estimators.
-
 These share changes are inconsistent with an enrollment artifact. We
 confirm in Section~\ref{sec:results_mechanisms} that total enrollment
 is unchanged ($+8.1$, $p = 0.78$), the number of bottom-quintile
@@ -121,10 +113,11 @@ upper-income students, with the total headcount held constant.
 \subsection{Event Study Dynamics}
 \label{sec:results_dynamics}
 
-Figure~\ref{fig:four_estimators} presents TWFE event-study estimates
-alongside three heterogeneity-robust alternatives
-(Section~\ref{sec:robustness_estimators}). All four estimators agree
-closely. For bottom-quintile share, the treatment effect is near zero
+Figure~\ref{fig:four_estimators} presents the TWFE event study alongside
+three alternative estimators for comparison
+(Section~\ref{sec:robustness_estimators}). All estimators agree closely,
+as expected in a non-staggered setting \parencite{roth2026interpreting}.
+For bottom-quintile share, the treatment effect is near zero
 at $k = 0$ and grows monotonically to approximately 2.5 percentage
 points by $k = 5$. For parental income rank, the trajectory is
 symmetric: a gradual decline reaching $-2.6$ points by $k = 5$.
@@ -184,11 +177,9 @@ across institutions than middle-quintile shares, which cluster near
 0.20---giving the estimator more identifying variation. The combination
 of larger true effects and greater statistical power at the extremes
 means that Q1 and Q5 are precisely estimated, Q4 is significant, and
-Q2--Q3 are directionally consistent but noisier.\footnote{Under the
-C\&S estimator (which serves as a functional-form check), Q2 is
-significant ($p < 0.001$) but Q3 is not ($p = 0.38$). Under TWFE, all
-five are significant. Under the bordering-state specification with
-three estimators
+Q2--Q3 are directionally consistent but noisier.\footnote{Under TWFE,
+all five quintiles are significant. Under the bordering-state
+specification with alternative estimators
 (Figure~\ref{fig:quintile_event_studies}, Appendix), Q1 and Q5 are
 significant across all estimators, Q4 is significant under TWFE and
 Sun--Abraham, and Q2--Q3 are directionally consistent. The monotonic
@@ -203,8 +194,8 @@ ordering of point estimates is preserved across all specifications.}
   \vspace{1mm}
   \begin{minipage}{0.75\textwidth}
     \footnotesize
-    \textit{Notes:} \textcite{callaway2021difference} ATT estimates for
-    each parental income quintile share. The effect is monotonically
+    \textit{Notes:} TWFE static ATT estimates for each parental income
+    quintile share. The effect is monotonically
     ordered: bottom-quintile students gain the most representation and
     top-quintile students lose the most. Significance is strongest at the
     tails (Q1, Q5) where both the theoretical effect and cross-college

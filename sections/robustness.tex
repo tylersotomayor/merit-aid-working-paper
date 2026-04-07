@@ -8,29 +8,27 @@
 \subsection{Alternative Estimators}
 \label{sec:robustness_estimators}
 
-We compare four heterogeneity-robust difference-in-differences
-estimators: Callaway--Sant'Anna
-\parencite{callaway2021difference}, \textcite{sun2021estimating},
-TWFE (Equation~\ref{eq:twfe}), and
-\textcite{dechaisemartin2020two}. Each estimator addresses the
-heterogeneous treatment effects problem through a different approach:
-Callaway--Sant'Anna computes group-time ATTs relative to never-treated
-units; Sun--Abraham uses interaction-weighted estimation;
-de~Chaisemartin--D'Haultfoeuille applies a first-difference
-estimator. TWFE is included for comparability with the prior literature
-despite its known sensitivity to treatment effect heterogeneity
-\parencite{goodmanbacon2021difference}.
+Because treatment timing is sharp (all Tennessee public colleges treated
+at $t^* = 1987$), heterogeneity-robust estimators designed for staggered
+adoption do not address a live concern in our setting.
+\textcite{roth2026interpreting} shows that in non-staggered designs,
+\textcite{sun2021estimating} reduces to TWFE by construction, while
+the default \textcite{callaway2021difference} event study constructs
+pre- and post-treatment coefficients asymmetrically---producing
+artificial kinks that can mimic treatment effects even under smooth
+parallel-trends violations. TWFE is therefore the natural primary
+estimator.
 
-Figure~\ref{fig:four_estimators} overlays all four estimators' dynamic
-paths for both outcomes. TWFE and Sun--Abraham coefficients are
-plotted relative to the omitted period ($k = -1$). Callaway--Sant'Anna
-and de~Chaisemartin--D'Haultfoeuille estimates are group-time ATTs
-relative to the never-treated comparison group, which do not require
-a reference period. The four estimators agree on sign, magnitude, and
-dynamics. Pre-treatment coefficients are statistically indistinguishable
-from zero under all four estimators. Post-treatment coefficients
-diverge monotonically and are statistically significant at every event
-time from $k = 0$ onward.
+For transparency, Figure~\ref{fig:four_estimators} overlays TWFE
+alongside three alternatives:
+\textcite{callaway2021difference}, \textcite{sun2021estimating}, and
+\textcite{dechaisemartin2020two}. The four estimators agree on sign,
+magnitude, and dynamics. Pre-treatment coefficients are statistically
+indistinguishable from zero under all four. Post-treatment coefficients
+diverge monotonically and are significant at every event time from
+$k = 0$ onward. The agreement confirms that the result is robust to
+functional form; the choice among estimators is immaterial in this
+single-timing setting.
 
 \begin{figure}[H]
   \centering
@@ -51,15 +49,11 @@ time from $k = 0$ onward.
   \end{minipage}
 \end{figure}
 
-The TWFE static estimates (Table~\ref{tab:twfe_did}) are somewhat larger
-in magnitude than the C\&S ATTs: 1.54 pp vs.\ 1.27 pp for
-bottom-quintile share, and $-1.85$ pp vs.\ $-1.33$ pp for parental income rank.
-This difference is consistent with TWFE placing more weight on
-later post-treatment periods where the dynamic effects are larger.
-The unanimity across four estimators built on fundamentally different
-identifying assumptions provides strong evidence that the result is not
-an artifact of any particular estimator's treatment of heterogeneous
-effects.
+Point estimates vary modestly across estimators: the TWFE static ATT
+is 1.54~pp for $Q_1$ while C\&S yields 1.27~pp, a difference
+consistent with TWFE placing more weight on later post-treatment
+periods where dynamic effects are larger. This variation is expected
+and does not affect the qualitative conclusion.
 
 \subsection{Timing Robustness}
 \label{sec:robustness_timing}
@@ -268,7 +262,7 @@ We implement a synthetic control approach
 \parencite{abadie2010synthetic} as a complementary identification
 strategy. The synthetic control gap for bottom-quintile share reaches
 2.2 percentage points by the 1991 cohort, consistent with the
-Callaway--Sant'Anna dynamic path (Figure~\ref{fig:synth_trends_par_q1}).
+TWFE dynamic path (Figure~\ref{fig:synth_trends_par_q1}).
 Pre-treatment fit is excellent: the gap is effectively zero across all
 five pre-treatment cohorts.
 
