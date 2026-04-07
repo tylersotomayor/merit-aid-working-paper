@@ -49,25 +49,19 @@ Our two primary outcomes are:
 \item \textbf{Bottom-quintile share} ($Q_1$): the fraction of students
   at college $c$ in cohort $t$ whose parents are in the bottom 20\% of
   the national income distribution. Baseline mean for Tennessee public
-  colleges: 0.138.
+  colleges: 0.140.
 
 \item \textbf{Mean parental income rank} ($\overline{r}$): the average
   percentile rank of parental household income for students at college
   $c$ in cohort $t$. Baseline mean for Tennessee publics: 0.540.
 \end{itemize}
 
-A clarification on the unit of observation: each outcome is measured at
-the college-by-birth-cohort level, not for the entire enrolled student
-body at a point in time. For example, $Q_1$ for the University of
-Tennessee in cohort 1986 measures the fraction of all 1986-born students
-who attended UT between ages 19 and 22 whose parents were in the bottom
-quintile. The Fall 2006 student body at UT, by contrast, would include
-birth cohorts 1984--1987 simultaneously---mixing untreated and treated
-cohorts. The cohort-specific measure provides sharper identification
-because it isolates students who faced HOPE-era incentives from those
-who did not. By the end of the post-treatment window ($k = +5$, cohort
-1991), nearly all cohorts enrolled at a given institution are treated, so
-cohort-level and student-body-level effects converge.
+Each outcome is measured at the college-by-birth-cohort level, not for
+the entire enrolled student body at a point in time. The Fall 2006
+student body at UT, for example, would include birth cohorts
+1984--1987 simultaneously---mixing untreated and treated cohorts. The
+cohort-specific measure isolates students who faced HOPE-era
+incentives from those who did not.
 
 For the quintile decomposition, we additionally use the share of
 students from each income quintile ($Q_1$ through $Q_5$).
@@ -80,22 +74,26 @@ $N_{ct}$ is total enrollment at college $c$ in cohort $t$.
 \subsection{Bureau of Economic Analysis: County Income}
 \label{sec:data_bea}
 
-To control for local economic conditions and to test the
-income-shock predictions of Section~\ref{sec:theory_decomposition},
-we merge county-level personal income data from the Bureau of Economic
-Analysis (BEA). We use the CAINC1 table (Personal Income Summary),
+Local per capita income is both a potential confounder and a mechanism
+variable in the theoretical framework. We merge county-level personal
+income data from the Bureau of Economic Analysis (BEA) to handle both
+roles. We use the CAINC1 table (Personal Income Summary),
 which reports annual per capita personal income for every U.S.\ county
 from 1969 to the present.
 
 We match each college-cohort observation to the BEA county of the
 college's location using five-digit FIPS codes from the IPEDS
-institutional characteristics file. The match rate is 98.4\%. For each
-college-cohort, we measure the log of county per capita income in the
+institutional characteristics file. The match rate is 98.4\%; unmatched observations (primarily colleges
+with missing FIPS codes) are dropped from specifications that include
+BEA controls. No Tennessee public colleges are among the unmatched.
+For each college-cohort, we measure the log of county per capita
+income in the
 \emph{decision year}---defined as the birth cohort year plus 17 (the
 year the student is a high school senior making enrollment decisions).
-This timing reflects our finding that economic conditions at age 17,
-not age 18, predict college composition shifts
-(Section~\ref{sec:results_insurance}).
+We set the decision year to cohort $+ 17$ on conceptual grounds:
+students form college choice sets during their senior year, not after
+matriculation. Section~\ref{sec:results_insurance} confirms that
+economic conditions at age 17, not age 18, predict composition shifts.
 
 The primary BEA variable is the one-year log change in county per
 capita income at decision year. In the baseline specification for the
@@ -114,20 +112,17 @@ add Massachusetts (Adams Scholarship, 2004), which
 \textcite{sjoquist2015state} excluded only because it post-dated their
 sample period but is active during our Chetty panel window.
 
-A key distinction for our theoretical predictions is award structure.
-Table~\ref{tab:programs} classifies the ten strong merit programs by
-whether the award scales with tuition costs
-(\emph{tuition-scaling}: covering a fixed percentage of tuition or
-providing a tuition waiver) or provides a fixed dollar amount
-(\emph{fixed-dollar}: a constant nominal award that erodes relative to
-costs over time). This classification determines whether the
-scholarship compensates the income effect of economic shocks
-(Proposition~\ref{prop:compensation}).
+Award structure determines whether a scholarship compensates for
+income shocks. Table~\ref{tab:programs} classifies the ten programs as
+\emph{tuition-scaling} (covering a fixed percentage of tuition or
+providing a tuition waiver) or \emph{fixed-dollar} (a constant nominal
+award that erodes relative to costs over time). This distinction maps
+directly to Proposition~\ref{prop:compensation}.
 
-An important reclassification: Florida's Bright Futures Scholarship is
-often characterized by its top tier (Florida Academic Scholars:
-3.5~GPA and 1270~SAT). During our study period (1998--2009), the
-operative tier for broad coverage was the Medallion Scholars award,
+Florida's Bright Futures Scholarship is often characterized by its
+top tier (Florida Academic Scholars: 3.5~GPA and 1270~SAT). During
+our study period (1998--2009), the operative tier for broad coverage
+was the Medallion Scholars award,
 which required only a 3.0~weighted GPA and 970~SAT (old scale,
 approximately the 50th percentile) and covered 75\% of tuition at
 public institutions. Approximately 30--35\% of Florida high school
@@ -149,11 +144,10 @@ early Chetty panel.
 
 We construct parental income quintiles from household income reported in
 1997 and compute the fraction of students in each quintile who would
-meet each state's eligibility rules. Crucially, we apply the program
-rules to the \emph{national} achievement distribution, not to
-state-specific distributions, to avoid contamination from
-program-induced behavioral responses (teaching to the threshold, grade
-inflation).
+meet each state's eligibility rules. We apply the program rules to the \emph{national} achievement
+distribution, not to state-specific distributions, to avoid
+contamination from program-induced behavioral responses (teaching to
+the threshold, grade inflation).
 
 Figure~\ref{fig:eligibility_gradient} displays the results. Three
 findings validate the theoretical mechanism:
@@ -190,12 +184,15 @@ findings validate the theoretical mechanism:
     parental income quintile who would meet the indicated program's
     eligibility rules, computed from the national joint distribution of
     GPA, ACT, and SAT in the NLSY97 ($N = 4{,}599$ with income and GPA;
-    $N = 1{,}017$ with income and ACT). Programs with low thresholds
-    (TN~HOPE, GA~HOPE) have high eligibility across all quintiles;
-    programs with high thresholds (SD~Opportunity, FL~Academic Scholars)
-    have low eligibility concentrated in the top quintiles. The
-    eligibility ratio $P(\text{Eligible} \mid Q1) / P(\text{Eligible}
-    \mid Q5)$ ranges from 0.49 (TN) to 0.22 (FL Academic).
+    $N = 1{,}017$ with income and ACT). Programs requiring ACT scores
+    (e.g., TN~HOPE's OR condition) are computed on the smaller ACT
+    subsample; the qualitative gradient ordering is stable across both
+    samples. Programs with low thresholds (TN~HOPE, GA~HOPE) have high
+    eligibility across all quintiles; programs with high thresholds
+    (SD~Opportunity, FL~Academic Scholars) have low eligibility
+    concentrated in the top quintiles. The eligibility ratio
+    $P(\text{Eligible} \mid Q1) / P(\text{Eligible} \mid Q5)$ ranges
+    from 0.49 (TN) to 0.22 (FL Academic).
   \end{minipage}
 \end{figure}
 
@@ -207,15 +204,15 @@ low-income students (TN, GA, FL~Medallion) are predicted to produce
 progressive composition shifts. Programs where $P(\text{Eligible}
 \mid Q1)$ is near zero (FL~Academic, SD) are predicted to produce
 regressive shifts. The cross-state results in Sections~\ref{sec:results}
-and~\ref{sec:discussion} confirm these predictions.
+and~\ref{sec:discussion} are consistent with these predictions.
 
 \subsection{Summary Statistics}
 
 Table~\ref{tab:summary_stats} reports summary statistics for the primary
 outcomes and quintile shares, separately for Tennessee public colleges
-and control-state public colleges. Tennessee publics have a somewhat
-higher baseline share of bottom-quintile students (14.0\% vs.\ 13.6\%)
-and lower mean parental income rank (0.524 vs.\ 0.541). The quintile
+and control-state public colleges. Tennessee publics have a higher baseline share of bottom-quintile
+students (14.0\% vs.\ 13.6\%) and a lower mean parental income rank
+(0.524 vs.\ 0.541). The quintile
 distribution at Tennessee publics is shifted leftward: Q1 and Q2 shares
 are higher, Q5 share is lower. Table~\ref{tab:did_main} reports pre-
 and post-treatment means. After HOPE implementation, bottom-quintile
@@ -251,15 +248,16 @@ Colleges & \multicolumn{2}{c}{26} & \multicolumn{2}{c}{$\sim$500} \\
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Notes:} Pre-treatment means (birth cohorts 1980--1985)
-  for Tennessee public colleges (treated) and public colleges in 26
-  non-merit-program states (control). Observation counts reflect the
-  pre-treatment period only; the full analysis sample includes 291 TN
+\item \textit{Notes:} Pre-treatment means (birth cohorts 1980--1986,
+  i.e., all cohorts before $t^* = 1987$) for Tennessee public colleges
+  (treated) and public colleges in 26 non-merit-program states
+  (control). The preferred specification drops the 1980 cohort; means
+  shown here include it. The full analysis sample includes 291 TN
   public college-cohort observations across all 12 cohorts (26 colleges
-  $\times$ 12 cohorts $= 312$ possible, minus 21 missing). Quintile
-  shares refer to the fraction of students whose parents are in the
-  indicated quintile of the national income distribution. Observations
-  are at the college-by-cohort level. Data:
+  $\times$ 12 cohorts $= 312$ possible, minus 21 missing on primary
+  outcomes). Quintile shares refer to the fraction of students whose
+  parents are in the indicated quintile of the national income
+  distribution. Observations are at the college-by-cohort level. Data:
   \textcite{chetty2020mobility}.
 \end{tablenotes}
 \end{threeparttable}
@@ -282,7 +280,7 @@ State & Program & Threshold & Award Structure & \% FTE & \$/FTE \\
 \addlinespace
 \multicolumn{6}{l}{\textit{Fixed-Dollar Awards}} \\
 \quad Tennessee & HOPE & 3.0 GPA or 21 ACT & \$3,000--\$6,000 & 26.9 & \$920 \\
-\quad Georgia & HOPE & 3.0 GPA & Full tuition (reduced) & 30.7 & \$1,191 \\
+\quad Georgia$^\dagger$ & HOPE & 3.0 GPA & Full tuition $\to$ fixed & 30.7 & \$1,191 \\
 \addlinespace
 \multicolumn{6}{l}{\textit{Other Strong Programs}} \\
 \quad Kentucky & KEES & Graduated by GPA & Per credit hour & 35.7 & \$493 \\
@@ -298,11 +296,14 @@ State & Program & Threshold & Award Structure & \% FTE & \$/FTE \\
   full-time-equivalent students (2010). ``\$/FTE'' is grant expenditures per
   FTE student (2010). Florida's threshold refers to the Medallion Scholars
   tier (operative for broad coverage during 1998--2009); the Academic
-  Scholars tier requires 3.5~GPA + 1270~SAT. Georgia's HOPE included a Pell
-  offset during 1993--2000 that eliminated the effective subsidy for
-  bottom-quintile families. Tennessee's HOPE requires FAFSA filing.
-  Award structure classification follows the theoretical distinction in
-  Proposition~\ref{prop:compensation}.
+  Scholars tier requires 3.5~GPA + 1270~SAT. Tennessee's HOPE requires
+  FAFSA filing.
+  $^\dagger$Georgia HOPE initially covered full tuition (1993--2003),
+  then converted to a fixed dollar amount; we classify it as
+  fixed-dollar for the period covered by the Chetty panel. During
+  1993--2000, a Pell offset eliminated the effective subsidy for
+  bottom-quintile families. Award structure classification follows the
+  theoretical distinction in Proposition~\ref{prop:compensation}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
