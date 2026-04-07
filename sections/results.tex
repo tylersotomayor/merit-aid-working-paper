@@ -528,34 +528,6 @@ gradient, estimated on entirely different variation (county-level income
 fluctuations interacted with program design rather than program
 adoption timing).
 
-Figure~\ref{fig:three_panel_gradient} displays both gradients
-side by side. The sign pattern is identical: bottom quintiles gain
-share (or are buffered), top quintiles lose share (or are prevented from
-gaining). The consistency across two independent identification
-strategies---one exploiting program adoption timing, the other
-exploiting income-shock heterogeneity---strengthens the case that the
-observed composition shifts are driven by the price-theoretic mechanism
-the model identifies.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{fig_three_panel_gradient.pdf}
-  \caption{Three Monotonic Quintile Gradients}
-  \label{fig:three_panel_gradient}
-  \vspace{1mm}
-  \begin{minipage}{\textwidth}
-    \footnotesize
-    \textit{Notes:} Three independent quintile gradients. Panel~A:
-    adoption DiD (preferred specification). Panel~B: shock-insurance
-    interaction (tuition-scaling programs $\times$ county income shock).
-    Panel~C: shock-substitution interaction (fixed-dollar programs
-    $\times$ county income shock at four-year public colleges). All
-    three exhibit monotonic ordering across all five quintiles. Panels
-    B and C use BEA county per capita personal income change at decision
-    year (cohort~$+$~17). 95\% CIs shown. See text for specifications.
-  \end{minipage}
-\end{figure}
-
 \subsection{Tier Reallocation Under Fixed-Dollar Awards}
 \label{sec:results_tier_reallocation}
 
@@ -685,6 +657,63 @@ Georgia HOPE is the most generous program in dollars per FTE
 program spends but whether the award \emph{scales with costs}---the
 theoretical distinction formalized in
 Proposition~\ref{prop:compensation}.
+
+\subsection{Convergence: Three Independent Quintile Gradients}
+\label{sec:results_convergence}
+
+Figure~\ref{fig:three_panel_gradient} presents the paper's central
+empirical finding: three monotonic quintile gradients, each estimated
+on independent variation.
+
+Panel~A displays the adoption DiD gradient
+(Section~\ref{sec:results_quintile}): the TWFE static estimate for
+each income quintile under the preferred specification. All five
+coefficients are monotonically ordered, with bottom quintiles gaining
+share and top quintiles losing share.
+
+Panel~B displays the shock-insurance gradient
+(Section~\ref{sec:results_insurance}): the interaction of county-level
+income shocks with tuition-scaling program status, estimated across
+all public and private nonprofit colleges. The sign pattern is
+identical to Panel~A---bottom quintiles are buffered, top quintiles
+are prevented from gaining---but the identifying variation is entirely
+different (county income fluctuations $\times$ program design rather
+than program adoption timing).
+
+Panel~C displays the tier-reallocation gradient
+(Section~\ref{sec:results_tier_reallocation}): the interaction of
+income shocks with fixed-dollar program status at four-year colleges
+only. This gradient is inverted---bottom quintiles lose share during
+downturns at fixed-dollar four-year colleges---reflecting the
+anti-buffering mechanism documented in Proposition~\ref{prop:tier}.
+
+The convergence of three five-for-five monotonic gradients from three
+independent sources of variation---program adoption, shock buffering,
+and shock-induced tier reallocation---substantially narrows the set
+of alternative explanations for the observed patterns.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{fig_three_panel_gradient.pdf}
+  \caption{Three Monotonic Quintile Gradients}
+  \label{fig:three_panel_gradient}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} Three independent quintile gradients. Panel~A:
+    TWFE adoption DiD (preferred specification: national control,
+    $t^* = 1987$, drop 1980, $+$BEA controls, state-clustered SEs).
+    Panel~B: shock-insurance interaction (tuition-scaling programs
+    $\times$ county income shock, college and cohort FE,
+    college-clustered SEs). Panel~C: shock-induced tier reallocation
+    (fixed-dollar programs $\times$ county income shock at four-year
+    public colleges, college and cohort FE, college-clustered SEs).
+    All three exhibit monotonic ordering across all five quintiles.
+    Panels B and C use BEA county per capita personal income change at
+    decision year (cohort~$+$~17). 95\% CIs shown. Data:
+    \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
 
 \subsection{Summary of All Theoretical Predictions}
 
