@@ -72,76 +72,116 @@ different channels.
 
 \subsection{Timeline and Cohort Mapping}
 
-The first HOPE recipients entered college in Fall 2003. In the
-\textcite{chetty2020mobility} data, students are assigned to
-institutions attended between ages 19 and 22, and cohorts are indexed by
-birth year. The 1984 birth cohort (entering college in Fall 2002) is the
-last fully untreated cohort. The 1985 cohort is partially contaminated
-by a bridge provision that extended limited benefits to students who
-narrowly missed the first eligibility window. Our preferred treatment
-timing is $t^* = 1986$ (Fall 2004 entrants), the first cohort with
-unambiguous full exposure. We test robustness to $t^* \in \{1985,
-1986, 1987\}$ in Section~\ref{sec:robustness}.
+The Tennessee HOPE Scholarship was enacted in 2003. In the
+\textcite{chetty2020mobility} data, cohorts are indexed by birth year,
+and students are assigned to institutions attended between ages 19 and
+22. The analysis window spans birth cohorts 1980--1991, corresponding
+approximately to college entry years 1998--2009.
+Table~\ref{tab:cohort_map} maps each birth cohort to its decision year,
+college entry year, event time, and HOPE exposure status.
 
-The analysis window spans birth cohorts 1980--1991, providing six
-pre-treatment cohorts (1980--1985) and six post-treatment cohorts
-(1986--1991) under the preferred timing.
-Table~\ref{tab:cohort_map} maps each birth cohort to its event time,
-approximate college entry year, and HOPE exposure status. Each cohort's
-composition is measured independently: the outcome for cohort $t$ at
-college $c$ reflects the parental income distribution of students born
-in year $t$ who attended college $c$ between ages 19 and 22.
+\paragraph{Decision timing vs.\ receipt timing.}
+
+The mechanism studied in this paper is sorting across institutional
+sectors---public, private, and out-of-state---driven by the relative
+price change that HOPE creates. Sorting occurs \emph{before}
+matriculation, when students choose where to apply and enroll. The
+economically relevant treatment date is therefore the point at which
+HOPE enters the student's decision environment, not the date on which
+scholarship funds are first disbursed.
+
+We define the decision year as birth cohort $+ 17$, corresponding to
+the year in which the student is typically a high-school senior forming
+a college choice set. Under this mapping, the 1986 birth cohort has
+decision year 2003---the same year HOPE was enacted. These students were
+mid-application cycle when the program was announced; some could adjust,
+but many had already committed. The 1987 birth cohort has decision year
+2004 and is the first group whose entire college search occurred with
+HOPE already enacted, publicized, incorporated into school counseling,
+and operational in the financial aid environment.
+
+Our preferred treatment timing is therefore $t^* = 1987$: the first
+cohort whose college choice set was formed under the fully known HOPE
+regime. We designate the 1986 cohort as the omitted reference period
+($k = -1$), absorbing any partial treatment of this transition cohort
+into the baseline. The 1985 cohort received limited retroactive benefits
+through a bridge provision, but made enrollment decisions before HOPE
+existed. The 1984 cohort (entering college Fall 2002) is the last
+cohort with no HOPE exposure of any kind.
+
+We test robustness to $t^* \in \{1985, 1986, 1987\}$ in
+Section~\ref{sec:robustness}. The static DiD estimate is insensitive to
+this choice.
+
+\paragraph{Analysis window.}
+
+Under the preferred timing, the sample provides five pre-treatment
+cohorts (1981--1985) and five post-treatment cohorts (1987--1991), with
+1986 as the omitted reference period. Each cohort's composition is
+measured independently: the outcome for cohort $t$ at college $c$
+reflects the parental income distribution of students born in year $t$
+who attended college $c$ between ages 19 and 22. The 1980 birth cohort
+is dropped from the preferred specification because Tennessee's
+1980-born cohort exhibits anomalously low bottom-quintile share that
+normalizes by 1982, consistent with a data artifact rather than a
+substantive pre-trend. Dropping this single cohort substantially
+improves sensitivity to violations of parallel trends
+(Section~\ref{sec:robustness}).
 
 \begin{table}[H]
 \centering
 \begin{threeparttable}
-\caption{Cohort Mapping: Birth Year, Event Time, and HOPE Exposure}
+\caption{Cohort Mapping: Birth Year, Decision Year, and HOPE Exposure}
 \label{tab:cohort_map}
-\begin{tabular}{ccll}
+\begin{tabular}{cccclc}
 \toprule
-Birth Cohort & Event Time ($k$) & College Entry & HOPE Status \\
+Birth Cohort & Decision Year & College Entry & Event Time ($k$) & HOPE Status \\
 \midrule
-1980 & $-6$ & Fall 1998 & No HOPE \\
-1981 & $-5$ & Fall 1999 & No HOPE \\
-1982 & $-4$ & Fall 2000 & No HOPE \\
-1983 & $-3$ & Fall 2001 & No HOPE \\
-1984 & $-2$ & Fall 2002 & No HOPE (last untreated) \\
-1985 & $-1$ & Fall 2003 & Bridge provision (partial) \\
+1980 & 1997 & Fall 1998 & --- & No HOPE (dropped$^\dagger$) \\
+1981 & 1998 & Fall 1999 & $-6$ & No HOPE \\
+1982 & 1999 & Fall 2000 & $-5$ & No HOPE \\
+1983 & 2000 & Fall 2001 & $-4$ & No HOPE \\
+1984 & 2001 & Fall 2002 & $-3$ & No HOPE \\
+1985 & 2002 & Fall 2003 & $-2$ & Bridge provision (partial)$^\ddagger$ \\
+1986 & \textbf{2003} & Fall 2004 & $-1$ & Transition (ref.\ period) \\
 \midrule
-1986 & $0$ & Fall 2004 & Full HOPE ($t^*$) \\
-1987 & $+1$ & Fall 2005 & Full HOPE \\
-1988 & $+2$ & Fall 2006 & Full HOPE \\
-1989 & $+3$ & Fall 2007 & Full HOPE \\
-1990 & $+4$ & Fall 2008 & Full HOPE \\
-1991 & $+5$ & Fall 2009 & Full HOPE \\
+1987 & \textbf{2004} & Fall 2005 & $0$ & Full HOPE ($t^*$) \\
+1988 & 2005 & Fall 2006 & $+1$ & Full HOPE \\
+1989 & 2006 & Fall 2007 & $+2$ & Full HOPE \\
+1990 & 2007 & Fall 2008 & $+3$ & Full HOPE \\
+1991 & 2008 & Fall 2009 & $+4$ & Full HOPE \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Notes:} College entry is approximate (birth year $+$ 18).
+\item \textit{Notes:} Decision year $=$ birth cohort $+ 17$ (high-school
+  senior year). College entry is approximate (birth cohort $+$ 18).
   Students are assigned to institutions attended between ages 19 and 22
-  in the \textcite{chetty2020mobility} data. Each cohort's parental
-  income composition is measured independently. The 1985 cohort
-  received partial benefits through a bridge provision
-  (Section~\ref{sec:background}).
+  in the \textcite{chetty2020mobility} data. HOPE was enacted in 2003
+  (bolded). $^\dagger$The 1980 cohort is dropped from the preferred
+  specification; see text. $^\ddagger$Bridge provision extended limited
+  retroactive benefits to Fall 2003 entrants who met eligibility
+  criteria; these students made enrollment decisions before HOPE existed.
+  Event times shown relative to $t^* = 1987$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-Several other policy changes coincided with the HOPE Scholarship's
-introduction. Tennessee's education lottery launched in 2003 and
-generated revenue that funded both HOPE and Pre-K programs. The federal
-No Child Left Behind Act (2002) altered K--12 accountability
-requirements nationwide. Neither policy, however, would produce the
-specific pattern we document: a perfectly ordered income quintile
-gradient at public colleges with no effect at private institutions. A
-generic enrollment shock---whether driven by K--12 quality, state
-finances, or demographic change---would affect quintile shares
-unevenly but not produce five coefficients that are monotonically
-ordered and all statistically significant. The quintile gradient is a
-prediction unique to the price-reduction mechanism in the
-three-destination model, which makes it a discriminating test of the
-HOPE channel specifically.
+\paragraph{Confounding policies.}
+
+Several other policy changes coincided with HOPE's introduction.
+Tennessee's education lottery launched in 2003 and generated revenue that
+funded both HOPE and Pre-K programs. The federal No Child Left Behind Act
+(2002) altered K--12 accountability requirements nationwide. Neither
+policy, however, would produce the specific pattern we document: a
+monotonically ordered income quintile gradient at public colleges with no
+effect at private institutions. A generic enrollment shock---whether
+driven by K--12 quality, state finances, or demographic change---would
+affect quintile shares unevenly but not produce five coefficients that
+are monotonically ordered and statistically significant. The quintile
+gradient is a prediction unique to the price-reduction mechanism in the
+three-destination model, which makes it a discriminating test of the HOPE
+channel specifically.
 
 \subsection{Georgia HOPE as a Comparison Case}
 \label{sec:background_georgia}
