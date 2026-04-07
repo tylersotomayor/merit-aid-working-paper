@@ -58,21 +58,49 @@ near-zero root mean squared prediction error.
   \end{minipage}
 \end{figure}
 
+\paragraph{Interpreting the coefficients.}
+
+Two clarifications help contextualize what follows. First, the
+primary outcome---bottom-quintile share ($Q_1$)---is a fraction
+bounded between 0 and 1. A coefficient of 0.0142 means a 1.42
+percentage-point increase in the share of students whose parents
+fall in the bottom 20\% of the national income distribution. At a
+college where $Q_1$ share was 14.0\% before HOPE, the estimated
+post-treatment level is 15.4\%. The ATT is a
+difference-in-differences: the change at Tennessee public colleges
+minus the change at control-state public colleges over the same
+period, so it nets out any national trends in college composition.
+
+Second, the mean parental income rank outcome is the average
+percentile rank (0--100) of parental household income among students
+at a given college-cohort cell. A coefficient of $-1.48$ means the
+average student's parents moved 1.48 percentile ranks lower in the
+national income distribution---a downward shift in the
+socioeconomic profile of the student body.
+
+We translate share effects into headcounts in
+Section~\ref{sec:results_mechanisms} by multiplying quintile shares
+by cohort enrollment ($Q_1 \text{ count} = Q_1 \times N_{ct}$).
+These level estimates address ecological inference concerns but are
+noisier because enrollment varies substantially across colleges
+(coefficient of variation $\approx 1.0$).
+
+\paragraph{Static estimates.}
+
 Table~\ref{tab:twfe_did} reports the TWFE static ATT under the
-preferred specification. Following HOPE implementation, the share of
-bottom-quintile students at Tennessee public colleges increased by
+preferred specification. Following HOPE implementation,
+bottom-quintile share at Tennessee public colleges increased by
 1.42 percentage points (SE = 0.0029, $p < 0.001$) and mean parental
 income rank decreased by 1.48 percentage points (SE = 0.0018,
 $p < 0.001$). Both effects are precisely estimated and economically
-meaningful: the bottom-quintile share increase represents a 10.1\%
-gain relative to the pre-treatment mean of 0.140. In levels, the
-effect corresponds to approximately 10.3 additional bottom-quintile
-students per cohort at each Tennessee public college and 28.6 fewer
-top-quintile students per cohort
-(Section~\ref{sec:results_mechanisms}). Across 26 treated public
-colleges, this implies roughly 270 additional low-income students and
-740 fewer high-income students per birth cohort gaining access to or
-exiting the public system.
+meaningful: the $Q_1$ increase represents a 10.1\% gain relative to
+the pre-treatment mean of 0.140. Concretely, this shifts the typical
+Tennessee public college from enrolling roughly 14 bottom-quintile
+students per 100 to enrolling roughly 15.4---a change that, across 26
+public colleges and approximately 100 students per cohort-college
+cell, translates to roughly 270 additional low-income students per
+birth cohort in the Tennessee public system and 740 fewer high-income
+students (Section~\ref{sec:results_mechanisms}).
 
 The Callaway--Sant'Anna estimator yields a slightly smaller point
 estimate (1.26~pp for $Q_1$, $-0.81$~pp for mean rank;
