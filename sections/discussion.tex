@@ -51,17 +51,19 @@ of the Tennessee finding.
 
 The adoption DiD and the shock-interaction analysis are two empirical
 manifestations of a single theoretical framework. The adoption DiD
-captures the \emph{substitution effect} of introducing a merit
+captures the \emph{price effect} of introducing a merit
 scholarship: the permanent relative price reduction that generates
 predictions P1--P7. The shock-interaction analysis captures the
-\emph{income effect} of economic fluctuations: the cyclical sensitivity
-of composition to local affordability shocks, which the scholarship
-may or may not compensate (predictions P8--P11).
+\emph{income-sensitivity effect} of economic fluctuations: the
+cyclical sensitivity of composition to local affordability shocks,
+which the scholarship may or may not compensate (predictions
+P8--P11).
 
 The Tennessee finding illustrates both components. HOPE generates a
-progressive compositional shift on average (substitution effect:
-$+1.3$ pp for $Q_1$) but does not stabilize that shift during economic
-downturns (income effect: zero aggregate buffering, $p = 0.97$).
+progressive compositional shift on average (price effect:
+$+1.4$ pp for $Q_1$) but does not stabilize that shift during economic
+downturns (income-sensitivity effect: zero aggregate buffering,
+$p = 0.97$).
 \textcite{bruce2014jackpot} document the mechanism: HOPE creates
 marginal four-year students---low-income families who attend four-year
 colleges only because the scholarship makes it affordable---who
@@ -71,7 +73,8 @@ reallocation (Proposition~\ref{prop:tier}).
 
 Florida Bright Futures, by contrast, generates both. The Medallion
 tier's percentage-based award (75\% of tuition) produces progressive
-sorting and compensates the income effect: the five-for-five insurance
+sorting and compensates the income-sensitivity effect: the
+five-for-five insurance
 gradient shows near-complete neutralization of income shocks across
 the entire quintile distribution. West Virginia's PROMISE (full tuition
 coverage) similarly buffers. The distinguishing feature is not
@@ -141,11 +144,10 @@ eligibility rate.
 
 We test this prediction using gender-specific parental income measures
 from \textcite{chetty2020mobility}. We pool Tennessee and Massachusetts
-as treated states (staggered at $t^* = 1987$ and $t^* = 1988$
-respectively) against all remaining states and estimate a stacked
-interaction model with college-by-gender fixed effects,
-cohort-by-gender fixed effects, and state-specific linear gender
-trends.\footnote{State-specific linear gender trends absorb
+as treated states (both at $t^* = 1987$) against non-merit controls
+and estimate a TWFE interaction model with college-by-gender fixed
+effects, cohort-by-gender fixed effects, and state-specific linear
+gender trends.\footnote{State-specific linear gender trends absorb
 pre-existing differential drift in male versus female composition
 across states, which is present in the raw data and produces
 misleading pre-trend violations without detrending. After detrending,
@@ -273,6 +275,12 @@ Q3 lose share, Q4 and Q5 gain share.
 
 \subsection{Four-State Comparison}
 
+The preceding subsections analyze each state individually. We now
+compare all four states with estimable adoption DiDs---Tennessee,
+Massachusetts, South Dakota, and West Virginia---selected because
+they span the model's predicted range from progressive to regressive
+sorting and have sufficient pre-treatment periods in the Chetty panel.
+
 Figure~\ref{fig:four_state} displays event-study estimates for
 bottom-quintile share across all four states. The visual contrast is
 striking: Tennessee and Massachusetts trend upward after treatment
@@ -343,29 +351,29 @@ South Dakota & Opp.\ Schol. & ACT 24+ & Fixed \$ & Regressive & None \\
 
 \subsection{Staggered DiD: Pooled Multi-State Evidence}
 
-We formalize the cross-state evidence using a staggered
-Callaway--Sant'Anna design that pools multiple treatment states with
-different adoption dates against never-treated controls. The preferred
-pooled specification combines Tennessee ($t^* = 1987$) and
-Massachusetts ($t^* = 1987$), which share similar design
-parameters (moderate threshold, public-sector subsidy concentration)
-and produce individually similar progressive effects. The pooled ATT
-for bottom-quintile share is $+0.012$ ($p < 0.001$), nearly identical
-to the Tennessee-only estimate---confirming that the progressive
-composition effect replicates independently.
+We formalize the cross-state evidence by pooling treatment states
+against never-treated controls. The preferred pooled specification
+combines Tennessee and Massachusetts (both $t^* = 1987$), which share
+similar design parameters (moderate threshold, public-sector subsidy
+concentration) and produce individually similar progressive effects.
+Because treatment timing is common, we estimate a standard TWFE
+specification. The pooled ATT for bottom-quintile share is $+0.012$
+($p < 0.001$), nearly identical to the Tennessee-only
+estimate---confirming that the progressive composition effect
+replicates independently.
 
-A broader staggered design including all five strong-merit states with
-pre-treatment periods---Nevada ($t^* = 1983$), West Virginia
-($t^* = 1985$), Tennessee, Massachusetts, and South Dakota (both
-$t^* = 1987$)---produces a near-zero overall ATT ($+0.005$,
-$p = 0.28$). This reflects heterogeneous group-specific effects that
-cancel in aggregation: the TN/MA/SD group produces a progressive
-effect ($+0.011$, $p < 0.001$), while Nevada ($-0.005$, $p = 0.012$)
-and West Virginia ($-0.010$, $p < 0.001$) are regressive. The zero
-overall effect is evidence \emph{for} the model, not against it: the
-staggered design correctly separates programs with different design
-parameters into groups with opposite-signed effects, exactly as the
-theory predicts.
+A broader design including all five strong-merit states with
+pre-treatment periods introduces genuine staggered adoption: Nevada
+($t^* = 1983$), West Virginia ($t^* = 1985$), and Tennessee,
+Massachusetts, and South Dakota (all $t^* = 1987$). We estimate this
+specification using \textcite{callaway2021difference}, which is the
+appropriate estimator when treatment timing varies across groups. The
+overall ATT is near zero ($+0.005$, $p = 0.28$). The zero aggregate
+masks substantial heterogeneity: progressive states (TN, MA) produce
+$+0.011$ ($p < 0.001$), while Nevada ($-0.005$, $p = 0.012$) and
+West Virginia ($-0.010$, $p < 0.001$) are regressive. The model
+predicts this heterogeneity---programs with different design parameters
+generate opposite-signed effects---and the aggregation obscures it.
 
 Nevada's regressive result is consistent with its eligibility profile:
 NLSY97 data show that only 13\% of bottom-quintile students qualify
@@ -383,7 +391,8 @@ The shock-insurance analysis adds Florida and West Virginia as new
 testable cases---states whose programs predate the Chetty panel and
 were previously untestable through adoption DiD.
 
-The three-destination model, extended with the Slutsky decomposition,
+The three-destination model, extended with the price/income-sensitivity
+decomposition,
 organizes all cases through a common set of design parameters:
 eligibility threshold (determines \emph{who} is eligible), public-private
 subsidy differential (determines \emph{where} students sort),
@@ -393,16 +402,17 @@ persists during economic fluctuations). No single parameter is
 sufficient; the combination determines both the direction and
 durability of compositional change.
 
-For policymakers designing merit-aid programs to promote low-income
-access, the findings suggest four principles. First, the eligibility
-threshold must be low enough that substantial numbers of low-income
-students qualify (moderate GPA, OR rather than AND conditions).
-Second, the subsidy must be concentrated at public institutions to
-create a meaningful price differential. Third, the program should not
-offset existing need-based aid (no Pell displacement). Fourth---and
-this is the new contribution of the shock-insurance analysis---the
-award should scale with tuition costs (percentage-based or full-tuition
-coverage) rather than provide a fixed dollar amount. Fixed-dollar
+For policymakers, the cross-state patterns are consistent with four
+design principles, though no single comparison isolates each parameter
+cleanly. First, the eligibility threshold should be low enough that
+substantial numbers of low-income students qualify (moderate GPA, OR
+rather than AND conditions). Second, the subsidy should be concentrated
+at public institutions to create a meaningful price differential.
+Third, the program should not offset existing need-based aid (no Pell
+displacement). Fourth---and this is the new contribution of the
+shock-insurance analysis---the award should scale with tuition costs
+(percentage-based or full-tuition coverage) rather than provide a
+fixed dollar amount. Fixed-dollar
 awards generate progressive sorting but leave it vulnerable to
 economic downturns; tuition-scaling awards generate progressive sorting
 \emph{and} sustain it.
