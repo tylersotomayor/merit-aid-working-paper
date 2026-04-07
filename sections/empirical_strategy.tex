@@ -24,13 +24,21 @@ sun2021estimating}.
 In our setting, treatment timing is sharp: all Tennessee public colleges
 are treated simultaneously at $t^* = 1987$ (the first birth cohort
 whose college decision was made with HOPE fully operational). We set
-$t^* = 1987$ rather than $t^* = 1986$ because the relevant timing for
-enrollment decisions is the \emph{decision year}---the year the student
-is a high school senior (cohort $+ 17$). HOPE was passed in 2003
-(decision year for the 1986 cohort), but the 1987 cohort (decision year
-2004) is the first that planned its college trajectory with HOPE fully
-publicized and operational. Robustness to $t^* \in \{1985, 1986, 1987\}$
-is reported in Section~\ref{sec:robustness}.
+$t^* = 1987$ rather than $t^* = 1986$ for three reasons. First, the
+relevant timing for enrollment decisions is the \emph{decision year}---the
+year the student is a high school senior (cohort $+ 17$), not the
+college entry year (cohort $+ 18$). The BEA shock analysis confirms
+that economic conditions at the decision year, not the entry year,
+predict college composition (Section~\ref{sec:results_insurance}).
+Second, HOPE was passed in early 2003 (the decision year for the 1986
+cohort), but the 1987 cohort (decision year 2004) is the first that
+planned its full college trajectory with HOPE publicized and
+operational. Third, using 1986 as the omitted reference period
+(rather than the first treated period) absorbs any partial treatment
+of the 1986 cohort into the baseline, producing cleaner pre-trends.
+The static DiD estimate is insensitive to this choice: results under
+$t^* \in \{1985, 1986, 1987\}$ are reported in
+Section~\ref{sec:robustness}.
 
 The Callaway--Sant'Anna estimator computes group-time ATTs by comparing
 the outcome evolution of the treated group to a ``never-treated''
