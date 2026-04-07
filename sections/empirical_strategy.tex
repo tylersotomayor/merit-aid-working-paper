@@ -183,10 +183,14 @@ the level at which treatment is assigned. The national specification
 has 27 clusters (26 control states $+$ Tennessee). This is above the
 conventional threshold for reliable cluster-robust inference, though
 the extreme imbalance (one treated cluster vs.\ 26 controls) warrants
-caution \parencite{mackinnon2017wild}. We supplement with
-Fisher-style permutation
-tests that assign placebo treatment to each state in turn
-(Section~\ref{sec:robustness_permutation}).
+caution \parencite{mackinnon2017wild}. For the bordering-state
+specification (4 clusters), conventional cluster-robust inference is
+unreliable; \textcite{lee2026simple} show that collapsing the panel
+into a cross-sectional regression after unit-specific demeaning or
+detrending permits exact $t$-based inference and randomization
+inference even with a single treated unit. We supplement with
+Fisher-style permutation tests that assign placebo treatment to each
+state in turn (Section~\ref{sec:robustness_permutation}).
 
 For the shock-interaction design, standard errors are clustered at the
 college level ($\sim$500 clusters for non-merit states, $\sim$1,200
