@@ -7,66 +7,80 @@
 
 We document that following Tennessee's HOPE Scholarship, public colleges
 experienced a progressive shift in socioeconomic composition. The share
-of bottom-quintile students increased by 1.3 percentage points, mean
-parental income rank declined by 0.8--1.5 percentage points (depending
-on estimator), and the effect is
-monotonically ordered across all five income quintiles. Lower-income
-students gained representation while higher-income students lost it.
+of bottom-quintile students increased by 1.4 percentage points
+($p < 0.001$), mean parental income rank declined by 1.5 percentage
+points, and the effect is monotonically ordered across all five income
+quintiles. Lower-income students gained representation while
+higher-income students lost it. Across 26 Tennessee public colleges,
+this translates to roughly 270 additional low-income students and 740
+fewer high-income students per birth cohort.
 
 This compositional change reflects sorting across sectors rather than
 enrollment expansion. Total enrollment at Tennessee public colleges is
-unchanged post-HOPE. The level decomposition confirms that the number
-of bottom-quintile students increased while the number of top-quintile
-students decreased. Top-quintile students who exit the public sector do
-not appear at Tennessee private colleges, consistent with out-of-state
-enrollment as the relevant margin.
+unchanged post-HOPE ($p = 0.78$). The level decomposition confirms
+that the number of bottom-quintile students increased while the number
+of top-quintile students decreased. Top-quintile students who exit the
+public sector do not appear at Tennessee private colleges, consistent
+with out-of-state enrollment as the relevant margin.
 
-We decompose this compositional effect into a permanent substitution
+We decompose this compositional effect into a permanent price
 effect---the relative price reduction that generates progressive
-sorting---and a cyclical income effect---the sensitivity of that sorting
-to local economic conditions. Merging BEA county income data with the
-Chetty panel, we show that the income effect is compensated by
-tuition-scaling programs (Florida Bright Futures, West Virginia PROMISE)
-but not by fixed-dollar programs (Tennessee HOPE, Georgia HOPE). The
-shock-insurance analysis produces a second five-for-five monotonic
-quintile gradient, estimated on entirely different variation, consistent
-with the adoption-DiD gradient. Award structure---not threshold height
-or raw generosity---determines whether progressive sorting is sustained
-during economic downturns.
+sorting---and a cyclical income-sensitivity effect---the sensitivity
+of that sorting to local economic conditions. Merging BEA county income
+data with the Chetty panel, we show that the income-sensitivity effect
+is compensated by tuition-scaling programs (Florida Bright Futures,
+West Virginia PROMISE) but not by fixed-dollar programs (Tennessee
+HOPE, Georgia HOPE). The shock-insurance analysis produces a second
+five-for-five monotonic quintile gradient, estimated on entirely
+different variation, consistent with the adoption-DiD gradient. Award
+structure---not threshold height or raw generosity---determines whether
+progressive sorting is sustained during economic downturns.
 
 The cross-state evidence supports the model's comparative statics.
 Massachusetts' Adams Scholarship independently produces a progressive
-shift of similar magnitude. South Dakota's Opportunity Scholarship
-produces a strongly regressive shift---as the model predicts. Florida
-and West Virginia, whose programs predate the Chetty panel and are not
-testable through adoption DiD, are testable through the shock-insurance
-design and show the strongest buffering effects. The three-destination
-model, extended with the Slutsky decomposition, organizes all cases
-through a common set of design parameters.
+shift of similar magnitude ($+1.4$ pp). South Dakota's Opportunity
+Scholarship produces a strongly regressive shift ($-1.5$ pp)---as the
+model predicts under high eligibility thresholds. Florida and West
+Virginia, whose programs predate the Chetty panel and are not testable
+through adoption DiD, are testable through the shock-insurance design
+and show the strongest buffering effects. The three-destination model,
+extended with the price/income-sensitivity decomposition, organizes all
+cases through a common set of design parameters.
 
 Four limitations merit emphasis. First, the analysis relies on
-ecological inference from college-level aggregates. Second, with 26
-state-level clusters, inference requires supplementation with
-permutation tests. Third, while the preferred specification improves
-Rambachan--Roth sensitivity substantially ($\Delta_\text{RM}$ robust
-at $\bar{M} \leq 1$, $\Delta_\text{SD}$ robust at $M \leq 0.005$),
-the smoothness restriction remains the binding constraint at moderate
-bounds. The shock-insurance results provide independent corroboration
-through different identifying variation. Fourth, the shock-interaction
-analysis shows that most individual-state estimates are statistically
-insignificant (only Florida and West Virginia are significant on
-$Q_1$); the power limitation reflects the 12-cohort panel and
-within-state shock variation.
+ecological inference from college-level aggregates; we address this
+through the level decomposition showing real headcount changes, not
+denominator artifacts. Second, the bordering-state specification has
+only four state clusters. We address this with exact $t$-based
+inference and randomization inference following
+\textcite{lee2026simple}, which confirm significance ($p = 0.005$;
+RI $p = 0.008$) under procedures valid with a single treated state.
+Unit-specific detrending attenuates the estimate to $+1.25$ pp
+($p = 0.089$), bounding the effect between $+1.25$ and $+1.44$ pp
+depending on the parallel trends assumption. Third, while the
+preferred specification improves Rambachan--Roth sensitivity
+substantially ($\Delta_\text{RM}$ robust at $\bar{M} \leq 1$,
+$\Delta_\text{SD}$ robust at $M \leq 0.005$), the smoothness
+restriction remains the binding constraint at moderate bounds. The
+shock-insurance results provide independent corroboration through
+different identifying variation. Fourth, while the pooled
+shock-interaction estimates (tuition-scaling vs.\ fixed-dollar) are
+precisely estimated, most individual-state shock-buffering coefficients
+are not statistically significant (only Florida and West Virginia are
+significant on $Q_1$). This reflects limited within-state variation:
+each state contributes only 20--50 public colleges, and the
+income-shock interaction is identified from county-level variation
+across those colleges.
 
-For policy, the findings suggest four principles for merit-aid program
-design. First, set the eligibility threshold low enough that a
+For policy, the cross-state patterns are consistent with four design
+principles. First, set the eligibility threshold low enough that a
 substantial share of lower-income students qualifies. Second,
 concentrate the subsidy at public institutions to create a meaningful
 sector price differential. Third, do not offset existing need-based
 aid. Fourth, structure the award as a percentage of tuition rather than
 a fixed dollar amount, so that progressive sorting is sustained when
-family budgets tighten. The relevant counterfactual is not whether merit
-aid is more progressive than need-based aid---it almost certainly is
-not---but whether merit aid \emph{at the margin} improves the
+family budgets tighten. The relevant counterfactual is not whether
+merit aid is more progressive than need-based aid---it almost certainly
+is not---but whether merit aid \emph{at the margin} improves the
 composition and resilience of the institutions that serve the most
 students.
