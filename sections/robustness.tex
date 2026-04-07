@@ -255,6 +255,89 @@ low parental income rank---exactly as the sorting model predicts.
   \end{minipage}
 \end{figure}
 
+\subsection{Exact Inference and Unit-Specific Detrending}
+\label{sec:robustness_lwdid}
+
+The permutation test addresses the cluster-count problem by replacing
+asymptotic inference with a finite-sample ranking. We complement it
+with the rolling DiD framework of \textcite{lee2026simple}, which
+transforms the panel into a cross-sectional regression and delivers
+exact $t$-based inference under normality---valid even with a single
+treated state. We implement this via the \texttt{lwdid} command
+\parencite{lee2026rolling} on a balanced panel (20 Tennessee public
+colleges, 127 bordering-state controls, 11 cohorts).
+
+\paragraph{Demeaning.}
+
+The demeaning procedure subtracts each college's pre-treatment mean
+outcome and regresses the averaged post-treatment residuals on
+treatment status. The resulting ATT for bottom-quintile share is
+$+1.44$ percentage points (exact $t$: $p = 0.005$; randomization
+inference $p = 0.008$). For mean parental income rank, the ATT is
+$-1.29$ percentage points ($p = 0.003$). HC3 heteroskedasticity-robust
+standard errors yield even stronger significance ($p = 0.001$ for
+$Q_1$). These results confirm that the adoption DiD is significant
+under inference procedures designed for small cross-sectional samples.
+
+\paragraph{Detrending.}
+
+A more demanding test removes unit-specific \emph{linear} pre-treatment
+trends before estimating the ATT. This relaxes the standard parallel
+trends assumption to allow each college to follow its own linear
+trajectory. The detrended ATT for bottom-quintile share is $+1.25$
+percentage points ($p = 0.089$; RI $p = 0.101$)---attenuated relative
+to the demeaned estimate but directionally consistent. For mean
+parental income rank, the detrended ATT is $-0.40$ pp ($p = 0.382$),
+no longer significant.
+
+The attenuation is expected. Our event study shows a growing
+post-treatment effect---near zero at $k = 0$, reaching $+2.6$ pp by
+$k = +4$---consistent with deepening program impact as take-up rises
+and successive cohorts internalize HOPE. The detrending procedure
+cannot distinguish a growing treatment effect from a linear trend; it
+partially removes both. The period-specific estimates confirm this
+interpretation: the $k = +4$ coefficient remains significant under
+detrending ($+2.3$ pp, $p = 0.037$) even as the average ATT loses
+significance, indicating that the accumulated effect at later cohorts
+survives the linear-trend adjustment.
+
+Table~\ref{tab:lwdid_summary} summarizes the inference comparison.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Small-Sample Inference: Lee--Wooldridge Rolling DiD}
+\label{tab:lwdid_summary}
+\begin{tabular}{llcccc}
+\toprule
+ & & ATT & SE & Exact $p$ & RI $p$ \\
+\midrule
+\multicolumn{6}{l}{\textit{Bottom-quintile share ($Q_1$)}} \\
+\quad Demeaning & & $+0.0144$ & $(0.0051)$ & $0.005$ & $0.008$ \\
+\quad Demeaning (HC3) & & $+0.0144$ & $(0.0041)$ & $0.001$ & --- \\
+\quad Detrending & & $+0.0125$ & $(0.0073)$ & $0.089$ & $0.101$ \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Mean parental income rank}} \\
+\quad Demeaning & & $-0.0129$ & $(0.0043)$ & $0.003$ & --- \\
+\quad Detrending & & $-0.0040$ & $(0.0046)$ & $0.382$ & --- \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} \textcite{lee2026simple} rolling DiD on a
+  balanced panel of 20 Tennessee public colleges and 127
+  bordering-state controls (AL, VA, NC), 11 cohorts (1981--1991),
+  $t^* = 1987$. Demeaning removes unit-specific pre-treatment means;
+  detrending removes unit-specific linear pre-treatment trends. Exact
+  $p$-values from $t_{N-2}$ distribution under normality. RI
+  $p$-values from 999 permutations. No BEA controls (the procedure
+  accommodates only time-constant covariates). HC3 =
+  heteroskedasticity-robust standard errors. Data:
+  \textcite{chetty2020mobility}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 \subsection{Synthetic Control}
 \label{sec:robustness_synth}
 
