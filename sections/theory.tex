@@ -11,9 +11,9 @@ public institutions and whether that reshaping is stable under
 economic fluctuations. The key departure from standard two-sector
 models is that we allow three destinations: in-state public college,
 in-state private college, and an outside option (out-of-state
-enrollment or non-attendance). We then introduce income shocks to
-derive a Slutsky-type decomposition of the scholarship's
-compositional effect.
+enrollment or non-attendance). We then introduce income shocks to decompose the scholarship's
+compositional effect into a price channel and an income-sensitivity
+channel, analogous in spirit to the Slutsky decomposition.
 
 \subsection{Setup}
 
@@ -26,8 +26,10 @@ $i$ from option $j \in \{P, R, 0\}$ is
   V_{ij} = q_j - \frac{C_j}{y_i} + \varepsilon_{ij},
 \end{equation}
 where $q_j$ is the quality of institution $j$, $C_j$ is the sticker
-price, and $\varepsilon_{ij}$ captures idiosyncratic preferences. We
-normalize $q_0 = C_0 = 0$. We assume:
+price, and $\varepsilon_{ij}$ captures idiosyncratic preferences (we
+place no distributional restriction on $\varepsilon_{ij}$; the
+propositions below use only the sign of expected marginal utilities).
+We normalize $q_0 = C_0 = 0$ and assume:
 \begin{enumerate}
   \item $q_R > q_P > 0$ (private colleges are higher quality),
   \item $C_R > C_P > 0$ (private colleges are more expensive),
@@ -60,8 +62,7 @@ Families with $y_i < \underline{y}$ do not attend college; those with
 $\underline{y} \leq y_i < \overline{y}$ attend public; those with
 $y_i \geq \overline{y}$ attend private.
 
-The scholarship shifts both boundaries for eligible students. We state
-this formally:
+The scholarship shifts both boundaries for eligible students.
 
 \begin{proposition}[Access margin]
 \label{prop:access}
@@ -91,13 +92,10 @@ the scholarship is $\Delta V_i = S / y_i$, which is strictly
 decreasing in income: $\partial \Delta V_i / \partial y_i = -S/y_i^2 < 0$.
 \end{proposition}
 
-Proposition~\ref{prop:access} formalizes the \emph{access margin}:
-some lower-income families newly attend public college.
-Proposition~\ref{prop:substitution} formalizes the \emph{substitution
-margin}: some families who would have attended private switch to
-public. Proposition~\ref{prop:progressivity} establishes that,
-conditional on eligibility, the scholarship matters more to
-lower-income students.
+Together, the access and substitution margins predict that the public
+sector's income composition shifts downward, with the largest gains at
+the bottom of the distribution
+(Proposition~\ref{prop:progressivity}).
 Figure~\ref{fig:sorting_model} illustrates the sorting mechanism.
 
 \input{tikz/fig_sorting_model}
@@ -140,10 +138,10 @@ of merit aid:
   documented by \textcite{cornwell2006sorting}.
   We test P5 in Section~\ref{sec:results_mechanisms}.
 
-\item[E1: Spatial heterogeneity.] Institutions located near state
-  borders, where out-of-state alternatives are accessible, should show
-  larger composition shifts because the outside option is more salient
-  and the three-destination mechanism is most active.
+\item[P6: Spatial heterogeneity.] Institutions near state borders,
+  where out-of-state alternatives are accessible, should show larger
+  composition shifts because the outside option is more salient and the
+  three-destination mechanism is most active.
   We test P6 in Section~\ref{sec:spatial}.
 
 \item[P7: Cross-state variation.] Programs with no Pell offset and
@@ -165,17 +163,16 @@ Consider a negative income shock $\Delta y < 0$ affecting families in
 a local economy. The shock changes family income from $y_i$ to
 $y_i + \Delta y$ but does not change the scholarship amount, tuition,
 or institutional quality. The total effect of the scholarship under an
-income shock decomposes into two components, analogous to the Slutsky
-decomposition in consumer theory.
+income shock decomposes into two components.
 
-\paragraph{Substitution effect.}
+\paragraph{Price effect.}
 Holding income constant, the scholarship changes the relative price of
 public college. The utility gain for an eligible student choosing
-public is $\Delta V_i = S/y_i$. This is the price-reduction effect
-that produces predictions P1--P7 and is identified by the adoption
-difference-in-differences. It does not depend on economic conditions.
+public is $\Delta V_i = S/y_i$. This price-reduction effect generates
+predictions P1--P7. The adoption difference-in-differences identifies
+it. It does not vary with local economic conditions.
 
-\paragraph{Income effect.}
+\paragraph{Income-sensitivity effect.}
 Holding the scholarship constant, the income shock changes the
 family's ability to pay the remaining cost. For a fixed-dollar
 scholarship $S$, the cost burden after the shock is
@@ -199,8 +196,7 @@ tuition rises: if $C_P' > C_P$, then $1 - S^F/C_P' > 1 - \phi$.
 \end{proposition}
 
 \noindent When $\phi = 1$ (full tuition coverage), tuition costs
-vanish from the income-shock channel entirely. The scholarship
-provides what we term \emph{Hicksian compensation}: the family's
+vanish from the income-sensitivity channel entirely: the family's
 college choice on the tuition dimension is fully insulated from income
 fluctuations.
 
@@ -217,8 +213,11 @@ so the relative price of the four-year option is unchanged:
 \end{equation}
 For the marginal four-year student (where $V_{i4}^S \approx V_{i2}^S$),
 an income shock $\Delta y < 0$ increases $(C_4 - C_2)/(y_i + \Delta y)$,
-tipping the balance toward the two-year option. The scholarship keeps the
-student in the system but does not prevent tier reallocation.
+tipping the balance toward the two-year option. Provided
+$y_i + \Delta y > (C_2 - S)/q_2$ (the student remains above the
+no-college boundary), the scholarship keeps the student in the system
+but does not prevent tier reallocation. For sufficiently large shocks,
+exit from the system is also possible.
 \end{proposition}
 
 \noindent Proposition~\ref{prop:tier} explains why fixed-dollar
@@ -228,8 +227,9 @@ creates a new class of marginal four-year students---low-income
 families who attend four-year colleges only because the scholarship
 makes it affordable---who are particularly sensitive to income shocks
 and downshift to two-year colleges when family budgets tighten.
-\textcite{bruce2014jackpot} document exactly this substitution pattern
-for Tennessee HOPE.
+\textcite{bruce2014jackpot} document a consistent pattern for
+Tennessee HOPE: marginal students near the eligibility threshold
+shift from two-year to four-year institutions when HOPE is available.
 
 Figure~\ref{fig:decomposition} illustrates the decomposition
 spatially. In steady state, both Tennessee (fixed-dollar) and Florida
@@ -260,7 +260,7 @@ These propositions generate four additional testable predictions:
   students created by the scholarship downshift to two-year colleges.
   We test P10 in Section~\ref{sec:results_tier_reallocation}.
 
-\item[E2: Q2 is the most elastic quintile.] The lower-middle class
+\item[P11: Q2 is the most elastic quintile.] The lower-middle class
   (second income quintile) sits at the intersection of the model's two
   margins---just above the no-college boundary (where Pell alone may
   not suffice) and just below the two-year/four-year boundary (where
@@ -293,14 +293,13 @@ two-sector model---attend college or not---the aggregate attendance
 effect fully determines composition: if merit aid increases enrollment
 disproportionately among higher-income students, those students
 necessarily appear at colleges, and composition becomes more affluent.
-With three or more destinations, the link breaks. Higher-income students
-may attend college at higher rates but sort into private or out-of-state
-institutions, leaving the public sector's composition to be determined
-by the sorting behavior of remaining students. Individual enrollment
+
+With three or more destinations, the link breaks. Higher-income
+students may attend college at higher rates but sort into private or
+out-of-state institutions. The public sector's composition then depends
+on who remains---not on aggregate enrollment. Individual enrollment
 responses are therefore insufficient to predict institutional
-composition; the full destination distribution is required. Our model
-captures this by allowing sorting across all three margins
-simultaneously.
+composition; the full destination distribution is required.
 
 \subsection{Georgia as a Regressive Prediction}
 \label{sec:theory_georgia}
@@ -330,7 +329,7 @@ Tennessee's HOPE has no Pell offset, no income cap, and a large
 public-private subsidy differential (full tuition at publics vs.\
 \$3,000--\$4,000 at privates). Under these parameters, the model
 predicts that the access margin and substitution margin both operate,
-producing the progressive gradient we observe. The TN-GA contrast is
+producing a progressive quintile gradient. The TN-GA contrast is
 a pair of outcomes predicted by the same model under different
 parameter values.
 
@@ -339,6 +338,6 @@ fixed-dollar award generates progressive sorting but leaves it
 vulnerable to income shocks (uncompensated income effect), while
 Florida's percentage-based award (Bright Futures Medallion tier,
 covering 75\% of tuition) both generates progressive sorting and
-stabilizes it (compensated income effect). Award structure determines
+stabilizes it (compensated income effect). Award structure predicts
 not only the direction but the \emph{durability} of compositional
 change.
