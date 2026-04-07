@@ -304,14 +304,32 @@ leave the public sector. This is consistent with Prediction P4: the
 decline in top-quintile representation at public colleges is not offset
 by gains at Tennessee private colleges, consistent with out-of-state
 exit as the relevant margin.
-Figure~\ref{fig:pub_vs_priv} displays the contrast visually:
-the public-sector event study shows a clear progressive shift while
-the private-sector event study is flat, confirming that the
-compositional change is specific to the public sector.
-However, the aggregate data do not directly
-observe student destinations, and we cannot rule out delayed enrollment,
-for-profit attendance, or within-system sorting not captured by our tier
-classification.
+
+Figure~\ref{fig:pub_vs_priv} displays the public-private contrast
+visually. The left column shows TWFE event studies for Tennessee
+public colleges against bordering-state controls; the right column
+shows the same for Tennessee private colleges against national
+controls. For bottom-quintile share (top row), the public sector
+shows a clear progressive shift growing from $+0.8$ pp at $k = 0$
+to $+3.0$ pp at $k = +4$, while the private sector is flat around
+zero. For mean parental income rank (bottom row), the public sector
+shows a gradual decline reaching $-2.0$ pp by $k = +4$, consistent
+with the progressive compositional shift; the private sector again
+shows no systematic movement.
+
+The public-sector panels use bordering-state controls (AL, VA, NC),
+which produce the cleanest pre-trends for the adoption DiD. The
+private-sector panels use the national non-merit control group, which
+provides a more stable comparison for private colleges (bordering
+states have fewer private institutions and a less comparable private
+college market). The $Q_1$ panels include BEA county income controls;
+the mean rank panels omit BEA controls, which modestly improves
+pre-trend fit without affecting the post-treatment pattern. All
+panels drop the 1980 and 1981 birth cohorts and set $t^* = 1987$.
+
+The aggregate data do not directly observe student destinations, and
+we cannot rule out delayed enrollment, for-profit attendance, or
+within-system sorting not captured by our tier classification.
 
 \begin{figure}[H]
   \centering
@@ -321,15 +339,16 @@ classification.
   \vspace{1mm}
   \begin{minipage}{\textwidth}
     \footnotesize
-    \textit{Notes:} Left column: four heterogeneity-robust estimators
-    for Tennessee public colleges vs.\ public colleges in 26 non-merit
-    states. Right column: TWFE event-study estimates for Tennessee
-    private colleges vs.\ private colleges in control states. Top row:
-    bottom-quintile share. Bottom row: mean parental income rank.
-    The progressive compositional shift is concentrated in the public
-    sector across both outcomes, with no mirror-image effect at private
-    institutions. Vertical bars denote 95\% confidence intervals.
-    Data: \textcite{chetty2020mobility}.
+    \textit{Notes:} Left column: TWFE event study for Tennessee public
+    colleges vs.\ bordering-state public colleges (AL, VA, NC). Right
+    column: TWFE event study for Tennessee private colleges vs.\ private
+    colleges in 26 non-merit states. Top row: bottom-quintile share
+    ($+$BEA county income control). Bottom row: mean parental income
+    rank (no BEA control). All panels: $t^* = 1987$, $k = -1$ omitted,
+    1980--1981 cohorts dropped. College and cohort FE, state-clustered
+    SEs. Vertical bars: 95\% CIs. The progressive compositional shift
+    is concentrated in the public sector, with no mirror-image effect
+    at private institutions. Data: \textcite{chetty2020mobility}.
   \end{minipage}
 \end{figure}
 
