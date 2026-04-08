@@ -56,16 +56,46 @@ Or with `latexmk`:
 latexmk -pdf main.tex
 ```
 
-## Overleaf Sync
+## Two-Repo Sync Workflow
 
-This repository is linked to Overleaf via GitHub Sync.
+This repository is the **paper-only** repo linked to Overleaf. The full research project (code, data, revision tracking) lives in a separate repo: [`merit-aid-sprint03`](https://github.com/tylersotomayor/merit-aid-sprint03).
+
+### Repositories
+
+| Repo | Contains | Linked to |
+|------|----------|-----------|
+| `merit-aid-working-paper` (this repo) | .tex, figures, tables, compiled PDF | Overleaf |
+| `merit-aid-sprint03` | Everything: code, data, paper, revision tracking | Claude Code |
+
+### Sync Flow
+
+Both directions follow the same pattern: **Pull -- Edit -- Push -- other side Pulls.**
+
+**Editing in Overleaf (you/coauthors):**
+```
+Overleaf --> Push to merit-aid-working-paper (GitHub button in Overleaf)
+         --> At next Claude Code session, pull into sprint_03/paper/
+```
+
+**Editing via Claude Code (revision sessions):**
+```
+sprint_03/paper/ --> push to merit-aid-sprint03
+                 --> copy files to merit-aid-working-paper, push
+                 --> Pull into Overleaf (GitHub button in Overleaf)
+```
+
+### Rules
+
+1. **Always pull before pushing** from either direction to avoid overwriting the other's edits.
+2. **During active revision sessions**, edits flow one way: Claude Code --> GitHub --> Overleaf. Avoid editing in Overleaf during these sessions.
+3. **Between sessions**, Overleaf edits are fine — they'll be synced into sprint_03 at the start of the next session.
+
+### Overleaf Sync Actions
 
 | Action | How |
 |--------|-----|
-| **Pull GitHub changes into Overleaf** | Overleaf > Menu > GitHub > Pull |
-| **Push Overleaf edits to GitHub** | Overleaf > Menu > GitHub > Push |
-
-**Rule:** Always pull before editing to avoid merge conflicts. One person manages the sync.
+| **Pull GitHub changes into Overleaf** | Overleaf sidebar > GitHub > Pull GitHub changes into Overleaf |
+| **Push Overleaf edits to GitHub** | Overleaf sidebar > GitHub > Push Overleaf changes to GitHub |
 
 ## Contributing
 
