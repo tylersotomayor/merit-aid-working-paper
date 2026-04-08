@@ -33,16 +33,15 @@
   \vspace{1mm}
   \begin{minipage}{0.9\textwidth}
     \footnotesize
-    \textit{Notes:} Event-study estimates from TWFE and two alternative
-    estimators (\textcite{sun2021estimating} and
-    \textcite{callaway2021difference}), estimated separately for each
-    income quintile share.
-    Bottom quintiles (Q1--Q2) trend upward post-treatment (gaining share);
-    top quintiles (Q4--Q5) trend downward (losing share); Q3 is near zero.
-    The monotonic gradient is consistent across all three estimators.
-    Bordering-state control group (AL, NC, VA). $k = -2$ omitted
-    (1984 cohort, last untreated). 1980 birth cohort dropped. Standard
-    errors clustered by state. Data: \textcite{chetty2020mobility}.
+    \textit{Notes:} TWFE event-study estimates for each income quintile
+    share under the preferred specification ($t^* = 1987$, drop 1980
+    cohort, BEA county income control). Bottom quintiles (Q1--Q2) trend
+    upward post-treatment (gaining share); top quintiles (Q4--Q5) trend
+    downward (losing share); Q3 is near zero. The monotonic gradient
+    confirms that HOPE reshuffled composition across the full income
+    distribution. National control group (26 non-merit states). $k = -1$
+    omitted. Standard errors clustered by state.
+    Data: \textcite{chetty2020mobility}.
   \end{minipage}
 \end{figure}
 
@@ -142,3 +141,65 @@
 % (fig_rr_combined) inline in Section 7 (Robustness). The old
 % breakdown-by-event-time figure has been removed; the combined
 % figure provides a cleaner summary.
+
+% ============================================================
+%  H. SPATIAL HETEROGENEITY
+% ============================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_spatial_scatter.pdf}
+  \caption{College-Level DiD Effects vs.\ Baseline County Income}
+  \label{fig:spatial_scatter}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Each point represents a Tennessee public college.
+    The horizontal axis is baseline log per capita income (BEA county
+    average, 1998--2003); the vertical axis is the college-specific
+    TWFE DiD estimate for bottom-quintile share. Separate OLS fitted
+    lines and 95\% confidence bands are shown for metro (navy) and
+    nonmetro (cranberry) colleges. The overall correlation is
+    $r = 0.36$; richer counties host colleges with larger progressive
+    effects. Data: \textcite{chetty2020mobility}; BEA CAINC1.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_subgroup_forest.pdf}
+  \caption{Subgroup ATT Estimates: Metro/Nonmetro $\times$ Sector and Tier}
+  \label{fig:subgroup_forest}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} TWFE static DiD estimates for bottom-quintile share,
+    estimated separately by metro status, sector, and tier. Metro public
+    colleges---especially two-year institutions---drive the aggregate
+    effect. Nonmetro public colleges show small, insignificant effects.
+    Private colleges show an attenuated metro pattern consistent with
+    HOPE's smaller private-institution subsidy. Horizontal bars are 95\%
+    confidence intervals. Standard errors clustered at the state level.
+    Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig_multistate_metro.pdf}
+  \caption{Metro Interaction Coefficients Across States}
+  \label{fig:multistate_metro}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} Metro $\times$ treatment interaction coefficients
+    from TWFE static DiD, estimated separately for each state. Open
+    circles show overall ATT for context. Tennessee, South Dakota, and
+    Georgia all show positive metro interactions, indicating that the
+    metro amplification is not specific to Tennessee. Massachusetts
+    shows no metro variation because virtually all public colleges are
+    in metro areas. Horizontal bars are 95\% confidence intervals.
+    Standard errors clustered at the state level.
+    Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}

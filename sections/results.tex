@@ -395,6 +395,26 @@ information about their options. We test whether HOPE's progressive
 effect varies with the density and economic characteristics of the
 local institutional market.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fig_spatial_income_final.pdf}
+  \caption{Spatial Distribution of HOPE's Composition Effect in Tennessee}
+  \label{fig:spatial_map}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} Panel~A maps Tennessee public colleges (circles sized
+    by $|$DiD$|$ for bottom-quintile share, colored by metro status) against
+    county-level baseline per capita income (grayscale). Private colleges
+    shown as small gray dots for context. Panel~B plots each public
+    college's DiD estimate against baseline county log per capita income,
+    with separate OLS fitted lines for metro (navy) and nonmetro (cranberry)
+    colleges ($r = 0.36$). Metro colleges in higher-income counties show
+    the largest progressive effects. Data: \textcite{chetty2020mobility};
+    BEA CAINC1; USDA RUCC 2003.
+  \end{minipage}
+\end{figure}
+
 \paragraph{Metro vs.\ nonmetro.}
 
 Using USDA Rural-Urban Continuum Codes (2003 vintage), we classify
@@ -490,8 +510,6 @@ college-going rates---that independently affect how a scholarship
 translates into composition changes. The pattern is consistent with
 the sorting mechanism operating more actively in denser institutional
 markets, but we cannot isolate metro status from its correlates.
-\end{threeparttable}
-\end{table}
 
 \subsection{Shock-Insurance Gradient}
 \label{sec:results_insurance}
