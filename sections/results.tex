@@ -386,92 +386,110 @@ specific to the public sector.
 \subsection{Spatial Heterogeneity}
 \label{sec:spatial}
 
-The three-destination model predicts that the composition shift varies
-with institutional geography (P6). Colleges closer to state borders
-face stronger outside-option competition---the kind of cross-market
-pressure emphasized by \textcite{hoxby2000peer}---which should amplify
-the sorting mechanism. We test this prediction by estimating heterogeneous
-effects along two spatial dimensions: border proximity and region.
+The three-destination model predicts that the scholarship's
+compositional effect operates through sorting across alternatives in
+the student's choice set. A natural implication is that the effect
+should be largest where that choice set is thickest---where students
+have nearby public colleges, viable private alternatives, and
+information about their options. We test whether HOPE's progressive
+effect varies with the density and economic characteristics of the
+local institutional market.
 
-\textbf{Border vs.\ interior.} Institutions in Tennessee counties that
-border another state show a 38\% larger progressive shift than interior
-institutions: the bottom-quintile share ATT is $+1.89$ pp (SE $=
-0.003$, $p < 0.001$) at border colleges versus $+1.37$ pp (SE $=
-0.003$, $p < 0.001$) at interior colleges. The monotonic quintile
-gradient holds in both subsamples, but the gradient is steeper at
-border colleges. This is consistent with P6: where students have
-accessible out-of-state alternatives, HOPE's price reduction has a
-larger behavioral effect on the margin between public enrollment and
-exit.
+\paragraph{Metro vs.\ nonmetro.}
 
-\textbf{Regional variation.} The effect varies strikingly across
-Tennessee's three Grand Divisions (Table~\ref{tab:spatial}). West
-Tennessee shows the largest shift ($+3.13$ pp, $p < 0.001$), roughly
-triple the magnitude in East Tennessee ($+1.13$ pp, $p < 0.001$) and
-Middle Tennessee ($+1.03$ pp, $p = 0.002$). The monotonic quintile
-gradient holds in all three regions. The concentration in West
-Tennessee---where the Memphis metropolitan area's proximity to
-Mississippi and Arkansas creates strong cross-border competition, and a
-high density of community colleges favors both access expansion and
-competitive retention---is consistent with the model's spatial
-predictions.\footnote{West Tennessee contains only 6 of the 26 public
-colleges. The large point estimate should be interpreted with this
-small-sample caveat in mind.}
+Using USDA Rural-Urban Continuum Codes (2003 vintage), we classify
+each Tennessee public college as metro (RUCC 1--3) or nonmetro (RUCC
+4--9). Twenty of the 26 public colleges are in metro counties.
+Interacting the treatment indicator with metro status, the metro
+effect on bottom-quintile share is $+1.23$ pp larger than the
+nonmetro effect ($p < 0.001$). Total ATT at metro colleges is
+$+1.96$ pp; at nonmetro colleges, $+0.73$ pp
+(Table~\ref{tab:spatial_income}, Appendix). The metro amplification
+is not driven by a single tier. Among public four-year institutions,
+the metro ATT is $+0.77$ pp ($p = 0.024$) vs.\ $+0.05$ pp
+($p = 0.80$) at nonmetro four-year colleges. Among community
+colleges, the contrast is even sharper: $+2.30$ pp ($p = 0.006$) at
+metro two-year colleges vs.\ $+0.62$ pp ($p = 0.14$) at nonmetro
+(Figure~\ref{fig:subgroup_forest}, Appendix). The concentration at
+metro community colleges is consistent with
+\textcite{bruce2014jackpot}, who find that HOPE's enrollment effect
+operates through the two-year-to-four-year tier substitution channel
+among low-income students---a channel that requires accessible
+two-year institutions nearby.
 
-Figure~\ref{fig:spatial_map} displays the geographic distribution of
-the effect. Each of Tennessee's 26 public colleges is marked at its
-county location, with the county fill reflecting the regional ATT
-magnitude. The concentration of the effect in West Tennessee---and
-particularly in border counties adjacent to Mississippi and
-Arkansas---is visually striking.
+\paragraph{County income.}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{fig_spatial_heterogeneity.pdf}
-  \caption{Geographic Distribution of HOPE's Compositional Effect}
-  \label{fig:spatial_map}
-  \vspace{1mm}
-  \begin{minipage}{\textwidth}
-    \footnotesize
-    \textit{Notes:} County fill reflects the regional bottom-quintile
-    share ATT (West: $+3.1$ pp, East: $+1.1$ pp, Middle: $+1.0$ pp),
-    with border counties receiving a 38\% boost per the border vs.\
-    interior heterogeneity estimate. Navy markers indicate public
-    college locations: circles = four-year universities, triangles =
-    two-year colleges. Border counties are outlined. Neighboring states
-    labeled to illustrate out-of-state exit destinations.
-    Data: \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
+Baseline county per capita income (BEA, pre-HOPE average) is
+positively associated with the magnitude of the composition shift:
+the college-level correlation is $r = 0.36$. A formal interaction of
+treatment with baseline county income is significant ($p < 0.001$),
+and both income and metro status remain significant when estimated
+jointly (Table~\ref{tab:spatial_income}).
+Figure~\ref{fig:spatial_map} maps the pattern: larger effects cluster
+at public colleges in higher-income metro counties around Nashville,
+Memphis, and Knoxville, while colleges in lower-income rural counties
+show smaller effects. Figure~\ref{fig:spatial_scatter} quantifies
+the relationship, with separate fitted lines for metro and nonmetro
+colleges.
 
-\begin{table}[t]
-\centering
-\begin{threeparttable}
-\caption{Spatial Heterogeneity in HOPE's Compositional Effect}
-\label{tab:spatial}
-\begin{tabular}{lccc}
-\toprule
- & Q1 Share ATT & SE & Colleges \\
-\midrule
-\textit{By Border Status} & & & \\
-\quad Border counties & $0.0189^{***}$ & $(0.003)$ & 8 \\
-\quad Interior counties & $0.0137^{***}$ & $(0.003)$ & 18 \\
-\midrule
-\textit{By Region} & & & \\
-\quad East Tennessee & $0.0113^{***}$ & $(0.003)$ & 9 \\
-\quad Middle Tennessee & $0.0103^{**}$ & $(0.003)$ & 11 \\
-\quad West Tennessee & $0.0313^{***}$ & $(0.003)$ & 6 \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[flushleft]
-\footnotesize
-\item \textit{Notes:} TWFE static difference-in-differences estimates.
-  College and cohort fixed effects included. Standard errors clustered
-  at the state level in parentheses. Border counties share a boundary
-  with another state. Regional definitions follow Tennessee's Grand
-  Divisions. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
-  Data: \textcite{chetty2020mobility}.
-\end{tablenotes}
+The positive income gradient runs counter to the model's prediction
+that the proportional price reduction $S/y_i$ is largest for
+low-income families. But the model's prediction concerns individual
+utility, not the aggregate behavioral response at the college level.
+In economically vibrant metro areas, the institutional ecosystem
+supports the sorting mechanism: students have accessible colleges,
+information networks facilitate awareness of HOPE, local labor
+markets reward educational attainment, and peers attend college at
+higher rates. In thin rural markets, the price reduction exists but
+the behavioral margin is harder to activate
+\parencite{acton2024distance, hoxby2009changing}. The spatial
+heterogeneity is therefore a scope condition for the model: the
+three-destination sorting mechanism requires a sufficiently developed
+institutional market to operate.
+
+\paragraph{Private colleges.}
+
+HOPE provides a smaller subsidy at eligible Tennessee private
+institutions (\$3,000--4,000 vs.\ full tuition at publics). The
+metro effect at privates is attenuated but directionally consistent:
+$+0.21$ pp ($p = 0.069$) at metro privates vs.\ $-0.55$ pp
+($p < 0.001$) at nonmetro privates. The positive metro effect at
+privates is consistent with the smaller subsidy producing a weaker
+version of the same sorting dynamic; the negative nonmetro effect
+may reflect compositional spillovers as students shift from private
+to nearby public institutions where the subsidy is larger.
+
+\paragraph{Cross-state replication.}
+
+To assess whether the metro amplification is specific to Tennessee,
+we estimate the same metro interaction for three additional states.
+Massachusetts shows a similar overall ATT ($+1.42$ pp) but no metro
+variation---likely because virtually all Massachusetts public
+colleges are in metro areas, leaving no nonmetro comparison. South
+Dakota's regressive effect ($-1.33$ pp) is concentrated at nonmetro
+colleges; the metro interaction is $+0.58$ pp ($p < 0.001$),
+indicating that even in a state with a high eligibility threshold,
+metro colleges show a less regressive pattern. Georgia shows a strong
+positive metro interaction ($+1.69$ pp, $p < 0.001$) despite a
+negative overall effect, suggesting that the Pell offset suppressed
+access primarily at nonmetro institutions where low-income students
+had fewer alternatives
+(Figure~\ref{fig:multistate_metro}, Appendix).
+
+The replication across states with different program designs suggests
+that the metro amplification is a general feature of how merit aid
+interacts with institutional geography, not a Tennessee-specific
+confound.
+
+\paragraph{Limitations.}
+
+The spatial analysis is descriptive, not causal. Metro status and
+county income are cross-sectional characteristics that correlate with
+many local features---demographics, labor markets, baseline
+college-going rates---that independently affect how a scholarship
+translates into composition changes. The pattern is consistent with
+the sorting mechanism operating more actively in denser institutional
+markets, but we cannot isolate metro status from its correlates.
 \end{threeparttable}
 \end{table}
 
