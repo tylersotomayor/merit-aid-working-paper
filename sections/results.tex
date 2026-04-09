@@ -348,8 +348,62 @@ decline in top-quintile representation at public colleges is not offset
 by gains at Tennessee private colleges, consistent with out-of-state
 exit as the relevant margin.
 
+The quintile decomposition at private colleges provides a sharper test
+than the aggregate spillover null alone.
+Figure~\ref{fig:spillover_gradient} overlays quintile-specific
+coefficients for public and private colleges. The public gradient is
+monotonically decreasing: $Q_1$ gains $+1.5$ pp, $Q_5$ loses $-1.6$
+pp. The private gradient has a qualitatively different shape: $Q_1$ is
+precisely zero ($+0.01$ pp, $p = 0.91$), $Q_2$ and $Q_3$ gain
+($+0.48$ pp, $p = 0.001$; $+0.42$ pp, $p = 0.057$), $Q_4$ is near
+zero, and $Q_5$ declines ($-0.96$ pp, $p = 0.006$). The two gradients
+cross near $Q_3$.
+
+The informative margins are $Q_1$ and $Q_5$. The $Q_1$ null at
+privates confirms that HOPE's access channel operates exclusively
+through the public sector: the lowest-income students who enter
+four-year colleges because of HOPE enroll at public institutions, not
+private ones. The $Q_5$ decline at privates parallels the public
+pattern, consistent with top-quintile exit from both sectors---likely
+to out-of-state institutions, where HOPE confers no advantage. Given
+the unit-sum constraint, the $Q_2$--$Q_3$ gains at privates follow
+partly by arithmetic: if $Q_1 \approx 0$ and $Q_5 < 0$, the
+remaining quintiles must absorb the lost share. The concentration of
+this redistribution in $Q_2$--$Q_3$ rather than $Q_4$ suggests that
+middle-income students are the marginal beneficiaries of the changing
+competitive landscape at private colleges, though we cannot
+distinguish this from differential $Q_4$ exit.
+
+The discriminating content of Figure~\ref{fig:spillover_gradient} is
+the contrast between sectors: the public gradient is monotone; the
+private gradient is not. A generic Tennessee-specific shock would
+produce parallel shifts at both public and private colleges. A
+compositional story that operates through HOPE's price channel
+predicts the observed asymmetry: a strong $Q_1$ effect where the
+subsidy is largest (publics), a null $Q_1$ effect where the subsidy is
+absent or small (privates), and $Q_5$ exit from both sectors.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{fig_spillover_gradient.pdf}
+  \caption{Public vs.\ Private Quintile Gradients: Monotone and
+    Hump-Shaped}
+  \label{fig:spillover_gradient}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} TWFE quintile-specific coefficients. Public colleges:
+    preferred adoption DiD (national control, $t^* = 1987$, drop 1980,
+    $+$BEA controls, state-clustered SEs). Private colleges: spillover
+    DiD (national control, $t^* = 1987$, drop 1980, no BEA,
+    state-clustered SEs). Whiskers: 95\% CIs. The public gradient
+    is monotonically decreasing; the private gradient is hump-shaped,
+    peaking at $Q_2$--$Q_3$. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
 Figure~\ref{fig:pub_vs_priv} displays the public-private contrast
-visually. The left column shows TWFE event studies for Tennessee
+in event-study form. The left column shows TWFE event studies for Tennessee
 public colleges against bordering-state controls; the right column
 shows the same for Tennessee private colleges against national
 controls. For bottom-quintile share (top row), the public sector
@@ -395,7 +449,7 @@ within-system sorting not captured by our tier classification.
   \end{minipage}
 \end{figure}
 
-\subsubsection{Where Did Top-Quintile Students Go?}
+\subsubsection{Inferring Exit Margins from Aggregate Composition}
 
 The tier heterogeneity results (Table~\ref{tab:tier_het}) shed light on
 the Q5 exit pattern. Two-year colleges lost 16.8 Q5 students per cohort
@@ -406,16 +460,18 @@ concentrated at a single tier---it is present at both two-year and
 four-year institutions, though the mechanisms differ. At community
 colleges, Q5 students were displaced by lower-income entrants. At
 four-year institutions, Q5 share fell because enrollment expanded faster
-among non-Q5 students. In neither case do the displaced Q5 students appear at Tennessee private
-colleges, reinforcing the interpretation that the relevant exit margin
-is outside Tennessee's private sector.
+among non-Q5 students. The decline in top-quintile representation at
+public colleges is not offset by gains at Tennessee private colleges,
+consistent with---but not proof of---out-of-state exit as the relevant
+margin. The aggregate data do not observe individual destinations
+directly.
 
 
 \subsubsection{Within-Tennessee Public vs.\ Private Comparison}
 
 As a complementary test, we restrict the sample to Tennessee
 institutions only and compare public to private colleges within the
-state. This eliminates any concerns about cross-state confounds.
+state. This removes cross-state confounds but relies on a different identifying assumption: that Tennessee public and private colleges would have experienced parallel composition changes absent HOPE.
 
 The within-Tennessee TWFE estimate for bottom-quintile share is 1.56
 percentage points (SE = 0.0037, $p < 0.001$) and for mean parental
@@ -426,138 +482,15 @@ within-state control. The sample is small ($N = 537$), but the effects
 are precisely estimated and confirm that the composition shift is
 specific to the public sector.
 
-\subsection{Spatial Heterogeneity}
-\label{sec:spatial}
-
-The three-destination model predicts that the scholarship's
-compositional effect operates through sorting across alternatives in
-the student's choice set. A natural implication is that the effect
-should be largest where that choice set is thickest---where students
-have nearby public colleges, viable private alternatives, and
-information about their options. We test whether HOPE's progressive
-effect varies with the density and economic characteristics of the
-local institutional market.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{fig_spatial_income_final.pdf}
-  \caption{Spatial Distribution of HOPE's Composition Effect in Tennessee}
-  \label{fig:spatial_map}
-  \vspace{1mm}
-  \begin{minipage}{\textwidth}
-    \footnotesize
-    \textit{Notes:} Panel~A maps Tennessee public colleges (circles sized
-    by $|$DiD$|$ for bottom-quintile share, colored by metro status) against
-    county-level baseline per capita income (grayscale). Private colleges
-    shown as small gray dots for context. Panel~B plots each public
-    college's DiD estimate against baseline county log per capita income,
-    with separate OLS fitted lines for metro (navy) and nonmetro (cranberry)
-    colleges ($r = 0.36$). Metro colleges in higher-income counties show
-    the largest progressive effects. Data: \textcite{chetty2020mobility};
-    BEA CAINC1; USDA RUCC 2003.
-  \end{minipage}
-\end{figure}
-
-\paragraph{Metro vs.\ nonmetro.}
-
-Using USDA Rural-Urban Continuum Codes (2003 vintage), we classify
-each Tennessee public college as metro (RUCC 1--3) or nonmetro (RUCC
-4--9). Twenty of the 26 public colleges are in metro counties.
-Interacting the treatment indicator with metro status, the metro
-effect on bottom-quintile share is $+1.23$ pp larger than the
-nonmetro effect ($p < 0.001$). Total ATT at metro colleges is
-$+1.96$ pp; at nonmetro colleges, $+0.73$ pp
-(Table~\ref{tab:spatial_income}, Appendix). The metro amplification
-is not driven by a single tier. Among public four-year institutions,
-the metro ATT is $+0.77$ pp ($p = 0.024$) vs.\ $+0.05$ pp
-($p = 0.80$) at nonmetro four-year colleges. Among community
-colleges, the contrast is even sharper: $+2.30$ pp ($p = 0.006$) at
-metro two-year colleges vs.\ $+0.62$ pp ($p = 0.14$) at nonmetro
-(Figure~\ref{fig:subgroup_forest}, Appendix). The concentration at
-metro community colleges is consistent with
-\textcite{bruce2014jackpot}, who find that HOPE's enrollment effect
-operates through the two-year-to-four-year tier substitution channel
-among low-income students---a channel that requires accessible
-two-year institutions nearby.
-
-\paragraph{County income.}
-
-Baseline county per capita income (BEA, pre-HOPE average) is
-positively associated with the magnitude of the composition shift:
-the college-level correlation is $r = 0.36$. A formal interaction of
-treatment with baseline county income is significant ($p < 0.001$),
-and both income and metro status remain significant when estimated
-jointly (Table~\ref{tab:spatial_income}).
-Figure~\ref{fig:spatial_map} maps the pattern: larger effects cluster
-at public colleges in higher-income metro counties around Nashville,
-Memphis, and Knoxville, while colleges in lower-income rural counties
-show smaller effects. Figure~\ref{fig:spatial_scatter} quantifies
-the relationship, with separate fitted lines for metro and nonmetro
-colleges.
-
-The positive income gradient runs counter to the model's prediction
-that the proportional price reduction $S/y_i$ is largest for
-low-income families. But the model's prediction concerns individual
-utility, not the aggregate behavioral response at the college level.
-In economically vibrant metro areas, the institutional ecosystem
-supports the sorting mechanism: students have accessible colleges,
-information networks facilitate awareness of HOPE, local labor
-markets reward educational attainment, and peers attend college at
-higher rates. In thin rural markets, the price reduction exists but
-the behavioral margin is harder to activate
-\parencite{acton2024distance, hoxby2009changing}. The spatial
-heterogeneity is therefore a scope condition for the model: the
-three-destination sorting mechanism requires a sufficiently developed
-institutional market to operate.
-
-\paragraph{Private colleges.}
-
-HOPE provides a smaller subsidy at eligible Tennessee private
-institutions (\$3,000--4,000 vs.\ full tuition at publics). The
-metro effect at privates is attenuated but directionally consistent:
-$+0.21$ pp ($p = 0.069$) at metro privates vs.\ $-0.55$ pp
-($p < 0.001$) at nonmetro privates. The positive metro effect at
-privates is consistent with the smaller subsidy producing a weaker
-version of the same sorting dynamic; the negative nonmetro effect
-may reflect compositional spillovers as students shift from private
-to nearby public institutions where the subsidy is larger.
-
-\paragraph{Cross-state replication.}
-
-To assess whether the metro amplification is specific to Tennessee,
-we estimate the same metro interaction for three additional states.
-Massachusetts shows a similar overall ATT ($+1.42$ pp) but no metro
-variation---likely because virtually all Massachusetts public
-colleges are in metro areas, leaving no nonmetro comparison. South
-Dakota's regressive effect ($-1.33$ pp) is concentrated at nonmetro
-colleges; the metro interaction is $+0.58$ pp ($p < 0.001$),
-indicating that even in a state with a high eligibility threshold,
-metro colleges show a less regressive pattern. Georgia shows a strong
-positive metro interaction ($+1.69$ pp, $p < 0.001$) despite a
-negative overall effect, suggesting that the Pell offset suppressed
-access primarily at nonmetro institutions where low-income students
-had fewer alternatives
-(Figure~\ref{fig:multistate_metro}, Appendix).
-
-The replication across states with different program designs suggests
-that the metro amplification is a general feature of how merit aid
-interacts with institutional geography, not a Tennessee-specific
-confound.
-
-\paragraph{Limitations.}
-
-The spatial analysis is descriptive, not causal. Metro status and
-county income are cross-sectional characteristics that correlate with
-many local features---demographics, labor markets, baseline
-college-going rates---that independently affect how a scholarship
-translates into composition changes. The pattern is consistent with
-the sorting mechanism operating more actively in denser institutional
-markets, but we cannot isolate metro status from its correlates.
-
 \subsection{Shock-Insurance Gradient}
 \label{sec:results_insurance}
 
-We now test whether the compositional shift documented above is
+The following evidence is comparative and observational. The identifying
+assumption---that income shocks would shift composition equally in merit
+and non-merit states absent programs---is weaker than the adoption DiD's
+parallel trends requirement.
+
+We test whether the compositional shift documented above is
 \emph{stable} during economic fluctuations, using the shock-interaction
 design described in Section~\ref{sec:empirical_shock}. The baseline
 relationship between income shocks and composition in non-merit states
@@ -603,9 +536,12 @@ monotonically ordered. The total effect ($\hat\beta_1 + \hat\beta_2$)
 is near zero for every quintile: tuition-scaling programs approximately
 \emph{neutralize} the income shock across the entire distribution.
 This is the shock-insurance analog of the adoption-DiD quintile
-gradient, estimated on entirely different variation (county-level income
+gradient, estimated on different variation (county-level income
 fluctuations interacted with program design rather than program
-adoption timing).
+adoption timing). The identification is weaker---the comparison
+pools heterogeneous states and relies on college-clustered standard
+errors---but the monotonic pattern is consistent with the adoption
+DiD result.
 
 \subsection{Tier Reallocation Under Fixed-Dollar Awards}
 \label{sec:results_tier_reallocation}
@@ -648,9 +584,10 @@ economy is worse, has a substantially different income composition.
 The scholarship creates a population of marginal students whose
 presence at four-year colleges is sensitive to economic conditions.
 
-This is the third five-for-five monotonic gradient in the paper
-(Figure~\ref{fig:three_panel_gradient}, Panel~C), estimated on yet
-another source of variation.
+This is the third monotonic gradient in the paper
+(Figure~\ref{fig:three_panel_gradient}, Panel~C): four of five
+quintiles are statistically significant and all five are
+monotonically ordered.
 
 Q2 (the lower-middle class) is the most affected quintile ($\hat\beta_2
 = -0.178$ vs.\ Q1's $-0.149$). This is consistent with P11: Q2
@@ -691,85 +628,51 @@ them back.
   \end{minipage}
 \end{figure}
 
-\subsection{Award Structure and State Rankings}
-\label{sec:results_award}
+Individual-state shock-buffering coefficients are noisy, but the
+pattern is consistent with the theoretical prediction: tuition-scaling
+programs (WV, FL) cluster at the top of the buffering distribution
+while fixed-dollar programs (TN, GA) cluster at the bottom
+(Figure~\ref{fig:state_buffering}, Appendix). The distinction is not
+reducible to program generosity---Georgia HOPE, the most generous in
+dollars per FTE, shows the worst buffering, while West Virginia
+PROMISE shows the strongest. What matters is whether the award scales
+with costs (Proposition~\ref{prop:compensation}).
 
-Figure~\ref{fig:state_buffering} ranks the ten strong merit programs by
-their shock-buffering coefficient on $Q_1$ share. The pattern confirms
-the theoretical prediction: tuition-scaling programs cluster at the top
-(West Virginia: $+0.096$, $p = 0.024$; Florida: $+0.092$, $p = 0.033$)
-while fixed-dollar programs cluster at the bottom (Tennessee: $-0.002$,
-$p = 0.97$; Georgia: $-0.043$, $p = 0.25$). Massachusetts ($+0.035$,
-$p = 0.14$) and Louisiana ($+0.014$, $p = 0.46$) show positive
-coefficients on $Q_1$ that are not individually significant but are
-significant on parental income rank ($p = 0.008$ and $p = 0.003$,
-respectively).
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.85\textwidth]{fig_state_buffering.pdf}
-  \caption{Economic Resilience by Program Design}
-  \label{fig:state_buffering}
-  \vspace{1mm}
-  \begin{minipage}{0.85\textwidth}
-    \footnotesize
-    \textit{Notes:} Shock $\times$ merit-state interaction coefficient on
-    bottom-quintile share for each strong merit program (Sjoquist \&
-    Winters, 2015, plus Massachusetts). Each state estimated separately
-    against non-merit baseline. Public and private nonprofit colleges.
-    BEA county income shock at decision year (cohort~$+$~17). College
-    and cohort FE, college-clustered SEs. 95\% CIs.
-  \end{minipage}
-\end{figure}
-
-West Virginia's coefficient of $+0.096$ means that a 10\% county
-income decline causes Q1 share at WV public colleges to drop 0.96~pp
-\emph{less} than at non-merit colleges---PROMISE nearly fully
-offsets the affordability squeeze. Tennessee's coefficient of $-0.002$
-means HOPE provides no differential protection at all.
-
-The award-structure distinction is not reducible to program generosity.
-Georgia HOPE is the most generous program in dollars per FTE
-(\$1,191) and shows the worst buffering. Tennessee HOPE spends
-\$920/FTE and shows zero buffering. West Virginia PROMISE, at
-\$485/FTE, shows the strongest. What matters is not how much the
-program spends but whether the award \emph{scales with costs}---the
-theoretical distinction formalized in
-Proposition~\ref{prop:compensation}.
-
-\subsection{Convergence: Three Independent Quintile Gradients}
+\subsection{Convergence: Three Quintile Gradients}
 \label{sec:results_convergence}
 
 We return to Figure~\ref{fig:three_panel_gradient}, which summarizes
-the paper's central empirical finding: three monotonic quintile
-gradients, each estimated on independent variation.
+the paper's three quintile gradients. The evidence forms a hierarchy.
 
-Panel~A displays the adoption DiD gradient
-(Section~\ref{sec:results_quintile}): the TWFE static estimate for
-each income quintile under the preferred specification. All five
-coefficients are monotonically ordered, with bottom quintiles gaining
-share and top quintiles losing share.
+The Tennessee adoption gradient (Panel~A) is the core result,
+estimated under the strongest design: state-level treatment variation,
+a long pre-treatment panel, and multiple robustness checks including
+exact inference and detrending
+(Section~\ref{sec:results_quintile}). All five coefficients are
+monotonically ordered, with bottom quintiles gaining share and top
+quintiles losing share.
 
-Panel~B displays the shock-insurance gradient
-(Section~\ref{sec:results_insurance}): the interaction of county-level
-income shocks with tuition-scaling program status, estimated across
-all public and private nonprofit colleges. The sign pattern is
-identical to Panel~A---bottom quintiles are buffered, top quintiles
-are prevented from gaining---but the identifying variation is entirely
-different (county income fluctuations $\times$ program design rather
-than program adoption timing).
+The shock-insurance gradient (Panel~B) provides comparative support
+from different variation: county-level income fluctuations interacted
+with tuition-scaling program status
+(Section~\ref{sec:results_insurance}). The sign pattern is identical
+to Panel~A---bottom quintiles are buffered, top quintiles are
+prevented from gaining. The identification is weaker (cross-state
+comparison pooling heterogeneous programs, college-clustered SEs),
+but the consistency with the adoption gradient is informative.
 
-Panel~C displays the tier-reallocation gradient
-(Section~\ref{sec:results_tier_reallocation}): the interaction of
-income shocks with fixed-dollar program status at four-year colleges
-only. This gradient is inverted---bottom quintiles lose share during
-downturns at fixed-dollar four-year colleges---reflecting the
-anti-buffering mechanism documented in Proposition~\ref{prop:tier}.
+The tier-reallocation gradient (Panel~C) is the most suggestive:
+income shocks interacted with fixed-dollar program status at
+four-year colleges (Section~\ref{sec:results_tier_reallocation}).
+Four of five quintiles are significant and all are monotonically
+ordered, but the design is the weakest of the three (the same
+cross-state comparison, restricted to a single tier, with one
+insignificant quintile).
 
-The convergence of three five-for-five monotonic gradients from three
-independent sources of variation---program adoption, shock buffering,
-and shock-induced tier reallocation---substantially narrows the set
-of alternative explanations for the observed patterns.
+The three gradients do not carry equal evidential weight. The
+Tennessee adoption result is the finding; the shock-interaction
+gradients are consistent extensions that use different variation
+but weaker identification.
 
 \subsection{Summary of All Theoretical Predictions}
 
@@ -800,7 +703,6 @@ P9: Fixed-\$ no agg.\ buffer & Shock $\times$ TN/GA & \ref{sec:results_insurance
 P10: Fixed-\$ 4-yr anti-buffer & Shock $\times$ TN/GA 4-yr & \ref{sec:results_tier_reallocation} & 4/5 gradient ($p < 0.05$) \\
 \addlinespace
 \multicolumn{4}{l}{\textit{Empirical Implications (not directly from model)}} \\
-P6: Spatial gradient & Border vs.\ interior & \ref{sec:spatial} & Border 38\% larger \\
 P11: Q2 most elastic & Quintile decomp. & \ref{sec:results_tier_reallocation} & Q2 $> $ Q1 at 4-yr \\
 \bottomrule
 \end{tabular}
@@ -808,9 +710,9 @@ P11: Q2 most elastic & Quintile decomp. & \ref{sec:results_tier_reallocation} & 
 \footnotesize
 \item \textit{Notes:} P1--P5, P7--P10 are derived from the theoretical
   model (Sections~\ref{sec:theory} and~\ref{sec:theory_decomposition}).
-  P6 and P11 are empirical implications consistent with the model but
-  not directly derived from it (the model contains no geographic
-  component and does not predict quintile-specific elasticities).
+  P11 is an empirical implication consistent with the model but
+  not directly derived from it (the model does not predict
+  quintile-specific elasticities).
   Tennessee adoption DiD results use the TWFE preferred specification
   ($t^* = 1987$, drop 1980 cohort, BEA controls); C\&S estimates are
   reported as a functional-form check. Shock-interaction results use
