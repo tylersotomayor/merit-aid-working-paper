@@ -41,20 +41,24 @@ adoption timing makes it the appropriate choice. The TWFE
 specification is:
 
 \begin{equation}
-y_{ct} = \alpha_c + \lambda_t + \sum_{k=-4}^{4} \beta_k \cdot
+y_{ct} = \alpha_c + \lambda_t + \sum_{k=-5}^{4} \beta_k \cdot
 \mathbf{1}[t - t^* = k] \cdot \text{Treated}_c + \gamma \cdot
-\log(\text{pcpi}_{c,t+17}) + \varepsilon_{ct}
+\overline{\log(\text{pcpi})}_{c} + \varepsilon_{ct}
 \label{eq:twfe}
 \end{equation}
 
 \noindent where $y_{ct}$ is the outcome for college $c$ in birth cohort
 $t$, $\alpha_c$ are college fixed effects, $\lambda_t$ are cohort fixed
 effects, $\text{Treated}_c$ indicates Tennessee public colleges,
-$\log(\text{pcpi}_{c,t+17})$ is BEA county per capita personal income at
-decision year, and $k = -1$ (cohort 1986) is the omitted reference
-period. The sample excludes the 1980 birth cohort, a single-cohort
-outlier that drives pre-trend divergence at the longest pre-treatment
-horizon.
+$\overline{\log(\text{pcpi})}_{c}$ is the pre-treatment county average
+of log per capita personal income (BEA, 1997--2003 decision years),
+and $k = -1$ (cohort 1986) is the omitted reference period. The sample
+excludes the 1980 birth cohort, a single-cohort outlier that drives
+pre-trend divergence at the longest pre-treatment horizon. Cohort 1981
+($k = -6$) remains in the estimation sample---contributing to the
+precision of the college and cohort fixed effects---but is not assigned
+a separate event-time indicator; its effect is subsumed into the
+intercept.
 
 \subsection{Preferred Specification}
 
