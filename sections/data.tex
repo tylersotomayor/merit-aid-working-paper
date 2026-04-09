@@ -95,14 +95,20 @@ students form college choice sets during their senior year, not after
 matriculation. Section~\ref{sec:results_insurance} confirms that
 economic conditions at age 17, not age 18, predict composition shifts.
 
-The primary BEA variable is the one-year log change in county per
-capita income at decision year, which serves as the identifying
-variation in the shock-interaction design
-(Section~\ref{sec:empirical_shock}). For the adoption DiD, we
-control for the pre-treatment county average of log per capita income
-(1997--2003 decision years), which absorbs cross-county differences
-in baseline economic conditions while remaining fully
-predetermined.
+The BEA data serve two distinct roles in our empirical design.
+For the \emph{adoption DiD}, we control for the pre-treatment county
+average of log per capita income (1997--2003 decision years),
+$\overline{\log(\text{pcpi})}_{c}$. Because this average is computed
+entirely from pre-treatment cohorts, it is predetermined and cannot
+be affected by HOPE. It absorbs cross-county differences in baseline
+economic conditions without introducing a bad-control problem.
+For the \emph{shock-interaction design}
+(Section~\ref{sec:empirical_shock}), we use the one-year change in
+log county per capita income at decision year,
+$\Delta \log(\text{pcpi})_{ct}$, which is the identifying variation:
+students in counties experiencing negative income shocks face a larger
+effective price change, and program generosity determines whether
+merit aid buffers or amplifies the shock.
 
 \subsection{Merit Aid Program Classification}
 \label{sec:data_programs}
