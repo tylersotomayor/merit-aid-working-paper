@@ -170,19 +170,45 @@ Birth Cohort & Decision Year & College Entry & Event Time ($k$) & HOPE Status \\
 
 \paragraph{Confounding policies.}
 
-Several other policy changes coincided with HOPE's introduction.
-Tennessee's education lottery launched in 2003 and generated revenue that
-funded both HOPE and Pre-K programs. The federal No Child Left Behind Act
-(2002) altered K--12 accountability requirements nationwide. Neither
-policy, however, would produce the specific pattern we document: a
-monotonically ordered income quintile gradient at public colleges with no
-effect at private institutions. A generic enrollment shock---whether
-driven by K--12 quality, state finances, or demographic change---would
-affect quintile shares unevenly but not produce five coefficients that
-are monotonically ordered and statistically significant. The quintile
-gradient is a prediction unique to the price-reduction mechanism in the
-three-destination model, which makes it a discriminating test of the HOPE
-channel specifically.
+Several other policy changes coincided with HOPE's introduction, and we
+consider whether any could produce the quintile gradient we document.
+
+Tennessee's education lottery launched in 2003 and generated revenue
+that funded both HOPE and Pre-K programs. The federal No Child Left
+Behind Act (2002) altered K--12 accountability requirements nationwide.
+Both policies affect treated and control states symmetrically and are
+absorbed by cohort fixed effects.
+
+Federal Pell Grant generosity increased during our analysis window:
+the 2007 College Cost Reduction Act raised maximum awards, and the
+2009 American Recovery and Reinvestment Act added temporary increases.
+These expansions apply nationally, so any composition effects are
+absorbed by cohort fixed effects in our DiD design. To the extent
+that Pell expansions disproportionately benefit low-income students,
+they would produce a level shift in bottom-quintile enrollment at all
+public colleges, not the Tennessee-specific treatment effect our
+interaction term identifies.
+
+Tennessee's Board of Regents expanded community college access during
+this period, including the Tennessee Technology Centers and dual
+enrollment initiatives. These reforms could affect overall enrollment
+levels but would not generate a monotonically ordered gradient across
+all five income quintiles---a pattern that requires differential price
+sensitivity by parental income, as our model predicts.
+
+Tuition changes at neighboring states' public universities could
+affect cross-state sorting. However, such changes would
+disproportionately influence border-county colleges rather than
+producing the statewide pattern we observe. The spatial heterogeneity
+analysis (Section~\ref{sec:spatial}) finds that the composition effect
+is concentrated in metro colleges, which are generally not near state
+borders.
+
+While we cannot rule out every potential confounder individually, the
+quintile gradient provides a useful discriminating pattern: a generic
+enrollment shock would affect quintile shares unevenly but would be
+unlikely to produce five coefficients that are monotonically ordered
+across all quintiles with no effect at private institutions.
 
 \subsection{Georgia HOPE as a Comparison Case}
 \label{sec:background_georgia}
