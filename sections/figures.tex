@@ -19,6 +19,36 @@
 % (Figure~\ref{fig:four_estimators}) in Section~\ref{sec:robustness_estimators}.
 
 % ============================================================
+%  A-0. COHORT 1980 DIAGNOSTIC
+% ============================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{fig_cohort1980_diagnostic.pdf}
+  \caption{1980-Cohort Diagnostic: Event Studies With and Without the 1980 Birth Cohort}
+  \label{fig:cohort1980_diagnostic}
+  \vspace{1mm}
+  \begin{minipage}{0.9\textwidth}
+    \footnotesize
+    \textit{Notes:} TWFE event-study estimates under the preferred
+    specification ($t^* = 1987$, national control, BEA baseline county
+    income control). Left panels include the 1980 birth cohort ($k = -7$);
+    right panels exclude it. Top row: bottom-quintile share ($Q_1$).
+    Bottom row: mean parental income rank (\textit{par\_rank}).
+    Pre-treatment coefficients at $k = -7$ through $k = -2$ trend away
+    from zero when the 1980 cohort is included, indicating a pre-trend
+    that violates parallel trends at the longest horizons. Dropping the
+    1980 cohort does not materially change the remaining coefficients
+    ($k = -6$ through $k = +4$), confirming that the exclusion removes
+    an anomalous observation without leveraging the post-treatment estimates.
+    $k = -1$ (cohort 1986) is the omitted reference period.
+    College and cohort fixed effects. 95\% confidence intervals.
+    Standard errors clustered at the state level.
+    Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+% ============================================================
 %  B. QUINTILE DECOMPOSITION
 % ============================================================
 
