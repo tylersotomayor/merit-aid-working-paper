@@ -71,9 +71,12 @@ The preferred specification for the adoption DiD uses:
     consistent with a data artifact. This single cohort is the sole
     driver of the $k = -6$ pre-trend divergence in prior
     specifications.
-  \item \textbf{BEA county income control}: log per capita personal
-    income at decision year absorbs smooth local economic trends. The
-    decomposition framework
+  \item \textbf{BEA county income control}: pre-treatment county
+    average log per capita personal income (BEA, 1997--2003 decision
+    years) absorbs cross-county differences in baseline economic
+    conditions. Because the average is computed entirely from
+    pre-treatment cohorts, it is predetermined and not affected by
+    HOPE. The decomposition framework
     (Section~\ref{sec:theory_decomposition}) identifies local
     economic conditions as the channel through which income effects
     operate, motivating the control independently of the sensitivity
@@ -81,13 +84,10 @@ The preferred specification for the adoption DiD uses:
 \end{enumerate}
 
 Each choice is independently motivated and precedes the sensitivity
-analysis. We note that the BEA control is a post-treatment covariate
-and could in principle be affected by HOPE through workforce or
-enrollment channels. We retain it because the R\&R sensitivity
-improvement is driven primarily by the sample restriction (dropping
-1980) and the timing shift ($t^* = 1987$), not the BEA control;
-results without BEA controls are qualitatively identical
-(Section~\ref{sec:robustness}).
+analysis. Results without the BEA control are nearly identical
+(Section~\ref{sec:robustness}), confirming that the baseline county
+income level is approximately collinear with the college fixed
+effects.
 
 For robustness, we also report results under the bordering-state
 control group (Alabama, Virginia, North Carolina---the only non-merit
