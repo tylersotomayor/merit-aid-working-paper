@@ -5,58 +5,39 @@
 \section{Results}
 \label{sec:results}
 
+Figure~\ref{fig:three_panel_gradient} previews the paper's central
+empirical finding: three monotonic quintile gradients, each estimated
+on independent variation. Panel~A shows the adoption DiD gradient
+from Tennessee HOPE; Panel~B shows the shock-insurance gradient from
+tuition-scaling programs; Panel~C shows the tier-reallocation gradient
+from fixed-dollar programs. The remainder of this section develops
+each panel in turn.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{fig_three_panel_gradient.pdf}
+  \caption{Three Monotonic Quintile Gradients}
+  \label{fig:three_panel_gradient}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} Three independent quintile gradients. Panel~A:
+    TWFE adoption DiD (preferred specification: national control,
+    $t^* = 1987$, drop 1980, $+$BEA controls, state-clustered SEs).
+    Panel~B: shock-insurance interaction (tuition-scaling programs
+    $\times$ county income shock, college and cohort FE,
+    college-clustered SEs). Panel~C: shock-induced tier reallocation
+    (fixed-dollar programs $\times$ county income shock at four-year
+    public colleges, college and cohort FE, college-clustered SEs).
+    All three exhibit monotonic ordering across all five quintiles.
+    Panels B and C use BEA county per capita personal income change at
+    decision year (cohort~$+$~17). 95\% CIs shown. Data:
+    \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
 \subsection{Main Effects}
 \label{sec:results_main}
-
-Figures~\ref{fig:synth_trends_par_q1}
-and~\ref{fig:synth_trends_par_rank} provide visual evidence of the
-compositional shift. The synthetic control, constructed from a weighted
-combination of non-merit states
-\parencite{abadie2010synthetic}, matches Tennessee almost exactly
-through the pre-treatment period (1980--1984) for both outcomes. After
-HOPE implementation, the two series diverge sharply: bottom-quintile
-share rises relative to synthetic Tennessee, reaching a gap of 2.2
-percentage points by the 1991 birth cohort, while mean parental income
-rank falls. The pre-treatment fit is excellent for both outcomes, with
-near-zero root mean squared prediction error.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_q1.pdf}
-  \caption{Actual vs.\ Synthetic Tennessee: Bottom-Quintile Share at
-    Public Colleges}
-  \label{fig:synth_trends_par_q1}
-  \vspace{1mm}
-  \begin{minipage}{0.85\textwidth}
-    \footnotesize
-    \textit{Notes:} Synthetic Tennessee is constructed from a weighted
-    combination of 22 non-merit states using the method of
-    \textcite{abadie2010synthetic}, matching on pre-treatment
-    bottom-quintile share (1981--1986). The 1980 cohort is excluded
-    (see Section~\ref{sec:empirical_strategy}). The vertical dashed line
-    marks $t^* = 1987$. The two series track closely in the
-    pre-treatment period (RMSPE $< 0.001$), then diverge sharply after
-    HOPE implementation. Data: \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_rank.pdf}
-  \caption{Actual vs.\ Synthetic Tennessee: Mean Parental Income Rank at
-    Public Colleges}
-  \label{fig:synth_trends_par_rank}
-  \vspace{1mm}
-  \begin{minipage}{0.85\textwidth}
-    \footnotesize
-    \textit{Notes:} Synthetic Tennessee constructed as in
-    Figure~\ref{fig:synth_trends_par_q1}, matching on pre-treatment
-    mean parental income rank (1981--1986). Tennessee's actual parental
-    income rank diverges downward after HOPE implementation, consistent
-    with the progressive compositional shift documented in the
-    bottom-quintile share results. Data: \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
 
 \paragraph{Interpreting the coefficients.}
 
@@ -109,6 +90,58 @@ students per cohort increases by 10.3 ($p = 0.063$), and the number
 of top-quintile students per cohort decreases by 28.6 ($p = 0.003$).
 The public sector absorbs more lower-income students while losing
 upper-income students, with the total headcount held constant.
+
+\paragraph{Synthetic control corroboration.}
+
+A synthetic control analysis \parencite{abadie2010synthetic}
+corroborates these estimates visually.
+Figures~\ref{fig:synth_trends_par_q1}
+and~\ref{fig:synth_trends_par_rank} show that synthetic Tennessee,
+constructed from a weighted combination of non-merit states, matches
+actual Tennessee almost exactly through the pre-treatment period for
+both outcomes. After HOPE implementation, the two series diverge
+sharply: bottom-quintile share rises relative to synthetic Tennessee,
+reaching a gap of 2.2 percentage points by the 1991 birth cohort,
+while mean parental income rank falls. Pre-treatment fit is excellent
+for both outcomes, with near-zero root mean squared prediction error.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_q1.pdf}
+  \caption{Actual vs.\ Synthetic Tennessee: Bottom-Quintile Share at
+    Public Colleges}
+  \label{fig:synth_trends_par_q1}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Synthetic Tennessee is constructed from a weighted
+    combination of 22 non-merit states using the method of
+    \textcite{abadie2010synthetic}, matching on pre-treatment
+    bottom-quintile share (1981--1986). The 1980 cohort is excluded
+    (see Section~\ref{sec:empirical_strategy}). The vertical dashed line
+    marks $t^* = 1987$. The two series track closely in the
+    pre-treatment period (RMSPE $< 0.001$), then diverge sharply after
+    HOPE implementation. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_synth_trends_par_rank.pdf}
+  \caption{Actual vs.\ Synthetic Tennessee: Mean Parental Income Rank at
+    Public Colleges}
+  \label{fig:synth_trends_par_rank}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Synthetic Tennessee constructed as in
+    Figure~\ref{fig:synth_trends_par_q1}, matching on pre-treatment
+    mean parental income rank (1981--1986). Tennessee's actual parental
+    income rank diverges downward after HOPE implementation, consistent
+    with the progressive compositional shift documented in the
+    bottom-quintile share results. Data: \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
 
 \subsection{Event Study Dynamics}
 \label{sec:results_dynamics}
@@ -697,9 +730,9 @@ Proposition~\ref{prop:compensation}.
 \subsection{Convergence: Three Independent Quintile Gradients}
 \label{sec:results_convergence}
 
-Figure~\ref{fig:three_panel_gradient} presents the paper's central
-empirical finding: three monotonic quintile gradients, each estimated
-on independent variation.
+We return to Figure~\ref{fig:three_panel_gradient}, which summarizes
+the paper's central empirical finding: three monotonic quintile
+gradients, each estimated on independent variation.
 
 Panel~A displays the adoption DiD gradient
 (Section~\ref{sec:results_quintile}): the TWFE static estimate for
@@ -727,29 +760,6 @@ The convergence of three five-for-five monotonic gradients from three
 independent sources of variation---program adoption, shock buffering,
 and shock-induced tier reallocation---substantially narrows the set
 of alternative explanations for the observed patterns.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{fig_three_panel_gradient.pdf}
-  \caption{Three Monotonic Quintile Gradients}
-  \label{fig:three_panel_gradient}
-  \vspace{1mm}
-  \begin{minipage}{\textwidth}
-    \footnotesize
-    \textit{Notes:} Three independent quintile gradients. Panel~A:
-    TWFE adoption DiD (preferred specification: national control,
-    $t^* = 1987$, drop 1980, $+$BEA controls, state-clustered SEs).
-    Panel~B: shock-insurance interaction (tuition-scaling programs
-    $\times$ county income shock, college and cohort FE,
-    college-clustered SEs). Panel~C: shock-induced tier reallocation
-    (fixed-dollar programs $\times$ county income shock at four-year
-    public colleges, college and cohort FE, college-clustered SEs).
-    All three exhibit monotonic ordering across all five quintiles.
-    Panels B and C use BEA county per capita personal income change at
-    decision year (cohort~$+$~17). 95\% CIs shown. Data:
-    \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
 
 \subsection{Summary of All Theoretical Predictions}
 
