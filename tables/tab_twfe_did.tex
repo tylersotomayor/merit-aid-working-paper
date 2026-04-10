@@ -8,25 +8,27 @@
  & (1) & (2) \\
  & Bottom-Quintile Share & Parental Income Rank \\
 \midrule
-TN Public $\times$ Post & $0.0154^{***}$ & $-0.0185^{***}$ \\
-                         & (0.0030) & (0.0025) \\
+TN Public $\times$ Post & $0.0142^{***}$ & $-0.0148^{***}$ \\
+                         & (0.0029) & (0.0022) \\
 \addlinespace
-Constant                 & $0.138^{***}$ & $0.540^{***}$ \\
-                         & (0.0001) & (0.0001) \\
+BEA Baseline Log Income  & Yes & Yes \\
+College FE               & Yes & Yes \\
+Cohort FE                & Yes & Yes \\
 \midrule
-Observations             & 6,289 & 6,289 \\
-Adjusted $R^{2}$         & 0.935 & 0.974 \\
+Observations             & 5,630 & 5,630 \\
 Clusters                 & 27 & 27 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
 \item \textit{Notes:} Two-way fixed effects estimates with college and
-  cohort fixed effects. Standard errors clustered at the state level in
-  parentheses. Treated = Tennessee public colleges. Post = birth cohort
-  $\geq$ 1986. The sample includes public colleges in Tennessee and 26
-  non-merit-program states. $^{***}p<0.01$, $^{**}p<0.05$,
-  $^{*}p<0.10$. Data: \textcite{chetty2020mobility}.
+  cohort fixed effects. Preferred specification: $t^* = 1987$, drop
+  1980 cohort, BEA baseline county log per capita income control
+  (pre-treatment average, 1997--2003). Standard errors clustered at the
+  state level in parentheses. Treated = Tennessee public colleges vs.\
+  public colleges in 26 non-merit states (Massachusetts excluded from
+  controls). $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+  Data: \textcite{chetty2020mobility}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
