@@ -720,3 +720,60 @@ P11: Q2 most elastic & Quintile decomp. & \ref{sec:results_tier_reallocation} & 
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
+
+\subsection{Identification Summary}
+
+The ecological inference concern---that aggregate composition changes
+may not reflect individual enrollment decisions---cannot be
+definitively resolved without individual-level data. We address it
+through five independent tests, each eliminating a class of
+alternative explanations (Figure~\ref{fig:identification_funnel}).
+
+First, the level decomposition shows real headcount changes:
+bottom-quintile \emph{count} increases by $\sim$10 students per
+cohort while total enrollment shows no significant change
+($p = 0.78$), ruling out denominator artifacts. Second, the gender
+decomposition produces a female-specific effect twice the male
+effect, matching the gender-GPA eligibility gap measured in external
+data (NLSY97). A measurement artifact would affect both genders
+equally. Third, the effect is concentrated at public colleges;
+private colleges in the same state show no $Q_1$ change
+($p = 0.91$). A state-wide confounder would shift both sectors.
+Fourth, Massachusetts independently replicates the progressive shift
+under similar program parameters while South Dakota inverts it under
+different parameters, ruling out Tennessee-specific confounders.
+Fifth, a causal forest identifies graduation rate, racial
+composition, and tuition as the primary moderators of treatment
+effect heterogeneity---all theory-motivated covariates---ruling out
+chance patterns. The shock-insurance analysis
+(Section~\ref{sec:results_insurance}) provides additional
+corroboration from different variation: tuition-scaling programs
+buffer composition during county-level income downturns, with a
+monotonic quintile gradient consistent with the adoption DiD result.
+
+A confounder consistent with all five constraints would need to
+increase low-income headcount (not just shares) at Tennessee public
+colleges (not private), affect women twice as much as men in
+proportion to GPA eligibility rates, replicate in Massachusetts, and
+produce heterogeneity that correlates with the eligibility-price
+channel across 570 colleges. No plausible alternative satisfies these
+requirements simultaneously.
+
+\begin{figure}[H]
+  \centering
+  \resizebox{0.95\textwidth}{!}{%
+    \input{tikz/fig_identification_funnel.tex}%
+  }
+  \caption{Identification Funnel: How Each Test Narrows the Set of
+    Alternative Explanations}
+  \label{fig:identification_funnel}
+  \vspace{1mm}
+  \begin{minipage}{0.95\textwidth}
+    \footnotesize
+    \textit{Notes:} Each layer represents an empirical test that
+    eliminates a class of non-causal explanations for the observed
+    composition shift. The surviving explanation---the
+    eligibility-price channel---must satisfy all five constraints
+    simultaneously.
+  \end{minipage}
+\end{figure}

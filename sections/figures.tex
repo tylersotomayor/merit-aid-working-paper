@@ -254,3 +254,26 @@
     and cohort FE, college-clustered SEs. 95\% CIs.
   \end{minipage}
 \end{figure}
+
+% ============================================================
+%  J. CAUSAL FOREST
+% ============================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig_causal_forest_importance.pdf}
+  \caption{Causal Forest Variable Importance}
+  \label{fig:causal_forest}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Variable importance from a causal forest
+    \parencite{athey2019generalized} estimated on college-level
+    post-minus-pre differences in bottom-quintile share. Config~A:
+    5 estimable merit states (NV, WV, TN, MA, SD) vs.\ non-merit
+    controls ($N = 570$ colleges). Baseline $Q_1$ share excluded to
+    avoid mechanical correlation with the outcome. Bars show share
+    of splits allocated to each covariate, colored by theoretical
+    channel. 2,000 trees, honest splitting.
+  \end{minipage}
+\end{figure}

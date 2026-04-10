@@ -463,6 +463,35 @@ inference approach is definitive given the single-treated-state design,
 but their convergence substantially strengthens the causal
 interpretation.
 
+\subsection{Causal Forest Heterogeneity Check}
+
+The hand-specified heterogeneity analyses in
+Sections~\ref{sec:results_quintile} and~\ref{sec:gender_mechanism}
+test theory-driven predictions about which dimensions of variation
+moderate the treatment effect. As a specification check, we estimate
+a causal forest \parencite{athey2019generalized} on the college-level
+adoption DiD across the five estimable merit states (NV, WV, TN, MA,
+SD; $N = 570$ colleges). The forest estimates conditional average
+treatment effects for each college and identifies which covariates
+best predict heterogeneity. We exclude baseline $Q_1$ share from the
+covariates to avoid mechanical correlation with the outcome.
+
+The forest identifies graduation rate (23\% of splits), Black student
+share (27\%), sticker price (16\%), county income (16\%), and
+enrollment (14\%) as the primary moderators---all proxies for the
+eligibility and price-sensitivity channels formalized in the model
+(Figure~\ref{fig:causal_forest}, Appendix). Institutional type
+(two-year vs.\ four-year), selectivity, and flagship status explain
+less than 2\% of heterogeneity each. The pattern is consistent
+across states with different eligibility criteria: the correlation
+between graduation rate and the college-level treatment effect is
+$r = -0.61$ in Tennessee (GPA threshold), $r = -0.69$ in
+Massachusetts (test-score threshold), and $r = -0.76$ in West
+Virginia (GPA $+$ test). This suggests that the mechanism operates
+through the density of marginal students at each institution---where
+the price channel has the most traction---rather than the specific
+eligibility criterion.
+
 \subsection{Summary}
 
 Table~\ref{tab:robustness_summary} consolidates robustness results. The

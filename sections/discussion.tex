@@ -31,20 +31,25 @@ design features: lottery funding, a 3.0 GPA threshold, no Pell offset,
 and subsidies concentrated at public institutions
 \parencite{scottclayton2011money}. If program design alone determined
 the direction of compositional sorting, WV should replicate Tennessee's
-progressive result. It does not. The TWFE ATT for bottom-quintile
-share is $-1.21$ pp ($p < 0.001$), indicating a regressive shift.
+progressive result. The evidence is ambiguous. The TWFE static
+estimate for bottom-quintile share is $+0.55$ pp ($p = 0.041$),
+superficially progressive. But the Callaway--Sant'Anna group-specific
+ATT reverses the sign to $-0.99$ pp ($p < 0.001$), indicating a
+regressive shift. The two estimators disagree because WV's pre-trends
+are unstable, and the event-study coefficients show no coherent
+post-treatment pattern.
 
-The explanation is straightforward: total enrollment at WV public
-colleges declined by 155 students per cohort ($p < 0.001$) during the
-analysis period, driven by demographic contraction rather than
-compositional sorting. Bottom-quintile count fell by 26 per cohort
-($p < 0.001$). The modest TWFE share increase for Q1 is a denominator
-artifact of this enrollment decline, not progressive sorting.
-Balanced-panel estimates restricted to WV colleges with complete data
-yield null results. West Virginia is uninformative as a test of the
-sorting mechanism---the institutional context prevents the
-three-destination mechanism from operating---rather than a contradiction
-of the Tennessee finding.
+The underlying problem is enrollment contraction. Total enrollment at
+WV public colleges declined by 155 students per cohort ($p < 0.001$)
+during the analysis period, driven by demographic contraction rather
+than compositional sorting. Bottom-quintile count fell by 26 per
+cohort ($p < 0.001$). The TWFE's modestly positive share estimate
+is a denominator artifact of this enrollment decline, not progressive
+sorting. Balanced-panel estimates restricted to WV colleges with
+complete data yield null results. West Virginia is uninformative as a
+test of the sorting mechanism---enrollment contraction overwhelms the
+compositional signal---rather than a contradiction of the Tennessee
+finding.
 
 \subsection{The Decomposition Interpretation}
 \label{sec:discussion_decomposition}
@@ -125,91 +130,190 @@ did not experience worse average outcomes.}
 \subsection{Gender Heterogeneity and the Eligibility Channel}
 \label{sec:gender_mechanism}
 
-The three-destination model predicts that compositional sorting operates
-through the price channel: the scholarship $S$ reduces the effective
-cost of public college for students whose ability exceeds the
-eligibility threshold $\tau$. We exploit a sharp implication of this
-mechanism. Tennessee HOPE requires a 3.0 high school GPA. Female
-students clear this threshold at substantially higher rates than male
-students---a well-documented consequence of the persistent gender gap
-in high school academic performance
-\parencite{goldin2006homecoming}.\footnote{Nationally, the female
-  high school GPA distribution is shifted rightward by approximately
-  0.2--0.3 grade points. Among 2004 high school graduates,
-  approximately 40\% of female students held GPAs above 3.0, compared
-  to 30\% of male students \parencite{nces2023digest}.} If HOPE's
-composition effect operates through the eligibility-price channel,
-the progressive shift should be larger for the gender with a higher
-eligibility rate.
+The three-destination model predicts that compositional sorting
+operates through the price channel: the scholarship $S$ reduces the
+effective cost of public college for students whose ability exceeds
+the eligibility threshold $\tau$. The composition effect at each
+point in the income distribution is therefore the product of two
+forces: the eligibility rate (the fraction of students who clear
+$\tau$) and price sensitivity (how much the subsidy changes the
+enrollment decision). If eligibility rates vary systematically across
+observable subgroups, the model generates testable predictions about
+heterogeneous treatment effects---predictions that are difficult to
+reconcile with alternative explanations.
 
-We test this prediction using gender-specific parental income measures
-from \textcite{chetty2020mobility}. We pool Tennessee and Massachusetts
-as treated states (both at $t^* = 1987$) against non-merit controls
-and estimate a TWFE interaction model with college-by-gender fixed
+We exploit the gender gap in high school GPA to construct such a
+test. Tennessee HOPE requires a 3.0 GPA. Female students clear this
+threshold at substantially higher rates than male students---a
+well-documented consequence of the persistent gender gap in high
+school academic performance \parencite{goldin2006homecoming}. Using
+nationally representative NLSY97 transcript data, we estimate
+gender-specific eligibility rates at each income quintile
+(Figure~\ref{fig:eligibility_gender}). The gender gap in eligibility
+is large and statistically significant at every quintile: at $Q_1$,
+40\% of women but only 22\% of men exceed 3.0 ($p < 0.001$); at
+$Q_5$, the rates are 68\% and 49\% ($p < 0.001$). The gap is
+approximately 16--19 percentage points across the entire income
+distribution.\footnote{The NLSY97 is a nationally representative
+  sample, not Tennessee-specific. The eligibility rates reflect the
+  pre-existing gender-GPA gradient---a structural feature of high
+  school academic performance that is not caused by any particular
+  state's merit aid program. Using national data is conservative: it
+  avoids the concern that Tennessee's GPA distribution was endogenous
+  to HOPE.}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{fig_eligibility_gender.pdf}
+  \caption{TN HOPE Eligibility Rates by Gender and Parental Income}
+  \label{fig:eligibility_gender}
+  \vspace{1mm}
+  \begin{minipage}{0.85\textwidth}
+    \footnotesize
+    \textit{Notes:} Fraction of students with high school GPA
+    $\geq 3.0$ by parental income quintile and gender. NLSY97
+    nationally representative sample ($N \approx 4{,}450$ with valid
+    transcript GPA and family income). The gender gap is 16--19~pp at
+    every quintile (all $p < 0.001$, two-sample proportion test).
+    Whiskers: 95\% binomial CIs.
+  \end{minipage}
+\end{figure}
+
+The model's prediction follows directly: because more women are
+eligible at every income level, the effective price reduction is
+larger for women, and the female composition shift should exceed the
+male shift. We test this using gender-specific parental income
+quintile shares from \textcite{chetty2020mobility}, Table~5.
+
+\paragraph{Aggregate gender interaction.}
+
+We estimate a TWFE interaction model on Tennessee public colleges
+against non-merit national controls, with college-by-gender fixed
 effects, cohort-by-gender fixed effects, and state-specific linear
 gender trends.\footnote{State-specific linear gender trends absorb
-pre-existing differential drift in male versus female composition
-across states, which is present in the raw data and produces
-misleading pre-trend violations without detrending. After detrending,
-the pre-treatment gender interaction is statistically
-indistinguishable from zero ($p = 0.913$).}
+  pre-existing differential drift in male versus female composition
+  across states, which is present in the raw data. After detrending,
+  the pre-treatment gender interaction is statistically
+  indistinguishable from zero. Pooling Tennessee and Massachusetts
+  yields a qualitatively similar but attenuated gender gap ($+0.96$
+  pp, $p < 0.001$), consistent with the mechanism operating through
+  the GPA threshold specifically---Massachusetts uses a different
+  eligibility criterion (top 25\% MCAS score), which dilutes the
+  GPA-specific gender channel.}
 
 The female-specific progressive shift in bottom-quintile share is
-0.96~pp larger than the male shift (SE $= 0.20$~pp, $p < 0.001$).
-To interpret: the overall HOPE effect on $Q_1$ share is approximately
-$+1.5$~pp. The gender decomposition reveals that this average masks
-substantial heterogeneity---the female-specific effect is roughly
-$+2.0$~pp while the male-specific effect is roughly $+1.0$~pp. Women
-benefit nearly twice as much as men, consistent with their higher
-eligibility rate (40\% vs.\ 30\% clearing the 3.0 GPA threshold).
+$+1.23$~pp larger than the male shift (SE $= 0.23$~pp,
+$p < 0.001$). The base male effect is $+1.22$~pp ($p = 0.001$), so
+the female effect is approximately $+2.45$~pp---women gain twice as
+much representation at the bottom of the income distribution as men.
+For mean parental income rank, the gender gap is $-0.34$~pp
+(SE $= 0.16$~pp, $p = 0.039$): both outcomes move in the predicted
+direction, but the effect concentrates in the bottom-quintile
+share---the access margin where the eligibility channel has the most
+traction.
 
-The gender differential is larger in the bottom-quintile share than
-in the mean parental income rank. The par\_rank gender gap is
-$-0.44$~pp (SE $= 0.14$~pp, $p = 0.002$), statistically significant
-but substantively modest relative to the $Q_1$ share gap. Both
-outcomes move in the predicted direction---women shift the composition
-of public colleges more than men---but the effect concentrates at the
-access margin. Low-income women newly eligible for HOPE face the
-sharpest change in their effective choice set: without HOPE, many
-would not attend a four-year public institution; with HOPE, the price
-drops substantially. Higher-income students attend college regardless
-of HOPE, so the gender-eligibility mechanism has less traction in the
-middle and upper quintiles. The resulting composition shift is largest
-in the tail of the income distribution---more visible in share
-measures than in the mean.
+\paragraph{Quintile decomposition by gender.}
 
-This test has a key identification advantage over the main DiD
-specification. Male and female students attend the same colleges in the
-same birth cohorts. Any college-level confound---changes in local
-economic conditions, institutional quality, or admissions
-policy---affects both genders equally and is absorbed by the
-college-by-gender fixed effects. Any cohort-level confound---federal
-financial aid changes, national labor market shifts---is similarly
-absorbed. For a secular trend to produce the observed gender gap, it
-would need to differentially shift the income composition of female
-versus male students at Tennessee public colleges relative to control
-states, in a pattern that begins precisely at the HOPE treatment date.
-No plausible alternative satisfies this requirement.
+The aggregate interaction establishes that women gain more. The
+quintile decomposition reveals \emph{where} in the income distribution
+each gender's effect concentrates, and the answer differs in a way
+the model predicts.
+
+Figure~\ref{fig:gender_quintile_gradient} displays the quintile
+gradient separately for female and male students. The female gradient
+is steeply monotonic: $Q_1$ gains $+2.3$~pp ($p < 0.001$), $Q_2$
+through $Q_3$ are near zero, and $Q_5$ loses $-2.0$~pp
+($p < 0.001$). The male gradient has a qualitatively different shape:
+$Q_1$ gains $+1.2$~pp ($p = 0.001$), but $Q_2$ gains \emph{more}
+than $Q_1$ at $+1.4$~pp ($p < 0.001$), before declining through
+$Q_4$ and $Q_5$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fig_gender_quintile_gradient.pdf}
+  \caption{Gender-Specific Quintile Gradients at Tennessee Public
+    Colleges}
+  \label{fig:gender_quintile_gradient}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} TWFE quintile-specific coefficients estimated
+    separately on gender-specific outcomes ($\text{par\_q}_k\_f$ and
+    $\text{par\_q}_k\_m$). Tennessee public colleges vs.\ non-merit
+    national controls. Preferred specification: $t^* = 1987$, drop
+    1980, $+$BEA baseline controls, state-clustered SEs. Gray bars
+    denote estimates not significant at the 10\% level. Whiskers:
+    95\% CIs. $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$.
+    Data: \textcite{chetty2020mobility}, Table~5.
+  \end{minipage}
+\end{figure}
+
+The eligibility rates in Figure~\ref{fig:eligibility_gender} explain
+this contrast. The composition effect at each quintile is the product
+of the eligibility rate and price sensitivity. For women, eligibility
+at $Q_1$ is already high (40\%), so price sensitivity---which is
+largest at the bottom of the income distribution---dominates. The
+result is a steep monotonic gradient driven by the access margin:
+low-income women who clear the GPA threshold face the sharpest change
+in their effective choice set.
+
+For men, $Q_1$ eligibility is low (22\%). The few $Q_1$ men who
+qualify produce a positive but attenuated effect. At $Q_2$, male
+eligibility is similar (23\%), but $Q_2$ students sit at a different
+margin: they are more likely to have been considering college
+already, and the scholarship tips the public-versus-private or
+in-state-versus-out-of-state decision rather than the
+attend-versus-not-attend decision. The product of eligibility and
+price sensitivity peaks at $Q_2$ for men, producing the non-monotonic
+hump. From $Q_3$ onward, price sensitivity declines and the male
+gradient turns negative.
+
+The non-monotonic male gradient is difficult to explain without
+reference to the eligibility threshold. A generic
+Tennessee-specific shock---fiscal, demographic, or
+institutional---would shift male and female composition in the same
+direction and with the same shape. A story that operates through
+the GPA threshold predicts exactly what we observe: a monotonic
+female gradient (high eligibility lets price sensitivity dominate)
+and a non-monotonic male gradient (low $Q_1$ eligibility suppresses
+the access margin and shifts the peak to $Q_2$).
+
+\paragraph{Identification.}
+
+This test has a key advantage over the main DiD specification. Male
+and female students attend the same colleges in the same birth
+cohorts. Any college-level confound---changes in local economic
+conditions, institutional quality, or admissions policy---affects
+both genders equally and is absorbed by the college-by-gender fixed
+effects. Any cohort-level confound is similarly absorbed. For a
+secular trend to produce the observed gender gap, it would need to
+differentially shift the income composition of female versus male
+students at Tennessee public colleges relative to control states, in
+a pattern that begins precisely at the HOPE treatment date and
+produces gradient shapes that match the gender-specific eligibility
+profiles. No plausible alternative satisfies this requirement.
 Figure~\ref{fig:gender_event} displays the gender-specific event
-studies. Both series track near zero in the pre-period and diverge after
-treatment onset, with the female series rising more steeply.
+studies. Both series track near zero in the pre-period and diverge
+after treatment onset, with the female series rising more steeply
+for bottom-quintile share and declining more steeply for mean
+parental income rank.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{fig_gender_event_study.pdf}
-  \caption{Gender Heterogeneity in HOPE's Compositional Effect}
+  \caption{Gender-Specific Event Studies at Tennessee Public Colleges}
   \label{fig:gender_event}
   \vspace{1mm}
   \begin{minipage}{0.95\textwidth}
     \footnotesize
     \textit{Notes:} Stacked interaction event-study estimates for
     bottom-quintile share (Panel~A) and mean parental income rank
-    (Panel~B). College-by-gender and cohort-by-gender fixed effects,
-    state-specific linear gender trends, BEA log per capita income
-    control. TN and MA pooled at $t^* = 1987$ versus non-merit
-    states. Reference period $k = -1$. Drop 1980 cohort. Standard
-    errors clustered at the state level. Gender-specific outcomes
-    from \textcite{chetty2020mobility}, Table~5.
+    (Panel~B). Tennessee public colleges vs.\ non-merit national
+    controls (TN-only). College-by-gender and cohort-by-gender fixed
+    effects, state-specific linear gender trends, BEA baseline
+    controls. $t^* = 1987$, $k = -1$ omitted, drop 1980 cohort.
+    State-clustered SEs. 95\% CIs. Gender-specific outcomes from
+    \textcite{chetty2020mobility}, Table~5.
   \end{minipage}
 \end{figure}
 
@@ -217,24 +321,11 @@ The gender channel also connects to the tier reallocation mechanism
 documented in Section~\ref{sec:results_tier_reallocation}. The
 shock-interaction analysis finds that the four-year anti-buffering
 effect is substantially larger for female students ($\hat\beta_2 =
--0.128$, $p = 0.005$) than for male students ($-0.054$, $p = 0.151$).
-This is the dynamic counterpart of the static gender result: women
-are more likely to qualify for HOPE, more likely to be the marginal
-four-year students the scholarship creates, and therefore more
-sensitive to income shocks at the four-year/two-year margin. The
-scholarship enables their upward tier substitution in good times and
-exposes them to downward reallocation in bad times---precisely the
-income-effect channel formalized in
-Proposition~\ref{prop:tier}.
-
-The gender result provides our most direct test of the
-theoretical mechanism. The three-destination model's price channel
-predicts a specific pattern---larger progressive shifts for the gender
-with higher eligibility rates---and the data confirm it with high
-statistical precision. This evidence complements the cross-state
-comparisons in the following subsections, which test the model's
-predictions along the program-design dimension rather than the
-eligibility dimension.
+-0.128$, $p = 0.005$) than for male students ($-0.054$,
+$p = 0.151$). Women are more likely to qualify for HOPE, more likely
+to be the marginal four-year students the scholarship creates, and
+therefore more sensitive to income shocks at the four-year/two-year
+margin---the dynamic counterpart of the static gender result.
 
 \subsection{Massachusetts Adams Scholarship}
 
