@@ -93,40 +93,6 @@ expenditures---show the weakest shock buffering. Florida and West
 Virginia---with lower per-student expenditures---show the strongest.
 Raw generosity does not determine resilience; award structure does.
 
-\subsection{Mobility Implications}
-
-Descriptive evidence suggests that the progressive composition shift
-did not come at the cost of diminished economic returns.
-Figure~\ref{fig:tn_mobility_trends} shows that upward mobility
-rates at Tennessee public colleges tracked below the national control
-average in the pre-HOPE period and converged toward it afterward.
-Despite substantial access expansion, upward mobility did not
-decline.\footnote{We explored an instrumental variables strategy
-using a shift-share (Bartik) instrument, but pre-trend tests reveal
-that the instrument predicts mobility outcomes in the pre-treatment
-period (joint $F = 20.6$, $p < 0.001$), indicating an exclusion
-restriction violation. The conservative reading from the descriptive
-evidence is that colleges whose bottom-quintile representation rose
-did not experience worse average outcomes.}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{fig_tn_mobility_trends.pdf}
-  \caption{Upward Mobility Rates: Tennessee Public Colleges vs.\
-    Control States}
-  \label{fig:tn_mobility_trends}
-  \vspace{1mm}
-  \begin{minipage}{0.85\textwidth}
-    \footnotesize
-    \textit{Notes:} Mobility rate is the probability that a student
-    from the bottom income quintile reaches the top quintile
-    (mr\_kq5\_pq1). Group 1 = Tennessee public colleges; Group 0 =
-    control-state public colleges. The vertical dashed line marks
-    treatment onset. This is a descriptive comparison, not a causal
-    estimate. Data: \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
-
 \subsection{Gender Heterogeneity and the Eligibility Channel}
 \label{sec:gender_mechanism}
 
@@ -439,38 +405,6 @@ South Dakota & Opp.\ Schol. & ACT 24+ & Fixed \$ & Regressive & None \\
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
-
-\subsection{Staggered DiD: Pooled Multi-State Evidence}
-
-We formalize the cross-state evidence by pooling treatment states
-against never-treated controls. The preferred pooled specification
-combines Tennessee and Massachusetts (both $t^* = 1987$), which share
-similar design parameters (moderate threshold, public-sector subsidy
-concentration) and produce individually similar progressive effects.
-Because treatment timing is common, we estimate a standard TWFE
-specification. The pooled ATT for bottom-quintile share is $+0.012$
-($p < 0.001$), nearly identical to the Tennessee-only
-estimate---confirming that the progressive composition effect
-replicates independently.
-
-A broader design including all five strong-merit states with
-pre-treatment periods introduces genuine staggered adoption: Nevada
-($t^* = 1983$), West Virginia ($t^* = 1985$), and Tennessee,
-Massachusetts, and South Dakota (all $t^* = 1987$). We estimate this
-specification using \textcite{callaway2021difference}, which is the
-appropriate estimator when treatment timing varies across groups. The
-overall ATT is near zero ($+0.005$, $p = 0.28$). The zero aggregate
-masks substantial heterogeneity: progressive states (TN, MA) produce
-$+0.011$ ($p < 0.001$), while Nevada ($-0.005$, $p = 0.012$) and
-West Virginia ($-0.010$, $p < 0.001$) are regressive. The model
-predicts this heterogeneity---programs with different design parameters
-generate opposite-signed effects---and the aggregation obscures it.
-
-Nevada's regressive result is consistent with its eligibility profile:
-NLSY97 data show that only 13\% of bottom-quintile students qualify
-under its 3.25~GPA threshold
-(Section~\ref{sec:data_eligibility}), placing it in the restrictive
-tier alongside South Dakota and Florida Academic Scholars.
 
 \subsection{Generalizability and Policy Implications}
 
