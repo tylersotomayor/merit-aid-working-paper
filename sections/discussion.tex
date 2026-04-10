@@ -51,6 +51,119 @@ test of the sorting mechanism---enrollment contraction overwhelms the
 compositional signal---rather than a contradiction of the Tennessee
 finding.
 
+\subsection{Massachusetts Adams Scholarship}
+
+The Adams Scholarship (2004) provides tuition waivers at Massachusetts
+public colleges for students scoring in the top 25\% of their district
+on the MCAS exam \parencite{cohodes2014merit}. Like Tennessee's HOPE,
+the subsidy is concentrated at public institutions---private colleges
+receive no benefit---creating a public-private price differential. The
+eligibility threshold (top 25\% of district) is moderate, qualifying a
+broad share of the income distribution.
+
+The TWFE ATT for bottom-quintile share at Massachusetts public colleges
+is $+1.38$ percentage points ($p < 0.001$), remarkably close to
+Tennessee's $+1.42$ pp. Mean parental income rank declines by $1.08$
+percentage points ($p < 0.001$). The Massachusetts result
+provides independent validation of the Tennessee finding: a second
+state with a moderate eligibility threshold and a public-sector subsidy
+concentration produces a progressive compositional shift of similar
+magnitude.
+
+\subsection{South Dakota Opportunity Scholarship}
+
+South Dakota's Opportunity Scholarship requires a minimum ACT score of
+24 (approximately the 75th percentile nationally) and provides a
+comparatively small award (\$1,000--\$5,000 per year). The high
+threshold and small subsidy satisfy the model's conditions for
+regressive sorting: only upper-income students are likely to qualify,
+and the price differential is too small to induce meaningful sector
+switching.
+
+The TWFE ATT confirms this prediction: bottom-quintile share at South
+Dakota public colleges \emph{declines} by $1.47$
+percentage points ($p < 0.001$), and mean parental income rank
+\emph{increases} by $3.25$ percentage points ($p < 0.001$). The
+effect is strongly regressive---the opposite of Tennessee and
+Massachusetts. The quintile decomposition is also inverted: Q1 through
+Q3 lose share, Q4 and Q5 gain share.
+
+\subsection{Four-State Comparison}
+
+The preceding subsections analyze each state individually. We now
+compare all four states with estimable adoption DiDs---Tennessee,
+Massachusetts, South Dakota, and West Virginia---selected because
+they span the model's predicted range from progressive to regressive
+sorting and have sufficient pre-treatment periods in the Chetty panel.
+
+Figure~\ref{fig:four_state} displays event-study estimates for
+bottom-quintile share across all four states. The visual contrast is
+striking: Tennessee and Massachusetts trend upward after treatment
+(progressive), South Dakota trends sharply downward (regressive), and
+West Virginia shows no clear pattern (null, confounded by enrollment
+contraction).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{fig_four_state_comparison_combined.pdf}
+  \caption{Cross-State Evidence: Merit Aid and Institutional Composition}
+  \label{fig:four_state}
+  \vspace{1mm}
+  \begin{minipage}{\textwidth}
+    \footnotesize
+    \textit{Notes:} TWFE event-study estimates for bottom-quintile share
+    at public colleges. Each state estimated separately against non-merit
+    national controls, with BEA log per capita income control. $k = -1$
+    omitted. Drop 1980 cohort. Treatment timing: WV (1985), TN/MA/SD
+    (1987). Tennessee and Massachusetts show progressive compositional
+    shifts; South Dakota shows a regressive shift; West Virginia shows
+    no clear pattern (confounded by enrollment contraction). 95\% CIs.
+    Standard errors clustered at the state level. Data:
+    \textcite{chetty2020mobility}.
+  \end{minipage}
+\end{figure}
+
+Table~\ref{tab:design_direction} maps program design parameters to
+predicted and observed sorting direction. The three-destination model
+correctly predicts the direction of compositional change in all four
+cases where program parameters and institutional context are accounted
+for.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Program Design, Compositional Sorting, and Economic Resilience}
+\label{tab:design_direction}
+\small
+\begin{tabular}{llcccl}
+\toprule
+State & Program & Threshold & Award Type & Adoption DiD & Shock Buffer \\
+\midrule
+Tennessee & HOPE & 3.0 GPA & Fixed \$ & Progressive & None \\
+Massachusetts & Adams & Top 25\% & Tuition waiver & Progressive & Moderate$^a$ \\
+Florida & Bright Futures & 3.0 GPA$^b$ & \% of tuition & --- $^c$ & Strong \\
+West Virginia & PROMISE & 3.0 GPA & Full tuition & Null$^\dagger$ & Strong \\
+Georgia & HOPE & 3.0 GPA & Reduced & Regressive & None \\
+South Dakota & Opp.\ Schol. & ACT 24+ & Fixed \$ & Regressive & None \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes:} ``Adoption DiD'' reports the direction of the
+  bottom-quintile share effect from the program adoption
+  difference-in-differences. ``Shock Buffer'' reports whether the
+  program buffers composition during local income downturns
+  (Section~\ref{sec:results_insurance}). $^a$Massachusetts shows
+  significant buffering on par\_rank ($p = 0.008$) but not $Q_1$
+  ($p = 0.14$). $^b$Medallion Scholars tier (operative for broad
+  coverage). $^c$Florida's program predates the Chetty panel; no
+  adoption DiD is estimable. $^\dagger$West Virginia's null adoption
+  result reflects enrollment contraction. Its shock-buffer result
+  ($+0.096$, $p = 0.024$) is the strongest among all programs.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 \subsection{The Decomposition Interpretation}
 \label{sec:discussion_decomposition}
 
@@ -293,125 +406,13 @@ to be the marginal four-year students the scholarship creates, and
 therefore more sensitive to income shocks at the four-year/two-year
 margin---the dynamic counterpart of the static gender result.
 
-\subsection{Massachusetts Adams Scholarship}
+\subsection{Policy Interpretation and Scope Conditions}
 
-The Adams Scholarship (2004) provides tuition waivers at Massachusetts
-public colleges for students scoring in the top 25\% of their district
-on the MCAS exam \parencite{cohodes2014merit}. Like Tennessee's HOPE,
-the subsidy is concentrated at public institutions---private colleges
-receive no benefit---creating a public-private price differential. The
-eligibility threshold (top 25\% of district) is moderate, qualifying a
-broad share of the income distribution.
-
-The TWFE ATT for bottom-quintile share at Massachusetts public colleges
-is $+1.38$ percentage points ($p < 0.001$), remarkably close to
-Tennessee's $+1.42$ pp. Mean parental income rank declines by $1.08$
-percentage points ($p < 0.001$). The Massachusetts result
-provides independent validation of the Tennessee finding: a second
-state with a moderate eligibility threshold and a public-sector subsidy
-concentration produces a progressive compositional shift of similar
-magnitude.
-
-\subsection{South Dakota Opportunity Scholarship}
-
-South Dakota's Opportunity Scholarship requires a minimum ACT score of
-24 (approximately the 75th percentile nationally) and provides a
-comparatively small award (\$1,000--\$5,000 per year). The high
-threshold and small subsidy satisfy the model's conditions for
-regressive sorting: only upper-income students are likely to qualify,
-and the price differential is too small to induce meaningful sector
-switching.
-
-The TWFE ATT confirms this prediction: bottom-quintile share at South
-Dakota public colleges \emph{declines} by $1.47$
-percentage points ($p < 0.001$), and mean parental income rank
-\emph{increases} by $3.25$ percentage points ($p < 0.001$). The
-effect is strongly regressive---the opposite of Tennessee and
-Massachusetts. The quintile decomposition is also inverted: Q1 through
-Q3 lose share, Q4 and Q5 gain share.
-
-\subsection{Four-State Comparison}
-
-The preceding subsections analyze each state individually. We now
-compare all four states with estimable adoption DiDs---Tennessee,
-Massachusetts, South Dakota, and West Virginia---selected because
-they span the model's predicted range from progressive to regressive
-sorting and have sufficient pre-treatment periods in the Chetty panel.
-
-Figure~\ref{fig:four_state} displays event-study estimates for
-bottom-quintile share across all four states. The visual contrast is
-striking: Tennessee and Massachusetts trend upward after treatment
-(progressive), South Dakota trends sharply downward (regressive), and
-West Virginia shows no clear pattern (null, confounded by enrollment
-contraction).
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\textwidth]{fig_four_state_comparison_combined.pdf}
-  \caption{Cross-State Evidence: Merit Aid and Institutional Composition}
-  \label{fig:four_state}
-  \vspace{1mm}
-  \begin{minipage}{\textwidth}
-    \footnotesize
-    \textit{Notes:} TWFE event-study estimates for bottom-quintile share
-    at public colleges. Each state estimated separately against non-merit
-    national controls, with BEA log per capita income control. $k = -1$
-    omitted. Drop 1980 cohort. Treatment timing: WV (1985), TN/MA/SD
-    (1987). Tennessee and Massachusetts show progressive compositional
-    shifts; South Dakota shows a regressive shift; West Virginia shows
-    no clear pattern (confounded by enrollment contraction). 95\% CIs.
-    Standard errors clustered at the state level. Data:
-    \textcite{chetty2020mobility}.
-  \end{minipage}
-\end{figure}
-
-Table~\ref{tab:design_direction} maps program design parameters to
-predicted and observed sorting direction. The three-destination model
-correctly predicts the direction of compositional change in all four
-cases where program parameters and institutional context are accounted
-for.
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Program Design, Compositional Sorting, and Economic Resilience}
-\label{tab:design_direction}
-\small
-\begin{tabular}{llcccl}
-\toprule
-State & Program & Threshold & Award Type & Adoption DiD & Shock Buffer \\
-\midrule
-Tennessee & HOPE & 3.0 GPA & Fixed \$ & Progressive & None \\
-Massachusetts & Adams & Top 25\% & Tuition waiver & Progressive & Moderate$^a$ \\
-Florida & Bright Futures & 3.0 GPA$^b$ & \% of tuition & --- $^c$ & Strong \\
-West Virginia & PROMISE & 3.0 GPA & Full tuition & Null$^\dagger$ & Strong \\
-Georgia & HOPE & 3.0 GPA & Reduced & Regressive & None \\
-South Dakota & Opp.\ Schol. & ACT 24+ & Fixed \$ & Regressive & None \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[flushleft]
-\footnotesize
-\item \textit{Notes:} ``Adoption DiD'' reports the direction of the
-  bottom-quintile share effect from the program adoption
-  difference-in-differences. ``Shock Buffer'' reports whether the
-  program buffers composition during local income downturns
-  (Section~\ref{sec:results_insurance}). $^a$Massachusetts shows
-  significant buffering on par\_rank ($p = 0.008$) but not $Q_1$
-  ($p = 0.14$). $^b$Medallion Scholars tier (operative for broad
-  coverage). $^c$Florida's program predates the Chetty panel; no
-  adoption DiD is estimable. $^\dagger$West Virginia's null adoption
-  result reflects enrollment contraction. Its shock-buffer result
-  ($+0.096$, $p = 0.024$) is the strongest among all programs.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-\subsection{Generalizability and Policy Implications}
-
-The cross-state evidence extends beyond a single treated state.
-Massachusetts independently produces a progressive shift of similar
-magnitude under similar program parameters, while South Dakota's
-regressive shift confirms the model's prediction under high thresholds.
+The cross-state evidence is consistent with the model's predictions
+beyond a single treated state. Massachusetts independently produces
+a progressive shift of similar magnitude under similar program
+parameters, while South Dakota's regressive shift is consistent with
+the model's prediction under high thresholds.
 The shock-insurance analysis adds Florida and West Virginia as new
 testable cases---states whose programs predate the Chetty panel and
 were previously untestable through adoption DiD.
